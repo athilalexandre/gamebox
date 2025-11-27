@@ -1,58 +1,89 @@
 [
-    {
-        "name": "!help",
-        "description": "Mostra a lista de comandos disponíveis",
-        "enabled": true,
-        "cooldown": 5,
-        "level": "viewer"
-    },
-    {
-        "name": "!balance",
-        "description": "Mostra seu saldo de moedas e caixas",
-        "enabled": true,
-        "cooldown": 3,
-        "level": "viewer"
-    },
-    {
-        "name": "!inventory",
-        "description": "Mostra seus jogos coletados por raridade",
-        "enabled": true,
-        "cooldown": 5,
-        "level": "viewer"
-    },
-    {
-        "name": "!buybox",
-        "description": "Compra uma caixa de jogo com moedas",
-        "enabled": true,
-        "cooldown": 2,
-        "level": "viewer"
-    },
-    {
-        "name": "!openbox",
-        "description": "Abre uma caixa e revela um jogo aleatório",
-        "enabled": true,
-        "cooldown": 2,
-        "level": "viewer"
-    },
-    {
-        "name": "!givecoins",
-        "description": "Dá moedas para um usuário (Admin)",
-        "enabled": true,
-        "cooldown": 0,
-        "level": "admin"
-    },
-    {
-        "name": "!givebox",
-        "description": "Dá caixas para um usuário (Admin)",
-        "enabled": true,
-        "cooldown": 0,
-        "level": "admin"
-    },
-    {
-        "name": "!resetuser",
-        "description": "Reseta o inventário de um usuário (Admin)",
-        "enabled": true,
-        "cooldown": 0,
-        "level": "admin"
-    }
+  {
+    "name": "!help",
+    "description": "Mostra a lista de comandos disponíveis",
+    "enabled": true,
+    "cooldown": 5,
+    "level": "viewer",
+    "aliases": [
+      "!ajuda",
+      "!comandos"
+    ]
+  },
+  {
+    "name": "!balance",
+    "description": "Mostra seu saldo de moedas e caixas",
+    "enabled": true,
+    "cooldown": 3,
+    "level": "viewer",
+    "aliases": [
+      "!saldo",
+      "!b",
+      "!carteira"
+    ]
+  },
+  {
+    "name": "!inventory",
+    "description": "Mostra seus jogos coletados por raridade",
+    "enabled": true,
+    "cooldown": 5,
+    "level": "viewer",
+    "aliases": [
+      "!inv",
+      "!jogos",
+      "!colecao"
+    ]
+  },
+  {
+    "name": "!buybox",
+    "description": "Compra uma caixa de jogo com moedas",
+    "enabled": true,
+    "cooldown": 2,
+    "level": "viewer",
+    "aliases": [
+      "!comprar",
+      "!loja"
+    ]
+  },
+  {
+    "name": "!openbox",
+    "description": "Abre uma caixa e revela um jogo aleatório",
+    "enabled": true,
+    "cooldown": 2,
+    "level": "viewer",
+    "aliases": [
+      "!abrir",
+      "!open"
+    ]
+  },
+  {
+    "name": "!givecoins",
+    "description": "Dá moedas para um usuário (Admin)",
+    "enabled": true,
+    "cooldown": 0,
+    "level": "admin",
+    "aliases": [
+      "!darmoedas"
+    ]
+  },
+  {
+    "name": "!givebox",
+    "description": "Dá caixas para um usuário (Admin)",
+    "enabled": true,
+    "cooldown": 0,
+    "level": "admin",
+    "aliases": [
+      "!darcaixa"
+    ]
+  },
+  {
+    "name": "!resetuser",
+    "description": "Reseta o inventário de um usuário (Admin)",
+    "enabled": true,
+    "cooldown": 0,
+    "level": "admin",
+    "aliases": [
+      "!resetar"
+    ]
+  }
 ]

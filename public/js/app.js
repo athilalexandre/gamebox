@@ -21,10 +21,50 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     loadAllData();
     setupEventListeners();
+    setupSSE();
 
     // Poll status every 5 seconds
     setInterval(fetchStatus, 5000);
 });
+
+// --- SSE (Real-time Logs) ---
+function setupSSE() {
+    const logList = document.getElementById('activity-log');
+    if (!logList) return;
+
+    const eventSource = new EventSource('/api/events');
+
+    eventSource.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+
+        // Se for mensagem de conexão inicial, limpa o log
+        if (data.type === 'connected') {
+            logList.innerHTML = '';
+        }
+
+        const li = document.createElement('li');
+        li.className = `log-${data.type}`; // log-info, log-error, log-success
+        li.innerHTML = `<span class="timestamp">[${data.timestamp}]</span> ${data.message}`;
+
+        // Adiciona no topo
+        if (logList.firstChild) {
+            logList.insertBefore(li, logList.firstChild);
+        } else {
+            logList.appendChild(li);
+        }
+
+        // Limita a 50 itens
+        if (logList.children.length > 50) {
+            logList.removeChild(logList.lastChild);
+        }
+    };
+
+    eventSource.onerror = () => {
+        console.log('SSE Error. Tentando reconectar...');
+        eventSource.close();
+        setTimeout(setupSSE, 5000);
+    };
+}
 
 function setupNavigation() {
     navItems.forEach(item => {
@@ -42,6 +82,7 @@ function setupNavigation() {
             if (pageId === 'games') fetchGames();
             if (pageId === 'users') fetchUsers();
             if (pageId === 'settings') fetchSettings();
+            if (pageId === 'commands') loadCommands();
         });
     });
 }
@@ -51,7 +92,8 @@ async function loadAllData() {
         fetchStatus(),
         fetchSettings(),
         fetchGames(),
-        fetchUsers()
+        fetchUsers(),
+        loadCommands()
     ]);
     updateDashboard();
 }
@@ -87,6 +129,33 @@ async function fetchUsers() {
     currentState.users = await res.json();
     renderUsersTable();
     updateStats();
+}
+
+async function loadCommands() {
+    try {
+        const res = await fetch(`${API_URL}/commands`);
+        const commands = await res.json();
+        const tbody = document.querySelector('#commands-table tbody');
+        tbody.innerHTML = '';
+
+        commands.forEach(cmd => {
+            const aliases = cmd.aliases ? cmd.aliases.join(', ') : '-';
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>${cmd.name}</strong></td>
+                <td><small>${aliases}</small></td>
+                <td>${cmd.description}</td>
+                <td><span class="badge ${cmd.level === 'admin' ? 'badge-admin' : 'badge-viewer'}">${cmd.level}</span></td>
+                <td>${cmd.cooldown}s</td>
+                <td>
+                    <button class="btn secondary" onclick="alert('Edição de comandos em breve! Edite o arquivo commands.json por enquanto.')"><i class="fa-solid fa-pen"></i></button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (error) {
+        console.error('Erro ao carregar comandos:', error);
+    }
 }
 
 // --- UI Updates ---
@@ -181,7 +250,13 @@ function fillSettingsForm() {
     document.getElementById('conf-channel').value = s.twitchChannels.join(', ') || '';
     document.getElementById('conf-currency').value = s.currencyName || 'Coins';
     document.getElementById('conf-price').value = s.boxPrice || 100;
-    document.getElementById('conf-reward').value = s.coinsPerMessage || 5;
+
+    // Novos campos
+    document.getElementById('conf-timer-interval').value = s.currencyTimerInterval || 600;
+    document.getElementById('conf-timer-amount').value = s.currencyTimerAmount || 50;
+    document.getElementById('conf-sub-amount').value = s.coinsPerSub || 500;
+    document.getElementById('conf-gift-amount').value = s.coinsPerSubGift || 250;
+    document.getElementById('conf-bit-amount').value = s.coinsPerBit || 1;
 }
 
 // --- Actions ---
@@ -208,14 +283,27 @@ function setupEventListeners() {
 
     // Settings Save
     document.getElementById('btn-save-settings').addEventListener('click', async () => {
+        let token = document.getElementById('conf-token').value.trim();
+
+        // Auto-add oauth: prefix
+        if (token && !token.startsWith('oauth:')) {
+            token = 'oauth:' + token;
+        }
+
         const newSettings = {
             ...currentState.settings,
             twitchBotUsername: document.getElementById('conf-bot-name').value,
-            twitchOAuthToken: document.getElementById('conf-token').value,
+            twitchOAuthToken: token,
             twitchChannels: document.getElementById('conf-channel').value.split(',').map(c => c.trim()),
             currencyName: document.getElementById('conf-currency').value,
             boxPrice: parseInt(document.getElementById('conf-price').value),
-            coinsPerMessage: parseInt(document.getElementById('conf-reward').value)
+
+            // Novos campos
+            currencyTimerInterval: parseInt(document.getElementById('conf-timer-interval').value),
+            currencyTimerAmount: parseInt(document.getElementById('conf-timer-amount').value),
+            coinsPerSub: parseInt(document.getElementById('conf-sub-amount').value),
+            coinsPerSubGift: parseInt(document.getElementById('conf-gift-amount').value),
+            coinsPerBit: parseInt(document.getElementById('conf-bit-amount').value)
         };
 
         const res = await fetch(`${API_URL}/settings`, {
@@ -227,6 +315,8 @@ function setupEventListeners() {
         if (res.ok) {
             alert('Configurações salvas!');
             fetchSettings();
+        } else {
+            alert('Erro ao salvar configurações.');
         }
     });
 
@@ -301,3 +391,7 @@ window.editGame = (id) => {
 
     document.getElementById('game-modal').classList.remove('hidden');
 };
+
+function updateDashboard() {
+    // Placeholder
+}

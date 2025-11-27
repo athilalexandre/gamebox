@@ -14,6 +14,7 @@ export function getOrCreateUser(username) {
             boxCount: 0,
             role: 'viewer',
             inventory: [],
+            createdAt: new Date().toISOString(),
             lastActive: new Date().toISOString(),
             lastMessageReward: null
         };

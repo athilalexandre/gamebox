@@ -28,6 +28,13 @@ Você pode configurar tudo pelo Dashboard depois de iniciar, mas precisará de:
 
 ### 3. Rodando
 ```bash
+# Inicialize o banco de dados (cria arquivos JSON padrão)
+npm run db:init
+
+# (Opcional) Popule com jogos de exemplo
+npm run db:seed
+
+# Inicie o bot
 npm start
 ```
 Acesse o dashboard em: **http://localhost:3000**

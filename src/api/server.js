@@ -40,11 +40,34 @@ app.post('/api/bot/disconnect', async (req, res) => {
 
 // Configurações
 app.get('/api/settings', (req, res) => {
-    res.json(loadConfig());
+    const config = loadConfig();
+    // Segurança: Mascarar o token antes de enviar para o frontend
+    if (config.twitchOAuthToken) {
+        config.twitchOAuthToken = 'oauth:****************';
+    }
+    res.json(config);
 });
 
 app.put('/api/settings', (req, res) => {
-    const success = saveConfig(req.body);
+    const newConfig = req.body;
+    const currentConfig = loadConfig();
+
+    // Validação básica
+    if (newConfig.boxPrice < 0) {
+        return res.status(400).json({ success: false, error: 'O preço da caixa não pode ser negativo.' });
+    }
+
+    // Segurança: Se o token vier mascarado, manter o token antigo
+    if (newConfig.twitchOAuthToken && newConfig.twitchOAuthToken.includes('***')) {
+        newConfig.twitchOAuthToken = currentConfig.twitchOAuthToken;
+    }
+
+    // Se o usuário limpou o campo (string vazia), salvar vazio
+    if (newConfig.twitchOAuthToken === '') {
+        newConfig.twitchOAuthToken = '';
+    }
+
+    const success = saveConfig(newConfig);
     if (success) {
         res.json({ success: true });
     } else {
@@ -110,6 +133,44 @@ app.put('/api/users/:username', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
+
+// --- SSE (Server-Sent Events) para Logs em Tempo Real ---
+let clients = [];
+
+app.get('/api/events', (req, res) => {
+    const headers = {
+        'Content-Type': 'text/event-stream',
+        'Connection': 'keep-alive',
+        'Cache-Control': 'no-cache'
+    };
+    res.writeHead(200, headers);
+
+    const clientId = Date.now();
+    const newClient = {
+        id: clientId,
+        res
+    };
+    clients.push(newClient);
+
+    // Envia mensagem inicial
+    res.write(`data: ${JSON.stringify({ type: 'connected', message: 'Log conectado' })}\n\n`);
+
+    req.on('close', () => {
+        clients = clients.filter(c => c.id !== clientId);
+    });
+});
+
+export function broadcastLog(message, type = 'info') {
+    const logEntry = {
+        timestamp: new Date().toLocaleTimeString(),
+        message,
+        type
+    };
+
+    clients.forEach(client => {
+        client.res.write(`data: ${JSON.stringify(logEntry)}\n\n`);
+    });
+}
 
 export function startServer(port = 3000) {
     app.listen(port, () => {

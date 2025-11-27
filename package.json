@@ -1,27 +1,28 @@
 {
-  "name": "gamebox",
-  "version": "1.0.0",
-  "description": "Twitch chat bot with collector minigame - earn currency and open game boxes!",
-  "main": "src/index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js",
-    "seed": "node scripts/seed.js"
-  },
-  "keywords": [
-    "twitch",
-    "bot",
-    "gamebox",
-    "collector",
-    "minigame"
-  ],
-  "author": "Athila Alexandre",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2",
-    "tmi.js": "^1.8.5",
-    "dotenv": "^16.3.1",
-    "cors": "^2.8.5"
-  }
+    "name": "gamebox",
+    "version": "1.0.0",
+    "description": "Twitch chat bot with collector minigame - earn currency and open game boxes!",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "node --watch src/index.js",
+        "db:init": "node scripts/init-db.js",
+        "db:seed": "node scripts/seed-games.js"
+    },
+    "keywords": [
+        "twitch",
+        "bot",
+        "gamebox",
+        "collector",
+        "minigame"
+    ],
+    "author": "Athila Alexandre",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "tmi.js": "^1.8.5",
+        "dotenv": "^16.3.1",
+        "cors": "^2.8.5"
+    }
 }

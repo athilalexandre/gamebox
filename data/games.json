@@ -1,450 +1,1017 @@
 [
-    {
-        "id": 1,
-        "name": "Pong",
-        "rarity": "E",
-        "console": "Arcade",
-        "releaseYear": 1972,
-        "genre": "Arcade"
-    },
-    {
-        "id": 2,
-        "name": "Pac-Man",
-        "rarity": "E",
-        "console": "Arcade",
-        "releaseYear": 1980,
-        "genre": "Arcade"
-    },
-    {
-        "id": 3,
-        "name": "Tetris",
-        "rarity": "D",
-        "console": "Game Boy",
-        "releaseYear": 1989,
-        "genre": "Puzzle"
-    },
-    {
-        "id": 4,
-        "name": "Super Mario Bros.",
-        "rarity": "D",
-        "console": "NES",
-        "releaseYear": 1985,
-        "genre": "Platformer"
-    },
-    {
-        "id": 5,
-        "name": "The Legend of Zelda",
-        "rarity": "C",
-        "console": "NES",
-        "releaseYear": 1986,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 6,
-        "name": "Mega Man 2",
-        "rarity": "C",
-        "console": "NES",
-        "releaseYear": 1988,
-        "genre": "Action-Platformer"
-    },
-    {
-        "id": 7,
-        "name": "Street Fighter II",
-        "rarity": "C",
-        "console": "SNES",
-        "releaseYear": 1991,
-        "genre": "Fighting"
-    },
-    {
-        "id": 8,
-        "name": "Sonic the Hedgehog",
-        "rarity": "C",
-        "console": "Genesis",
-        "releaseYear": 1991,
-        "genre": "Platformer"
-    },
-    {
-        "id": 9,
-        "name": "Donkey Kong Country",
-        "rarity": "B",
-        "console": "SNES",
-        "releaseYear": 1994,
-        "genre": "Platformer"
-    },
-    {
-        "id": 10,
-        "name": "Super Metroid",
-        "rarity": "A",
-        "console": "SNES",
-        "releaseYear": 1994,
-        "genre": "Metroidvania"
-    },
-    {
-        "id": 11,
-        "name": "Chrono Trigger",
-        "rarity": "S",
-        "console": "SNES",
-        "releaseYear": 1995,
-        "genre": "JRPG"
-    },
-    {
-        "id": 12,
-        "name": "Final Fantasy VI",
-        "rarity": "A",
-        "console": "SNES",
-        "releaseYear": 1994,
-        "genre": "JRPG"
-    },
-    {
-        "id": 13,
-        "name": "EarthBound",
-        "rarity": "A+",
-        "console": "SNES",
-        "releaseYear": 1994,
-        "genre": "JRPG"
-    },
-    {
-        "id": 14,
-        "name": "Super Mario 64",
-        "rarity": "B",
-        "console": "N64",
-        "releaseYear": 1996,
-        "genre": "Platformer"
-    },
-    {
-        "id": 15,
-        "name": "The Legend of Zelda: Ocarina of Time",
-        "rarity": "S",
-        "console": "N64",
-        "releaseYear": 1998,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 16,
-        "name": "GoldenEye 007",
-        "rarity": "B",
-        "console": "N64",
-        "releaseYear": 1997,
-        "genre": "FPS"
-    },
-    {
-        "id": 17,
-        "name": "Final Fantasy VII",
-        "rarity": "S",
-        "console": "PS1",
-        "releaseYear": 1997,
-        "genre": "JRPG"
-    },
-    {
-        "id": 18,
-        "name": "Metal Gear Solid",
-        "rarity": "A",
-        "console": "PS1",
-        "releaseYear": 1998,
-        "genre": "Stealth"
-    },
-    {
-        "id": 19,
-        "name": "Castlevania: Symphony of the Night",
-        "rarity": "A+",
-        "console": "PS1",
-        "releaseYear": 1997,
-        "genre": "Metroidvania"
-    },
-    {
-        "id": 20,
-        "name": "Resident Evil 2",
-        "rarity": "B",
-        "console": "PS1",
-        "releaseYear": 1998,
-        "genre": "Survival Horror"
-    },
-    {
-        "id": 21,
-        "name": "Silent Hill",
-        "rarity": "A",
-        "console": "PS1",
-        "releaseYear": 1999,
-        "genre": "Survival Horror"
-    },
-    {
-        "id": 22,
-        "name": "Grand Theft Auto III",
-        "rarity": "B",
-        "console": "PS2",
-        "releaseYear": 2001,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 23,
-        "name": "Shadow of the Colossus",
-        "rarity": "SS",
-        "console": "PS2",
-        "releaseYear": 2005,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 24,
-        "name": "God of War",
-        "rarity": "A",
-        "console": "PS2",
-        "releaseYear": 2005,
-        "genre": "Action"
-    },
-    {
-        "id": 25,
-        "name": "Kingdom Hearts",
-        "rarity": "B",
-        "console": "PS2",
-        "releaseYear": 2002,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 26,
-        "name": "Devil May Cry",
-        "rarity": "B",
-        "console": "PS2",
-        "releaseYear": 2001,
-        "genre": "Action"
-    },
-    {
-        "id": 27,
-        "name": "Halo: Combat Evolved",
-        "rarity": "A",
-        "console": "Xbox",
-        "releaseYear": 2001,
-        "genre": "FPS"
-    },
-    {
-        "id": 28,
-        "name": "Halo 2",
-        "rarity": "B",
-        "console": "Xbox",
-        "releaseYear": 2004,
-        "genre": "FPS"
-    },
-    {
-        "id": 29,
-        "name": "The Elder Scrolls III: Morrowind",
-        "rarity": "A",
-        "console": "Xbox",
-        "releaseYear": 2002,
-        "genre": "RPG"
-    },
-    {
-        "id": 30,
-        "name": "Gears of War",
-        "rarity": "B",
-        "console": "Xbox 360",
-        "releaseYear": 2006,
-        "genre": "TPS"
-    },
-    {
-        "id": 31,
-        "name": "BioShock",
-        "rarity": "A+",
-        "console": "Xbox 360",
-        "releaseYear": 2007,
-        "genre": "FPS"
-    },
-    {
-        "id": 32,
-        "name": "The Last of Us",
-        "rarity": "SS",
-        "console": "PS3",
-        "releaseYear": 2013,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 33,
-        "name": "Uncharted 2",
-        "rarity": "A",
-        "console": "PS3",
-        "releaseYear": 2009,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 34,
-        "name": "Dark Souls",
-        "rarity": "S",
-        "console": "PS3",
-        "releaseYear": 2011,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 35,
-        "name": "Bloodborne",
-        "rarity": "SS",
-        "console": "PS4",
-        "releaseYear": 2015,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 36,
-        "name": "God of War (2018)",
-        "rarity": "S",
-        "console": "PS4",
-        "releaseYear": 2018,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 37,
-        "name": "Horizon Zero Dawn",
-        "rarity": "A",
-        "console": "PS4",
-        "releaseYear": 2017,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 38,
-        "name": "Spider-Man",
-        "rarity": "B",
-        "console": "PS4",
-        "releaseYear": 2018,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 39,
-        "name": "Elden Ring",
-        "rarity": "SSS",
-        "console": "PS5",
-        "releaseYear": 2022,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 40,
-        "name": "Demon's Souls (Remake)",
-        "rarity": "S",
-        "console": "PS5",
-        "releaseYear": 2020,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 41,
-        "name": "The Legend of Zelda: Breath of the Wild",
-        "rarity": "SSS",
-        "console": "Switch",
-        "releaseYear": 2017,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 42,
-        "name": "Super Mario Odyssey",
-        "rarity": "A",
-        "console": "Switch",
-        "releaseYear": 2017,
-        "genre": "Platformer"
-    },
-    {
-        "id": 43,
-        "name": "Animal Crossing: New Horizons",
-        "rarity": "B",
-        "console": "Switch",
-        "releaseYear": 2020,
-        "genre": "Simulation"
-    },
-    {
-        "id": 44,
-        "name": "Metroid Dread",
-        "rarity": "A",
-        "console": "Switch",
-        "releaseYear": 2021,
-        "genre": "Metroidvania"
-    },
-    {
-        "id": 45,
-        "name": "The Legend of Zelda: Tears of the Kingdom",
-        "rarity": "SSS",
-        "console": "Switch",
-        "releaseYear": 2023,
-        "genre": "Action-Adventure"
-    },
-    {
-        "id": 46,
-        "name": "Half-Life 2",
-        "rarity": "S",
-        "console": "PC",
-        "releaseYear": 2004,
-        "genre": "FPS"
-    },
-    {
-        "id": 47,
-        "name": "Portal 2",
-        "rarity": "A+",
-        "console": "PC",
-        "releaseYear": 2011,
-        "genre": "Puzzle"
-    },
-    {
-        "id": 48,
-        "name": "The Witcher 3: Wild Hunt",
-        "rarity": "SS",
-        "console": "PC",
-        "releaseYear": 2015,
-        "genre": "Action RPG"
-    },
-    {
-        "id": 49,
-        "name": "Minecraft",
-        "rarity": "C",
-        "console": "PC",
-        "releaseYear": 2011,
-        "genre": "Sandbox"
-    },
-    {
-        "id": 50,
-        "name": "Stardew Valley",
-        "rarity": "C",
-        "console": "PC",
-        "releaseYear": 2016,
-        "genre": "Simulation"
-    },
-    {
-        "id": 51,
-        "name": "Hollow Knight",
-        "rarity": "A+",
-        "console": "PC",
-        "releaseYear": 2017,
-        "genre": "Metroidvania"
-    },
-    {
-        "id": 52,
-        "name": "Celeste",
-        "rarity": "A",
-        "console": "PC",
-        "releaseYear": 2018,
-        "genre": "Platformer"
-    },
-    {
-        "id": 53,
-        "name": "Undertale",
-        "rarity": "A+",
-        "console": "PC",
-        "releaseYear": 2015,
-        "genre": "RPG"
-    },
-    {
-        "id": 54,
-        "name": "Hades",
-        "rarity": "S",
-        "console": "PC",
-        "releaseYear": 2020,
-        "genre": "Roguelike"
-    },
-    {
-        "id": 55,
-        "name": "Disco Elysium",
-        "rarity": "SS",
-        "console": "PC",
-        "releaseYear": 2019,
-        "genre": "RPG"
-    },
-    {
-        "id": 56,
-        "name": "Baldur's Gate 3",
-        "rarity": "SSS",
-        "console": "PC",
-        "releaseYear": 2023,
-        "genre": "RPG"
-    }
+  {
+    "id": 1,
+    "name": "Pac-Man",
+    "rarity": "E",
+    "console": "Arcade",
+    "releaseYear": 1980
+  },
+  {
+    "id": 2,
+    "name": "Donkey Kong",
+    "rarity": "E",
+    "console": "Arcade",
+    "releaseYear": 1981
+  },
+  {
+    "id": 3,
+    "name": "Galaga",
+    "rarity": "E",
+    "console": "Arcade",
+    "releaseYear": 1981
+  },
+  {
+    "id": 4,
+    "name": "Space Invaders",
+    "rarity": "E",
+    "console": "Arcade",
+    "releaseYear": 1978
+  },
+  {
+    "id": 5,
+    "name": "Street Fighter II",
+    "rarity": "C",
+    "console": "Arcade",
+    "releaseYear": 1991
+  },
+  {
+    "id": 6,
+    "name": "Mortal Kombat",
+    "rarity": "C",
+    "console": "Arcade",
+    "releaseYear": 1992
+  },
+  {
+    "id": 7,
+    "name": "Metal Slug",
+    "rarity": "C",
+    "console": "Arcade",
+    "releaseYear": 1996
+  },
+  {
+    "id": 8,
+    "name": "Tetris",
+    "rarity": "D",
+    "console": "Arcade",
+    "releaseYear": 1984
+  },
+  {
+    "id": 9,
+    "name": "Pong",
+    "rarity": "E",
+    "console": "Arcade",
+    "releaseYear": 1972
+  },
+  {
+    "id": 10,
+    "name": "Asteroids",
+    "rarity": "E",
+    "console": "Arcade",
+    "releaseYear": 1979
+  },
+  {
+    "id": 11,
+    "name": "Super Mario Bros.",
+    "rarity": "D",
+    "console": "NES",
+    "releaseYear": 1985
+  },
+  {
+    "id": 12,
+    "name": "Super Mario Bros. 3",
+    "rarity": "C",
+    "console": "NES",
+    "releaseYear": 1988
+  },
+  {
+    "id": 13,
+    "name": "The Legend of Zelda",
+    "rarity": "C",
+    "console": "NES",
+    "releaseYear": 1986
+  },
+  {
+    "id": 14,
+    "name": "Metroid",
+    "rarity": "C",
+    "console": "NES",
+    "releaseYear": 1986
+  },
+  {
+    "id": 15,
+    "name": "Mega Man 2",
+    "rarity": "C",
+    "console": "NES",
+    "releaseYear": 1988
+  },
+  {
+    "id": 16,
+    "name": "Castlevania",
+    "rarity": "C",
+    "console": "NES",
+    "releaseYear": 1986
+  },
+  {
+    "id": 17,
+    "name": "Final Fantasy",
+    "rarity": "B",
+    "console": "NES",
+    "releaseYear": 1987
+  },
+  {
+    "id": 18,
+    "name": "Contra",
+    "rarity": "D",
+    "console": "NES",
+    "releaseYear": 1987
+  },
+  {
+    "id": 19,
+    "name": "Punch-Out!!",
+    "rarity": "D",
+    "console": "NES",
+    "releaseYear": 1987
+  },
+  {
+    "id": 20,
+    "name": "Kirby's Adventure",
+    "rarity": "D",
+    "console": "NES",
+    "releaseYear": 1993
+  },
+  {
+    "id": 21,
+    "name": "Ninja Gaiden",
+    "rarity": "B",
+    "console": "NES",
+    "releaseYear": 1988
+  },
+  {
+    "id": 22,
+    "name": "Duck Hunt",
+    "rarity": "E",
+    "console": "NES",
+    "releaseYear": 1984
+  },
+  {
+    "id": 23,
+    "name": "Dragon Quest III",
+    "rarity": "A",
+    "console": "NES",
+    "releaseYear": 1988
+  },
+  {
+    "id": 24,
+    "name": "Mother (EarthBound Zero)",
+    "rarity": "A",
+    "console": "NES",
+    "releaseYear": 1989
+  },
+  {
+    "id": 25,
+    "name": "Battletoads",
+    "rarity": "B",
+    "console": "NES",
+    "releaseYear": 1991
+  },
+  {
+    "id": 26,
+    "name": "Super Mario World",
+    "rarity": "D",
+    "console": "SNES",
+    "releaseYear": 1990
+  },
+  {
+    "id": 27,
+    "name": "The Legend of Zelda: A Link to the Past",
+    "rarity": "B",
+    "console": "SNES",
+    "releaseYear": 1991
+  },
+  {
+    "id": 28,
+    "name": "Super Metroid",
+    "rarity": "A",
+    "console": "SNES",
+    "releaseYear": 1994
+  },
+  {
+    "id": 29,
+    "name": "Chrono Trigger",
+    "rarity": "S",
+    "console": "SNES",
+    "releaseYear": 1995
+  },
+  {
+    "id": 30,
+    "name": "Final Fantasy VI",
+    "rarity": "A",
+    "console": "SNES",
+    "releaseYear": 1994
+  },
+  {
+    "id": 31,
+    "name": "EarthBound",
+    "rarity": "A+",
+    "console": "SNES",
+    "releaseYear": 1994
+  },
+  {
+    "id": 32,
+    "name": "Donkey Kong Country",
+    "rarity": "C",
+    "console": "SNES",
+    "releaseYear": 1994
+  },
+  {
+    "id": 33,
+    "name": "Street Fighter II Turbo",
+    "rarity": "C",
+    "console": "SNES",
+    "releaseYear": 1993
+  },
+  {
+    "id": 34,
+    "name": "Mega Man X",
+    "rarity": "B",
+    "console": "SNES",
+    "releaseYear": 1993
+  },
+  {
+    "id": 35,
+    "name": "Secret of Mana",
+    "rarity": "A",
+    "console": "SNES",
+    "releaseYear": 1993
+  },
+  {
+    "id": 36,
+    "name": "Super Mario RPG",
+    "rarity": "A",
+    "console": "SNES",
+    "releaseYear": 1996
+  },
+  {
+    "id": 37,
+    "name": "F-Zero",
+    "rarity": "D",
+    "console": "SNES",
+    "releaseYear": 1990
+  },
+  {
+    "id": 38,
+    "name": "Star Fox",
+    "rarity": "D",
+    "console": "SNES",
+    "releaseYear": 1993
+  },
+  {
+    "id": 39,
+    "name": "Yoshi's Island",
+    "rarity": "B",
+    "console": "SNES",
+    "releaseYear": 1995
+  },
+  {
+    "id": 40,
+    "name": "Terranigma",
+    "rarity": "S",
+    "console": "SNES",
+    "releaseYear": 1995
+  },
+  {
+    "id": 41,
+    "name": "Super Mario 64",
+    "rarity": "C",
+    "console": "N64",
+    "releaseYear": 1996
+  },
+  {
+    "id": 42,
+    "name": "The Legend of Zelda: Ocarina of Time",
+    "rarity": "S",
+    "console": "N64",
+    "releaseYear": 1998
+  },
+  {
+    "id": 43,
+    "name": "GoldenEye 007",
+    "rarity": "B",
+    "console": "N64",
+    "releaseYear": 1997
+  },
+  {
+    "id": 44,
+    "name": "The Legend of Zelda: Majora's Mask",
+    "rarity": "A",
+    "console": "N64",
+    "releaseYear": 2000
+  },
+  {
+    "id": 45,
+    "name": "Super Smash Bros.",
+    "rarity": "B",
+    "console": "N64",
+    "releaseYear": 1999
+  },
+  {
+    "id": 46,
+    "name": "Mario Kart 64",
+    "rarity": "C",
+    "console": "N64",
+    "releaseYear": 1996
+  },
+  {
+    "id": 47,
+    "name": "Star Fox 64",
+    "rarity": "C",
+    "console": "N64",
+    "releaseYear": 1997
+  },
+  {
+    "id": 48,
+    "name": "Banjo-Kazooie",
+    "rarity": "B",
+    "console": "N64",
+    "releaseYear": 1998
+  },
+  {
+    "id": 49,
+    "name": "Perfect Dark",
+    "rarity": "A",
+    "console": "N64",
+    "releaseYear": 2000
+  },
+  {
+    "id": 50,
+    "name": "Paper Mario",
+    "rarity": "A",
+    "console": "N64",
+    "releaseYear": 2000
+  },
+  {
+    "id": 51,
+    "name": "Conker's Bad Fur Day",
+    "rarity": "S",
+    "console": "N64",
+    "releaseYear": 2001
+  },
+  {
+    "id": 52,
+    "name": "F-Zero X",
+    "rarity": "B",
+    "console": "N64",
+    "releaseYear": 1998
+  },
+  {
+    "id": 53,
+    "name": "Donkey Kong 64",
+    "rarity": "C",
+    "console": "N64",
+    "releaseYear": 1999
+  },
+  {
+    "id": 54,
+    "name": "Mario Party 2",
+    "rarity": "C",
+    "console": "N64",
+    "releaseYear": 1999
+  },
+  {
+    "id": 55,
+    "name": "Pokemon Stadium",
+    "rarity": "D",
+    "console": "N64",
+    "releaseYear": 1999
+  },
+  {
+    "id": 56,
+    "name": "Super Smash Bros. Melee",
+    "rarity": "A",
+    "console": "GameCube",
+    "releaseYear": 2001
+  },
+  {
+    "id": 57,
+    "name": "Metroid Prime",
+    "rarity": "A",
+    "console": "GameCube",
+    "releaseYear": 2002
+  },
+  {
+    "id": 58,
+    "name": "The Legend of Zelda: The Wind Waker",
+    "rarity": "A",
+    "console": "GameCube",
+    "releaseYear": 2002
+  },
+  {
+    "id": 59,
+    "name": "Resident Evil 4",
+    "rarity": "B",
+    "console": "GameCube",
+    "releaseYear": 2005
+  },
+  {
+    "id": 60,
+    "name": "Super Mario Sunshine",
+    "rarity": "B",
+    "console": "GameCube",
+    "releaseYear": 2002
+  },
+  {
+    "id": 61,
+    "name": "Luigi's Mansion",
+    "rarity": "C",
+    "console": "GameCube",
+    "releaseYear": 2001
+  },
+  {
+    "id": 62,
+    "name": "Paper Mario: The Thousand-Year Door",
+    "rarity": "S",
+    "console": "GameCube",
+    "releaseYear": 2004
+  },
+  {
+    "id": 63,
+    "name": "Pikmin 2",
+    "rarity": "A",
+    "console": "GameCube",
+    "releaseYear": 2004
+  },
+  {
+    "id": 64,
+    "name": "F-Zero GX",
+    "rarity": "A+",
+    "console": "GameCube",
+    "releaseYear": 2003
+  },
+  {
+    "id": 65,
+    "name": "Eternal Darkness",
+    "rarity": "S",
+    "console": "GameCube",
+    "releaseYear": 2002
+  },
+  {
+    "id": 66,
+    "name": "Animal Crossing",
+    "rarity": "C",
+    "console": "GameCube",
+    "releaseYear": 2001
+  },
+  {
+    "id": 67,
+    "name": "Fire Emblem: Path of Radiance",
+    "rarity": "SSS",
+    "console": "GameCube",
+    "releaseYear": 2005
+  },
+  {
+    "id": 68,
+    "name": "Mario Kart: Double Dash",
+    "rarity": "B",
+    "console": "GameCube",
+    "releaseYear": 2003
+  },
+  {
+    "id": 69,
+    "name": "Metal Gear Solid: The Twin Snakes",
+    "rarity": "S",
+    "console": "GameCube",
+    "releaseYear": 2004
+  },
+  {
+    "id": 70,
+    "name": "Skies of Arcadia Legends",
+    "rarity": "SS",
+    "console": "GameCube",
+    "releaseYear": 2002
+  },
+  {
+    "id": 71,
+    "name": "Final Fantasy VII",
+    "rarity": "S",
+    "console": "PS1",
+    "releaseYear": 1997
+  },
+  {
+    "id": 72,
+    "name": "Metal Gear Solid",
+    "rarity": "A",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 73,
+    "name": "Castlevania: Symphony of the Night",
+    "rarity": "A+",
+    "console": "PS1",
+    "releaseYear": 1997
+  },
+  {
+    "id": 74,
+    "name": "Resident Evil 2",
+    "rarity": "B",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 75,
+    "name": "Silent Hill",
+    "rarity": "A",
+    "console": "PS1",
+    "releaseYear": 1999
+  },
+  {
+    "id": 76,
+    "name": "Gran Turismo 2",
+    "rarity": "C",
+    "console": "PS1",
+    "releaseYear": 1999
+  },
+  {
+    "id": 77,
+    "name": "Tekken 3",
+    "rarity": "C",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 78,
+    "name": "Final Fantasy IX",
+    "rarity": "A",
+    "console": "PS1",
+    "releaseYear": 2000
+  },
+  {
+    "id": 79,
+    "name": "Chrono Cross",
+    "rarity": "A",
+    "console": "PS1",
+    "releaseYear": 1999
+  },
+  {
+    "id": 80,
+    "name": "Xenogears",
+    "rarity": "S",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 81,
+    "name": "Spyro the Dragon",
+    "rarity": "D",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 82,
+    "name": "Crash Bandicoot 3: Warped",
+    "rarity": "C",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 83,
+    "name": "Tony Hawk's Pro Skater 2",
+    "rarity": "B",
+    "console": "PS1",
+    "releaseYear": 2000
+  },
+  {
+    "id": 84,
+    "name": "Vagrant Story",
+    "rarity": "S",
+    "console": "PS1",
+    "releaseYear": 2000
+  },
+  {
+    "id": 85,
+    "name": "Suikoden II",
+    "rarity": "SSS",
+    "console": "PS1",
+    "releaseYear": 1998
+  },
+  {
+    "id": 86,
+    "name": "Grand Theft Auto: San Andreas",
+    "rarity": "C",
+    "console": "PS2",
+    "releaseYear": 2004
+  },
+  {
+    "id": 87,
+    "name": "Shadow of the Colossus",
+    "rarity": "SS",
+    "console": "PS2",
+    "releaseYear": 2005
+  },
+  {
+    "id": 88,
+    "name": "Metal Gear Solid 3: Snake Eater",
+    "rarity": "A",
+    "console": "PS2",
+    "releaseYear": 2004
+  },
+  {
+    "id": 89,
+    "name": "God of War II",
+    "rarity": "B",
+    "console": "PS2",
+    "releaseYear": 2007
+  },
+  {
+    "id": 90,
+    "name": "Final Fantasy X",
+    "rarity": "B",
+    "console": "PS2",
+    "releaseYear": 2001
+  },
+  {
+    "id": 91,
+    "name": "Kingdom Hearts II",
+    "rarity": "B",
+    "console": "PS2",
+    "releaseYear": 2005
+  },
+  {
+    "id": 92,
+    "name": "Silent Hill 2",
+    "rarity": "A+",
+    "console": "PS2",
+    "releaseYear": 2001
+  },
+  {
+    "id": 93,
+    "name": "Resident Evil 4",
+    "rarity": "B",
+    "console": "PS2",
+    "releaseYear": 2005
+  },
+  {
+    "id": 94,
+    "name": "Okami",
+    "rarity": "A",
+    "console": "PS2",
+    "releaseYear": 2006
+  },
+  {
+    "id": 95,
+    "name": "Devil May Cry 3",
+    "rarity": "B",
+    "console": "PS2",
+    "releaseYear": 2005
+  },
+  {
+    "id": 96,
+    "name": "Persona 4",
+    "rarity": "A",
+    "console": "PS2",
+    "releaseYear": 2008
+  },
+  {
+    "id": 97,
+    "name": "Ico",
+    "rarity": "A",
+    "console": "PS2",
+    "releaseYear": 2001
+  },
+  {
+    "id": 98,
+    "name": "Burnout 3: Takedown",
+    "rarity": "C",
+    "console": "PS2",
+    "releaseYear": 2004
+  },
+  {
+    "id": 99,
+    "name": "Katamari Damacy",
+    "rarity": "A",
+    "console": "PS2",
+    "releaseYear": 2004
+  },
+  {
+    "id": 100,
+    "name": "Rule of Rose",
+    "rarity": "SSS",
+    "console": "PS2",
+    "releaseYear": 2006
+  },
+  {
+    "id": 101,
+    "name": "Halo: Combat Evolved",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2001
+  },
+  {
+    "id": 102,
+    "name": "Halo 2",
+    "rarity": "B",
+    "console": "Xbox",
+    "releaseYear": 2004
+  },
+  {
+    "id": 103,
+    "name": "Star Wars: KOTOR",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2003
+  },
+  {
+    "id": 104,
+    "name": "Fable",
+    "rarity": "B",
+    "console": "Xbox",
+    "releaseYear": 2004
+  },
+  {
+    "id": 105,
+    "name": "Ninja Gaiden Black",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2005
+  },
+  {
+    "id": 106,
+    "name": "The Elder Scrolls III: Morrowind",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2002
+  },
+  {
+    "id": 107,
+    "name": "Splinter Cell: Chaos Theory",
+    "rarity": "B",
+    "console": "Xbox",
+    "releaseYear": 2005
+  },
+  {
+    "id": 108,
+    "name": "Jade Empire",
+    "rarity": "B",
+    "console": "Xbox",
+    "releaseYear": 2005
+  },
+  {
+    "id": 109,
+    "name": "Panzer Dragoon Orta",
+    "rarity": "S",
+    "console": "Xbox",
+    "releaseYear": 2002
+  },
+  {
+    "id": 110,
+    "name": "Jet Set Radio Future",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2002
+  },
+  {
+    "id": 111,
+    "name": "Steel Battalion",
+    "rarity": "SSS",
+    "console": "Xbox",
+    "releaseYear": 2002
+  },
+  {
+    "id": 112,
+    "name": "Forza Motorsport",
+    "rarity": "C",
+    "console": "Xbox",
+    "releaseYear": 2005
+  },
+  {
+    "id": 113,
+    "name": "Project Gotham Racing 2",
+    "rarity": "C",
+    "console": "Xbox",
+    "releaseYear": 2003
+  },
+  {
+    "id": 114,
+    "name": "Psychonauts",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2005
+  },
+  {
+    "id": 115,
+    "name": "Conker: Live & Reloaded",
+    "rarity": "A",
+    "console": "Xbox",
+    "releaseYear": 2005
+  },
+  {
+    "id": 116,
+    "name": "Half-Life 2",
+    "rarity": "S",
+    "console": "PC",
+    "releaseYear": 2004
+  },
+  {
+    "id": 117,
+    "name": "The Witcher 3: Wild Hunt",
+    "rarity": "SS",
+    "console": "PC",
+    "releaseYear": 2015
+  },
+  {
+    "id": 118,
+    "name": "Portal 2",
+    "rarity": "A+",
+    "console": "PC",
+    "releaseYear": 2011
+  },
+  {
+    "id": 119,
+    "name": "Minecraft",
+    "rarity": "C",
+    "console": "PC",
+    "releaseYear": 2011
+  },
+  {
+    "id": 120,
+    "name": "World of Warcraft",
+    "rarity": "C",
+    "console": "PC",
+    "releaseYear": 2004
+  },
+  {
+    "id": 121,
+    "name": "Doom",
+    "rarity": "B",
+    "console": "PC",
+    "releaseYear": 1993
+  },
+  {
+    "id": 122,
+    "name": "Deus Ex",
+    "rarity": "A",
+    "console": "PC",
+    "releaseYear": 2000
+  },
+  {
+    "id": 123,
+    "name": "Baldur's Gate II",
+    "rarity": "A",
+    "console": "PC",
+    "releaseYear": 2000
+  },
+  {
+    "id": 124,
+    "name": "Diablo II",
+    "rarity": "B",
+    "console": "PC",
+    "releaseYear": 2000
+  },
+  {
+    "id": 125,
+    "name": "StarCraft",
+    "rarity": "B",
+    "console": "PC",
+    "releaseYear": 1998
+  },
+  {
+    "id": 126,
+    "name": "Counter-Strike 1.6",
+    "rarity": "C",
+    "console": "PC",
+    "releaseYear": 2000
+  },
+  {
+    "id": 127,
+    "name": "The Sims",
+    "rarity": "D",
+    "console": "PC",
+    "releaseYear": 2000
+  },
+  {
+    "id": 128,
+    "name": "Age of Empires II",
+    "rarity": "C",
+    "console": "PC",
+    "releaseYear": 1999
+  },
+  {
+    "id": 129,
+    "name": "System Shock 2",
+    "rarity": "S",
+    "console": "PC",
+    "releaseYear": 1999
+  },
+  {
+    "id": 130,
+    "name": "Disco Elysium",
+    "rarity": "SS",
+    "console": "PC",
+    "releaseYear": 2019
+  },
+  {
+    "id": 131,
+    "name": "Elden Ring",
+    "rarity": "SSS",
+    "console": "Multi",
+    "releaseYear": 2022
+  },
+  {
+    "id": 132,
+    "name": "Baldur's Gate 3",
+    "rarity": "SSS",
+    "console": "Multi",
+    "releaseYear": 2023
+  },
+  {
+    "id": 133,
+    "name": "The Legend of Zelda: BOTW",
+    "rarity": "SS",
+    "console": "Multi",
+    "releaseYear": 2017
+  },
+  {
+    "id": 134,
+    "name": "The Legend of Zelda: TOTK",
+    "rarity": "SS",
+    "console": "Multi",
+    "releaseYear": 2023
+  },
+  {
+    "id": 135,
+    "name": "God of War Ragnarok",
+    "rarity": "S",
+    "console": "Multi",
+    "releaseYear": 2022
+  },
+  {
+    "id": 136,
+    "name": "Red Dead Redemption 2",
+    "rarity": "S",
+    "console": "Multi",
+    "releaseYear": 2018
+  },
+  {
+    "id": 137,
+    "name": "The Last of Us Part II",
+    "rarity": "S",
+    "console": "Multi",
+    "releaseYear": 2020
+  },
+  {
+    "id": 138,
+    "name": "Cyberpunk 2077",
+    "rarity": "A",
+    "console": "Multi",
+    "releaseYear": 2020
+  },
+  {
+    "id": 139,
+    "name": "Hades",
+    "rarity": "A",
+    "console": "Multi",
+    "releaseYear": 2020
+  },
+  {
+    "id": 140,
+    "name": "Hollow Knight",
+    "rarity": "A+",
+    "console": "Multi",
+    "releaseYear": 2017
+  },
+  {
+    "id": 141,
+    "name": "Celeste",
+    "rarity": "A",
+    "console": "Multi",
+    "releaseYear": 2018
+  },
+  {
+    "id": 142,
+    "name": "Stardew Valley",
+    "rarity": "B",
+    "console": "Multi",
+    "releaseYear": 2016
+  },
+  {
+    "id": 143,
+    "name": "Persona 5 Royal",
+    "rarity": "S",
+    "console": "Multi",
+    "releaseYear": 2019
+  },
+  {
+    "id": 144,
+    "name": "Sekiro: Shadows Die Twice",
+    "rarity": "SS",
+    "console": "Multi",
+    "releaseYear": 2019
+  },
+  {
+    "id": 145,
+    "name": "Bloodborne",
+    "rarity": "SS",
+    "console": "Multi",
+    "releaseYear": 2015
+  }
 ]
