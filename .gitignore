@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+
+# Data & Persistence (Sensitive or Local)
+data/users.json
+data/config.json
+# Keep games.json and commands.json as they are part of the "game content"
+# data/games.json 
+# data/commands.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.project
+.settings/
+.classpath
+
+# Build
+dist/
+build/
+coverage/
+
