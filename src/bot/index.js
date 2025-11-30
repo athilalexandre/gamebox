@@ -2,6 +2,7 @@ import tmi from 'tmi.js';
 import { loadConfig, loadCommands } from '../utils/storage.js';
 import { commands } from './commands.js';
 import * as UserService from '../services/userService.js';
+import * as XpService from '../services/xpService.js';
 import { broadcastLog } from '../api/server.js';
 
 let client = null;
@@ -187,6 +188,19 @@ async function onMessageHandler(target, context, msg, self) {
     // Atualiza atividade do usuário
     activeUsers.set(username, Date.now());
 
+    // Sistema de XP por mensagem
+    if (XpService.canGainMessageXp(username)) {
+        // Ganha entre 10 e 20 XP (valor baixo com gap alto)
+        const xpAmount = Math.floor(Math.random() * 11) + 10;
+        const result = XpService.addXp(username, xpAmount);
+        XpService.markMessageXp(username);
+
+        if (result.leveledUp) {
+            client.say(target, `🎉 Parabéns @${username}! Você subiu para o nível ${result.newLevel} (${result.newTitle})!`);
+            broadcastLog(`Level Up: ${username} subiu para nível ${result.newLevel}`, 'success');
+        }
+    }
+
     // Verifica se é um comando
     if (!msg.startsWith(commandPrefix)) return;
 
@@ -214,12 +228,30 @@ async function onMessageHandler(target, context, msg, self) {
     }
 
     // Mapeia o nome do comando real (ex: !saldo -> balance)
-    // Precisamos saber qual função chamar em commands.js.
     // O commands.js exporta funções com nomes em inglês (balance, inventory, etc).
     // O cmdConfig.name é "!balance". Então removemos o prefixo.
     const realCommandName = cmdConfig.name.substring(1); // remove "!"
 
-    if (commands[realCommandName]) {
+    // Se for comando customizado, processa a resposta
+    if (cmdConfig.type === 'custom' && cmdConfig.response) {
+        try {
+            broadcastLog(`Comando customizado: ${username} usou ${fullCommandInput}`, 'info');
+
+            // Substitui variáveis na resposta
+            let response = cmdConfig.response;
+            response = response.replace(/{user}/g, username);
+            response = response.replace(/{balance}/g, user.coins.toString());
+            response = response.replace(/{boxes}/g, user.boxCount.toString());
+            response = response.replace(/{level}/g, user.role || 'viewer');
+
+            client.say(target, response);
+        } catch (error) {
+            console.error(`[BOT] Erro ao executar comando customizado ${realCommandName}:`, error);
+            broadcastLog(`Erro no comando ${fullCommandInput}: ${error.message}`, 'error');
+        }
+    }
+    // Senão, executa comandos hardcoded do sistema
+    else if (commands[realCommandName]) {
         try {
             broadcastLog(`Comando: ${username} usou ${fullCommandInput}`, 'info');
             await commands[realCommandName](client, target, { username, ...context }, args);

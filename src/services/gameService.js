@@ -157,3 +157,19 @@ export function getGamesStats() {
 
     return stats;
 }
+
+/**
+ * Obtém um jogo aleatório de uma raridade específica
+ * @param {string} rarity - Raridade desejada
+ * @returns {Object|null} Jogo aleatório ou null se não houver jogos dessa raridade
+ */
+export function getRandomGameByRarity(rarity) {
+    const games = getGamesByRarity(rarity);
+
+    if (games.length === 0) {
+        return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * games.length);
+    return games[randomIndex];
+}

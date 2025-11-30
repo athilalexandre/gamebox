@@ -80,9 +80,95 @@ app.get('/api/commands', (req, res) => {
     res.json(loadCommands());
 });
 
-app.put('/api/commands', (req, res) => {
-    const success = saveCommands(req.body);
-    res.json({ success });
+app.post('/api/commands', (req, res) => {
+    const { name, description, response, type, level, cooldown, aliases, enabled } = req.body;
+    const commands = loadCommands();
+
+    // Validação
+    if (!name || !name.startsWith('!')) {
+        return res.status(400).json({ success: false, error: 'Nome do comando deve começar com !' });
+    }
+
+    if (commands.find(c => c.name === name)) {
+        return res.status(400).json({ success: false, error: 'Comando já existe' });
+    }
+
+    if (type === 'custom' && !response) {
+        return res.status(400).json({ success: false, error: 'Comandos customizados precisam de uma resposta' });
+    }
+
+    const newCommand = {
+        name,
+        description: description || 'Comando customizado',
+        type: type || 'custom',
+        response: response || '',
+        enabled: enabled !== undefined ? enabled : true,
+        cooldown: parseInt(cooldown) || 3,
+        level: level || 'viewer',
+        aliases: aliases || []
+    };
+
+    commands.push(newCommand);
+
+    if (saveCommands(commands)) {
+        broadcastLog(`Comando ${name} criado com sucesso.`, 'success');
+        res.json({ success: true, command: newCommand });
+    } else {
+        res.status(500).json({ success: false, error: 'Erro ao salvar comando' });
+    }
+});
+
+app.put('/api/commands/:name', (req, res) => {
+    const commandName = req.params.name;
+    const updatedData = req.body;
+    const commands = loadCommands();
+
+    const index = commands.findIndex(c => c.name === commandName);
+    if (index === -1) {
+        return res.status(404).json({ success: false, error: 'Comando não encontrado' });
+    }
+
+    // Atualiza os campos permitidos
+    commands[index] = {
+        ...commands[index],
+        description: updatedData.description || commands[index].description,
+        response: updatedData.response !== undefined ? updatedData.response : commands[index].response,
+        aliases: updatedData.aliases || [],
+        cooldown: parseInt(updatedData.cooldown) || 0,
+        level: updatedData.level || 'viewer',
+        enabled: updatedData.enabled !== undefined ? updatedData.enabled : true
+    };
+
+    if (saveCommands(commands)) {
+        broadcastLog(`Comando ${commandName} atualizado.`, 'info');
+        res.json({ success: true });
+    } else {
+        res.status(500).json({ success: false, error: 'Erro ao salvar comando' });
+    }
+});
+
+app.delete('/api/commands/:name', (req, res) => {
+    const commandName = req.params.name;
+    const commands = loadCommands();
+
+    const index = commands.findIndex(c => c.name === commandName);
+    if (index === -1) {
+        return res.status(404).json({ success: false, error: 'Comando não encontrado' });
+    }
+
+    // Não permitir deletar comandos core
+    if (commands[index].type !== 'custom') {
+        return res.status(403).json({ success: false, error: 'Não é possível deletar comandos do sistema' });
+    }
+
+    commands.splice(index, 1);
+
+    if (saveCommands(commands)) {
+        broadcastLog(`Comando ${commandName} removido.`, 'warning');
+        res.json({ success: true });
+    } else {
+        res.status(500).json({ success: false, error: 'Erro ao remover comando' });
+    }
 });
 
 // Jogos

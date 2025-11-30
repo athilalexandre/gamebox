@@ -52,8 +52,8 @@ export const commands = {
     },
 
     // !openbox
-    openbox: (client, channel, user, args) => {
-        const result = BoxService.openBox(user.username);
+    openbox: async (client, channel, user, args) => {
+        const result = await BoxService.openBox(user.username);
 
         if (result.success) {
             const msg = BoxService.formatBoxResult(result);
@@ -82,8 +82,27 @@ export const commands = {
             }
         }
 
-        const summaryStr = summary.slice(0, 4).join(', '); // Mostra top 4
-        client.say(channel, `@${user.username} Total: ${stats.total} jogos. [${summaryStr}]`);
+    },
+
+    // !stats
+    stats: (client, channel, user, args) => {
+        const userData = UserService.getOrCreateUser(user.username);
+        const inventoryStats = UserService.getInventoryStats(user.username);
+
+        // Formata moedas
+        const coins = formatCurrency(userData.coins);
+
+        // Contagem de jogos por raridade (apenas as que o usuário tem)
+        const rarities = ['SSS', 'SS', 'S', 'A+', 'A', 'B', 'C', 'D', 'E'];
+        const rarityBreakdown = rarities
+            .filter(r => inventoryStats.byRarity[r] > 0)
+            .map(r => `${r}:${inventoryStats.byRarity[r]}`)
+            .join(' | ');
+
+        const rarityText = rarityBreakdown || 'Nenhum jogo ainda';
+
+        const msg = `📊 Status de ${user.username} | 💰 ${coins} | 📦 ${userData.boxCount} caixas | 🎮 ${inventoryStats.total} jogos [${rarityText}]`;
+        client.say(channel, msg);
     },
 
     // --- Comandos de Admin ---

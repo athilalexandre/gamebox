@@ -1,6 +1,7 @@
 [
   {
     "name": "!help",
+    "type": "core",
     "description": "Mostra a lista de comandos disponíveis",
     "enabled": true,
     "cooldown": 5,
@@ -12,6 +13,7 @@
   },
   {
     "name": "!balance",
+    "type": "core",
     "description": "Mostra seu saldo de moedas e caixas",
     "enabled": true,
     "cooldown": 3,
@@ -24,6 +26,7 @@
   },
   {
     "name": "!inventory",
+    "type": "core",
     "description": "Mostra seus jogos coletados por raridade",
     "enabled": true,
     "cooldown": 5,
@@ -35,7 +38,21 @@
     ]
   },
   {
+    "name": "!stats",
+    "type": "core",
+    "description": "Mostra seu status completo (moedas, caixas, jogos)",
+    "enabled": true,
+    "cooldown": 3,
+    "level": "viewer",
+    "aliases": [
+      "!status",
+      "!perfil",
+      "!me"
+    ]
+  },
+  {
     "name": "!buybox",
+    "type": "core",
     "description": "Compra uma caixa de jogo com moedas",
     "enabled": true,
     "cooldown": 2,
@@ -47,6 +64,7 @@
   },
   {
     "name": "!openbox",
+    "type": "core",
     "description": "Abre uma caixa e revela um jogo aleatório",
     "enabled": true,
     "cooldown": 2,
@@ -58,6 +76,7 @@
   },
   {
     "name": "!givecoins",
+    "type": "core",
     "description": "Dá moedas para um usuário (Admin)",
     "enabled": true,
     "cooldown": 0,
@@ -68,6 +87,7 @@
   },
   {
     "name": "!givebox",
+    "type": "core",
     "description": "Dá caixas para um usuário (Admin)",
     "enabled": true,
     "cooldown": 0,
@@ -78,6 +98,7 @@
   },
   {
     "name": "!resetuser",
+    "type": "core",
     "description": "Reseta o inventário de um usuário (Admin)",
     "enabled": true,
     "cooldown": 0,
