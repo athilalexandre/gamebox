@@ -1,229 +1,251 @@
-import { loadUsers, saveUsers } from '../utils/storage.js';
+import { UserRepository, ConfigRepository } from '../db/repositories/index.js';
+
+/**
+ * UserService - Wrapper around UserRepository for backward compatibility
+ * All functions now use MongoDB instead of JSON files
+ */
 
 /**
  * Obtém ou cria um usuário
  * @param {string} username - Nome do usuário
- * @returns {Object} Dados do usuário
+ * @returns {Promise<Object>} Dados do usuário
  */
-export function getOrCreateUser(username) {
-    const users = loadUsers();
-
-    if (!users[username]) {
-        users[username] = {
-            coins: 0,
-            boxCount: 0,
-            role: 'viewer',
-            inventory: [],
-            createdAt: new Date().toISOString(),
-            lastActive: new Date().toISOString(),
-            lastMessageReward: null,
-            lastDailyRewardAt: null
-        };
-        saveUsers(users);
-    }
-
-    return users[username];
+export async function getOrCreateUser(username) {
+    return await UserRepository.findOrCreateUser(username);
 }
 
 /**
  * Atualiza dados de um usuário
  * @param {string} username - Nome do usuário
  * @param {Object} updates - Campos para atualizar
- * @returns {Object} Usuário atualizado
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function updateUser(username, updates) {
-    const users = loadUsers();
-
-    if (!users[username]) {
-        users[username] = getOrCreateUser(username);
-    }
-
-    users[username] = {
-        ...users[username],
-        ...updates,
-        lastActive: new Date().toISOString()
-    };
-
-    saveUsers(users);
-    return users[username];
+export async function updateUser(username, updates) {
+    return await UserRepository.updateUser(username, updates);
 }
 
 /**
  * Adiciona moedas a um usuário
  * @param {string} username - Nome do usuário
  * @param {number} amount - Quantidade de moedas
- * @returns {Object} Usuário atualizado
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function addCoins(username, amount) {
-    const user = getOrCreateUser(username);
-    return updateUser(username, {
-        coins: user.coins + amount
-    });
+export async function addCoins(username, amount) {
+    return await UserRepository.addCoins(username, amount);
 }
 
 /**
  * Remove moedas de um usuário
  * @param {string} username - Nome do usuário
  * @param {number} amount - Quantidade de moedas
- * @returns {Object|null} Usuário atualizado ou null se não tiver moedas suficientes
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function removeCoins(username, amount) {
-    const user = getOrCreateUser(username);
-
-    if (user.coins < amount) {
-        return null;
-    }
-
-    return updateUser(username, {
-        coins: user.coins - amount
-    });
+export async function removeCoins(username, amount) {
+    return await UserRepository.removeCoins(username, amount);
 }
 
 /**
  * Adiciona caixas a um usuário
  * @param {string} username - Nome do usuário
  * @param {number} amount - Quantidade de caixas
- * @returns {Object} Usuário atualizado
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function addBoxes(username, amount) {
-    const user = getOrCreateUser(username);
-    return updateUser(username, {
-        boxCount: user.boxCount + amount
-    });
+export async function addBoxes(username, amount) {
+    return await UserRepository.addBoxes(username, amount);
 }
 
 /**
  * Remove caixas de um usuário
  * @param {string} username - Nome do usuário
  * @param {number} amount - Quantidade de caixas
- * @returns {Object|null} Usuário atualizado ou null se não tiver caixas suficientes
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function removeBoxes(username, amount) {
-    const user = getOrCreateUser(username);
-
-    if (user.boxCount < amount) {
-        return null;
-    }
-
-    return updateUser(username, {
-        boxCount: user.boxCount - amount
-    });
+export async function removeBoxes(username, amount) {
+    return await UserRepository.removeBoxes(username, amount);
 }
 
 /**
- * Adiciona um jogo ao inventário do usuário
+ * Adiciona um jogo ao inventário
  * @param {string} username - Nome do usuário
- * @param {Object} game - Dados do jogo
- * @returns {Object} Usuário atualizado
+ * @param {ObjectId} gameId - ID do jogo
+ * @param {number} quantity - Quantidade (default 1)
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function addGameToInventory(username, game) {
-    const user = getOrCreateUser(username);
-
-    const inventoryItem = {
-        gameId: game.id,
-        gameName: game.name,
-        rarity: game.rarity,
-        console: game.console,
-        releaseYear: game.releaseYear,
-        pulledAt: new Date().toISOString()
-    };
-
-    return updateUser(username, {
-        inventory: [...user.inventory, inventoryItem]
-    });
+export async function addGameToInventory(username, gameId, quantity = 1) {
+    return await UserRepository.addGameToInventory(username, gameId, quantity);
 }
 
 /**
- * Obtém estatísticas do inventário do usuário
+ * Remove um jogo do inventário
  * @param {string} username - Nome do usuário
- * @returns {Object} Estatísticas por raridade
+ * @param {ObjectId} gameId - ID do jogo
+ * @param {number} quantity - Quantidade (default 1)
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function getInventoryStats(username) {
-    const user = getOrCreateUser(username);
-
-    const stats = {
-        total: user.inventory.length,
-        byRarity: {
-            E: 0,
-            D: 0,
-            C: 0,
-            B: 0,
-            A: 0,
-            'A+': 0,
-            S: 0,
-            SS: 0,
-            SSS: 0
-        },
-        recent: user.inventory.slice(-5).reverse()
-    };
-
-    user.inventory.forEach(item => {
-        if (stats.byRarity[item.rarity] !== undefined) {
-            stats.byRarity[item.rarity]++;
-        }
-    });
-
-    return stats;
+export async function removeGameFromInventory(username, gameId, quantity = 1) {
+    return await UserRepository.removeGameFromInventory(username, gameId, quantity);
 }
 
 /**
- * Reseta o inventário e moedas de um usuário
+ * Obtém inventário do usuário com dados dos jogos
  * @param {string} username - Nome do usuário
- * @returns {Object} Usuário resetado
+ * @returns {Promise<Array>} Inventário com jogos populados
  */
-export function resetUser(username) {
-    return updateUser(username, {
-        coins: 0,
-        boxCount: 0,
-        inventory: []
-    });
+export async function getUserInventory(username) {
+    return await UserRepository.getUserInventory(username);
 }
 
 /**
- * Define o papel/permissão de um usuário
+ * Adiciona XP ao usuário
  * @param {string} username - Nome do usuário
- * @param {string} role - Papel (viewer, mod, admin)
- * @returns {Object} Usuário atualizado
+ * @param {number} amount - Quantidade de XP
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function setUserRole(username, role) {
-    return updateUser(username, { role });
+export async function addXP(username, amount) {
+    const config = await ConfigRepository.getConfig();
+    return await UserRepository.addXP(username, amount, config.levelTable);
 }
 
 /**
  * Obtém todos os usuários
- * @returns {Object} Todos os usuários
+ * @returns {Promise<Array>} Lista de usuários
  */
-export function getAllUsers() {
-    return loadUsers();
+export async function getAllUsers() {
+    return await UserRepository.getAllUsers();
 }
 
 /**
- * Verifica se pode dar recompensa por mensagem
+ * Obtém usuário por nome
  * @param {string} username - Nome do usuário
- * @param {number} cooldownSeconds - Cooldown em segundos
- * @returns {boolean} Se pode dar recompensa
+ * @returns {Promise<Object|null>} Usuário ou null
  */
-export function canRewardMessage(username, cooldownSeconds) {
-    const user = getOrCreateUser(username);
+export async function getUserByName(username) {
+    return await UserRepository.getUserByName(username);
+}
+
+/**
+ * Obtém leaderboard
+ * @param {number} limit - Número de usuários
+ * @returns {Promise<Array>} Top usuários
+ */
+export async function getLeaderboard(limit = 10) {
+    return await UserRepository.getLeaderboard(limit);
+}
+
+/**
+ * Verifica se usuário pode receber moedas por mensagem
+ * @param {string} username - Nome do usuário
+ * @param {number} cooldown - Cooldown em segundos
+ * @returns {Promise<boolean>} Pode receber
+ */
+export async function canReceiveMessageCoins(username, cooldown) {
+    const user = await getOrCreateUser(username);
 
     if (!user.lastMessageReward) {
         return true;
     }
 
-    const lastReward = new Date(user.lastMessageReward);
-    const now = new Date();
-    const diffSeconds = (now - lastReward) / 1000;
+    const lastReward = new Date(user.lastMessageReward).getTime();
+    const now = Date.now();
+    const elapsed = (now - lastReward) / 1000;
 
-    return diffSeconds >= cooldownSeconds;
+    return elapsed >= cooldown;
 }
 
 /**
- * Marca que o usuário recebeu recompensa por mensagem
+ * Atualiza timestamp de última recompensa por mensagem
  * @param {string} username - Nome do usuário
- * @returns {Object} Usuário atualizado
+ * @returns {Promise<Object>} Usuário atualizado
  */
-export function markMessageRewarded(username) {
-    return updateUser(username, {
-        lastMessageReward: new Date().toISOString()
+export async function updateMessageRewardTime(username) {
+    return await updateUser(username, {
+        lastMessageReward: new Date()
     });
+}
+
+/**
+ * Verifica se usuário pode receber daily reward
+ * @param {string} username - Nome do usuário
+ * @param {number} cooldownHours - Cooldown em horas
+ * @returns {Promise<boolean>} Pode receber
+ */
+export async function canClaimDaily(username, cooldownHours) {
+    return await UserRepository.canClaimDaily(username, cooldownHours);
+}
+
+/**
+ * Atualiza timestamp de último daily reward
+ * @param {string} username - Nome do usuário
+ * @returns {Promise<Object>} Usuário atualizado  
+ */
+export async function updateLastDailyReward(username) {
+    return await UserRepository.updateLastDailyReward(username);
+}
+
+/**
+ * Obtém nível do usuário baseado no XP
+ * @param {number} xp - Quantidade de XP
+ * @returns {Promise<Object>} Informações do nível
+ */
+export async function getLevelInfo(xp) {
+    const config = await ConfigRepository.getConfig();
+    const levelTable = config.levelTable;
+
+    if (!levelTable || levelTable.length === 0) {
+        return { level: 1, name: 'Iniciante', xpForNext: 100, progress: 0 };
+    }
+
+    // Find current level
+    let currentLevel = levelTable[0];
+    for (const entry of levelTable) {
+        if (xp >= entry.xp) {
+            currentLevel = entry;
+        } else {
+            break;
+        }
+    }
+
+    // Find next level
+    const currentIndex = levelTable.findIndex(l => l.level === currentLevel.level);
+    const nextLevel = levelTable[currentIndex + 1] || currentLevel;
+
+    // Calculate progress
+    const xpInCurrentLevel = xp - currentLevel.xp;
+    const xpNeededForNext = nextLevel.xp - currentLevel.xp;
+    const progress = xpNeededForNext > 0
+        ? Math.floor((xpInCurrentLevel / xpNeededForNext) * 100)
+        : 100;
+
+    return {
+        level: currentLevel.level,
+        name: currentLevel.name,
+        currentXP: xp,
+        xpForCurrentLevel: currentLevel.xp,
+        xpForNext: nextLevel.xp,
+        xpNeeded: Math.max(0, nextLevel.xp - xp),
+        progress
+    };
+}
+
+/**
+ * Formata informações do usuário para exibição
+ * @param {Object} user - Dados do usuário
+ * @returns {Promise<Object>} Informações formatadas
+ */
+export async function formatUserInfo(user) {
+    const config = await ConfigRepository.getConfig();
+    const levelInfo = await getLevelInfo(user.xp);
+
+    return {
+        username: user.username,
+        coins: user.coins,
+        boxes: user.boxCount,
+        inventoryCount: user.inventory.length,
+        level: levelInfo.level,
+        levelName: levelInfo.name,
+        xp: user.xp,
+        progress: levelInfo.progress,
+        xpNeeded: levelInfo.xpNeeded,
+        currencyName: config.currencyName
+    };
 }
