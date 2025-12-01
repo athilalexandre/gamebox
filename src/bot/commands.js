@@ -57,7 +57,8 @@ export const commands = {
     },
 
     // !inventory
-    inventory: (client, channel, user, args) => {
+    inventory: async (client, channel, user, args) => {
+        const userData = UserService.getOrCreateUser(user.username);
         const stats = UserService.getInventoryStats(user.username);
 
         if (stats.total === 0) {
@@ -65,8 +66,8 @@ export const commands = {
             return;
         }
 
-        // Mostra as 3 maiores raridades que o usuário tem
-        const rarities = ['SSS', 'SS', 'S', 'A+', 'A', 'B', 'C', 'D', 'E'];
+        // Mostra resumo no chat
+        const rarities = ['SSS', 'SS', 'S', 'A', 'B', 'C', 'D', 'E'];
         let summary = [];
 
         for (const r of rarities) {
@@ -77,6 +78,76 @@ export const commands = {
 
         const msg = summary.join(' | ');
         client.say(channel, `@${user.username} Inventário (${stats.total} jogos): ${msg}`);
+
+        // Envia lista detalhada (whisper ou chat dependendo se é o bot)
+        if (userData.inventory && userData.inventory.length > 0) {
+            const gamesList = userData.inventory
+                .map((game, index) => `${index + 1}. ${game.name} [${game.rarity}]`)
+                .join(', ');
+
+            const maxLength = 450;
+            const isBotAccount = user.username.toLowerCase() === client.getUsername().toLowerCase();
+
+            try {
+                if (isBotAccount) {
+                    // Se for o próprio bot, envia no chat público
+                    if (gamesList.length <= maxLength) {
+                        client.say(channel, `📦 Jogos: ${gamesList}`);
+                    } else {
+                        // Divide em múltiplas mensagens no chat
+                        const games = userData.inventory;
+                        let currentMessage = '📦 Jogos: ';
+                        let messageCount = 1;
+
+                        for (let i = 0; i < games.length; i++) {
+                            const gameEntry = `${i + 1}. ${games[i].name} [${games[i].rarity}]`;
+
+                            if ((currentMessage + gameEntry).length > maxLength) {
+                                client.say(channel, currentMessage);
+                                currentMessage = `(Parte ${++messageCount}) `;
+                            }
+
+                            currentMessage += (currentMessage.endsWith(' ') ? '' : ', ') + gameEntry;
+                        }
+
+                        if (currentMessage.length > 0) {
+                            client.say(channel, currentMessage);
+                        }
+                    }
+                } else {
+                    // Envia whisper para outros usuários
+                    if (gamesList.length <= maxLength) {
+                        await client.whisper(user.username, `📦 Seus jogos: ${gamesList}`);
+                    } else {
+                        // Divide em múltiplos whispers
+                        const games = userData.inventory;
+                        let currentMessage = '📦 Seus jogos: ';
+                        let messageCount = 1;
+
+                        for (let i = 0; i < games.length; i++) {
+                            const gameEntry = `${i + 1}. ${games[i].name} [${games[i].rarity}]`;
+
+                            if ((currentMessage + gameEntry).length > maxLength) {
+                                await client.whisper(user.username, currentMessage);
+                                currentMessage = `(Parte ${++messageCount}) `;
+                            }
+
+                            currentMessage += (currentMessage.endsWith(' ') ? '' : ', ') + gameEntry;
+                        }
+
+                        if (currentMessage.length > 0) {
+                            await client.whisper(user.username, currentMessage);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error(`Erro ao enviar lista de jogos para ${user.username}:`, error.message);
+                // Se falhar o whisper, tenta enviar no chat
+                if (!isBotAccount) {
+                    client.say(channel, `@${user.username} Não foi possível enviar whisper. Verifique suas configurações de privacidade.`);
+                }
+            }
+        }
     },
 
     // !stats
@@ -90,7 +161,7 @@ export const commands = {
         const levelInfo = XpService.calculateLevel(xp);
 
         const coins = formatCurrency(userData.coins);
-        const rarities = ['SSS', 'SS', 'S', 'A+', 'A', 'B', 'C', 'D', 'E'];
+        const rarities = ['SSS', 'SS', 'S', 'A', 'B', 'C', 'D', 'E'];
         const rarityBreakdown = rarities
             .filter(r => inventoryStats.byRarity[r] > 0)
             .map(r => `${r}:${inventoryStats.byRarity[r]}`)

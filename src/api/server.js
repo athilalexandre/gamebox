@@ -73,6 +73,45 @@ app.put('/api/settings', (req, res) => {
     }
 });
 
+// Reset Database (DANGER ZONE)
+app.post('/api/reset-database', async (req, res) => {
+    try {
+        const fs = await import('fs');
+        const path = await import('path');
+        const { fileURLToPath } = await import('url');
+
+        const __filename = fileURLToPath(import.meta.url);
+        const __dirname = path.dirname(__filename);
+        const dataDir = path.join(__dirname, '../../data');
+
+        // Deleta todos os arquivos de dados
+        const filesToDelete = ['games.json', 'users.json', 'commands.json'];
+
+        filesToDelete.forEach(file => {
+            const filePath = path.join(dataDir, file);
+            if (fs.existsSync(filePath)) {
+                fs.unlinkSync(filePath);
+            }
+        });
+
+        // Recria arquivos vazios/padrão
+        fs.writeFileSync(path.join(dataDir, 'games.json'), JSON.stringify([], null, 2));
+        fs.writeFileSync(path.join(dataDir, 'users.json'), JSON.stringify({}, null, 2));
+
+        // Recarrega comandos padrão
+        const defaultCommands = [];
+        saveCommands(defaultCommands);
+
+        res.json({
+            success: true,
+            message: 'Banco de dados resetado com sucesso. Todos os dados foram apagados.'
+        });
+    } catch (error) {
+        console.error('Erro ao resetar banco de dados:', error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 // Comandos
 app.get('/api/commands', (req, res) => {
     res.json(loadCommands());
@@ -235,7 +274,7 @@ app.post('/api/igdb/sync', async (req, res) => {
                 releaseYear: igdbGame.first_release_date
                     ? new Date(igdbGame.first_release_date * 1000).getFullYear()
                     : 2000,
-                originalRating: igdbGame.rating || 0,
+                originalRating: igdbGame.aggregated_rating || 0, // Metacritic-based rating
                 cover: igdbGame.cover ? igdbGame.cover.url : null
             };
 

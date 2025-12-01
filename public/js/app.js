@@ -303,17 +303,20 @@ function renderLevelTable(levels) {
     });
 }
 
-function calculateRarity(rating) {
-    if (!rating) return 'C';
-    if (rating >= 95) return 'SSS';
-    if (rating >= 90) return 'SS';
-    if (rating >= 85) return 'S';
-    if (rating >= 80) return 'A+';
-    if (rating >= 75) return 'A';
-    if (rating >= 70) return 'B';
-    if (rating >= 60) return 'C';
-    if (rating >= 50) return 'D';
-    return 'E';
+// Calcula raridade baseada no Metacritic score (aggregated_rating)
+// aggregated_rating vai de 0-100 (similar ao Metacritic)
+function calculateRarity(aggregatedRating) {
+    if (!aggregatedRating) return 'E';
+
+    // Distribuição baseada em score Metacritic
+    if (aggregatedRating >= 95) return 'SSS';  // Masterpieces
+    if (aggregatedRating >= 90) return 'SS';   // Exceptional
+    if (aggregatedRating >= 85) return 'S';    // Excellent
+    if (aggregatedRating >= 80) return 'A';    // Great
+    if (aggregatedRating >= 70) return 'B';    // Good
+    if (aggregatedRating >= 60) return 'C';    // Average
+    if (aggregatedRating >= 50) return 'D';    // Below Average
+    return 'E';  // Poor
 }
 
 // --- Actions ---
@@ -388,10 +391,10 @@ function setupEventListeners() {
         });
 
         if (res.ok) {
-            alert('Configurações salvas!');
+            alert('✅ Configurações salvas com sucesso!\n\nAs alterações foram aplicadas.');
             fetchSettings();
         } else {
-            alert('Erro ao salvar configurações.');
+            alert('❌ Erro ao salvar configurações.\n\nVerifique os dados e tente novamente.');
         }
     });
 
@@ -528,6 +531,12 @@ function setupEventListeners() {
         inputIgdbSearch.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') searchIgdb();
         });
+    }
+
+    // Reset Database Button
+    const btnResetDatabase = document.getElementById('btn-reset-database');
+    if (btnResetDatabase) {
+        btnResetDatabase.addEventListener('click', resetDatabase);
     }
 }
 
@@ -822,9 +831,54 @@ window.importGame = (igdbGame) => {
     const platforms = igdbGame.platforms ? igdbGame.platforms.map(p => p.name).join(', ') : '';
     document.getElementById('game-console').value = platforms;
 
-    // Auto Rarity
-    const rarity = calculateRarity(igdbGame.rating);
+    // Auto Rarity based on Metacritic score
+    const rarity = calculateRarity(igdbGame.aggregated_rating);
     document.getElementById('game-rarity').value = rarity;
 
     document.getElementById('game-modal').classList.remove('hidden');
 };
+
+// Reset Database
+async function resetDatabase() {
+    const confirmation1 = confirm('⚠️ ATENÇÃO! Esta ação irá DELETAR PERMANENTEMENTE todos os dados:\n\n• Todos os usuários\n• Todos os jogos\n• Todos os comandos customizados\n• Todo o histórico\n\nTem CERTEZA que deseja continuar?');
+
+    if (!confirmation1) return;
+
+    const confirmation2 = confirm('🚨 ÚLTIMA CHANCE!\n\nEsta ação é IRREVERSÍVEL!\n\nTodos os dados serão perdidos para sempre.\n\nDeseja realmente continuar?');
+
+    if (!confirmation2) return;
+
+    const confirmation3 = prompt('Digite "RESETAR TUDO" (sem aspas) para confirmar:');
+
+    if (confirmation3 !== 'RESETAR TUDO') {
+        alert('❌ Ação cancelada. Texto não corresponde.');
+        return;
+    }
+
+    const btn = document.getElementById('btn-reset-database');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Resetando...';
+    btn.disabled = true;
+
+    try {
+        const res = await fetch(`${API_URL}/reset-database`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            alert('✅ Banco de dados resetado com sucesso!\n\nTodos os dados foram apagados.\n\nA página será recarregada.');
+            window.location.reload();
+        } else {
+            alert('❌ Erro ao resetar: ' + (data.error || 'Erro desconhecido'));
+        }
+    } catch (err) {
+        console.error(err);
+        alert('❌ Erro ao resetar banco de dados: ' + err.message);
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}

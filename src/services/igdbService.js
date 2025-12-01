@@ -35,8 +35,8 @@ export async function searchGames(query) {
         const token = await getAccessToken();
         const config = loadConfig();
 
-        // Busca jogos, capa, plataformas, data de lançamento, rating e resumo
-        const body = `search "${query}"; fields name, cover.url, platforms.name, first_release_date, rating, summary; limit 20;`;
+        // Busca com aggregated_rating (Metacritic) para melhor precisão
+        const body = `search "${query}"; fields name, cover.url, platforms.name, first_release_date, aggregated_rating, summary; limit 10;`;
 
         const res = await fetch('https://api.igdb.com/v4/games', {
             method: 'POST',
@@ -65,9 +65,9 @@ export async function getTopGames() {
         const token = await getAccessToken();
         const config = loadConfig();
 
-        // Busca jogos populares (rating alto e com bastante votos)
-        // Aumentado limite para 500 para permitir distribuição de raridade
-        const body = `fields name, cover.url, platforms.name, first_release_date, rating, summary; sort rating desc; where rating_count > 10 & rating != null & parent_game = null & version_parent = null; limit 500;`;
+        // Busca jogos com aggregated_rating (Metacritic-based) para distribuição precisa
+        // Ordenado por aggregated_rating para garantir que os melhores jogos fiquem no topo
+        const body = `fields name, cover.url, platforms.name, first_release_date, aggregated_rating, summary; sort aggregated_rating desc; where aggregated_rating_count > 5 & aggregated_rating != null & parent_game = null & version_parent = null; limit 500;`;
 
         const res = await fetch('https://api.igdb.com/v4/games', {
             method: 'POST',
