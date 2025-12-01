@@ -3,7 +3,8 @@ import { startBot } from './bot/index.js';
 import { connectToDatabase } from './db/connection.js';
 import MigrationService from './db/services/MigrationService.js';
 import SeedService from './db/services/SeedService.js';
-import { ConfigRepository } from './db/repositories/index.js';
+import { ConfigRepository, GameRepository } from './db/repositories/index.js';
+import IgdbService from './services/igdbService.js';
 
 async function main() {
     console.log('🎮 Iniciando GameBox...');
@@ -30,14 +31,25 @@ async function main() {
         await SeedService.seedCoreCommands();
         console.log('[INIT] ✅ Core commands ready');
 
-        // ========== 4. CARREGAR CONFIGURAÇÃO ==========
+        // ========== 4. AUTO-SYNC IGDB (SE DB VAZIO) ==========
+        const gameCount = await GameRepository.getCount();
+        if (gameCount === 0) {
+            console.log('[INIT] 🎮 Game database is empty. Starting automatic IGDB sync...');
+            // Run in background so it doesn't block startup, or await if critical
+            // We'll await it to ensure games are ready for the user
+            await IgdbService.syncGames();
+        } else {
+            console.log(`[INIT] ✅ Game database has ${gameCount} games. Skipping auto-sync.`);
+        }
+
+        // ========== 5. CARREGAR CONFIGURAÇÃO ==========
         const config = await ConfigRepository.getConfig();
         const PORT = process.env.PORT || 3000;
 
-        // ========== 5. INICIAR SERVIDOR API/DASHBOARD ==========
+        // ========== 6. INICIAR SERVIDOR API/DASHBOARD ==========
         startServer(PORT);
 
-        // ========== 6. INICIAR BOT (SE CONFIGURADO) ==========
+        // ========== 7. INICIAR BOT (SE CONFIGURADO) ==========
         if (config.twitchOAuthToken && config.twitchBotUsername) {
             console.log('[BOT] Tentando conectar automaticamente...');
             await startBot();
@@ -59,4 +71,3 @@ main().catch(error => {
     console.error('❌ ERRO NÃO TRATADO:', error);
     process.exit(1);
 });
-

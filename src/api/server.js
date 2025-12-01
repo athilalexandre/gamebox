@@ -316,6 +316,20 @@ app.post('/api/reset-database', async (req, res) => {
 });
 
 // ========== IGDB INTEGRATION ==========
+
+app.get('/api/twitch/user/:username', async (req, res) => {
+    try {
+        const userInfo = await IgdbService.getUserInfo(req.params.username);
+        if (userInfo) {
+            res.json(userInfo);
+        } else {
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 app.get('/api/igdb/search', async (req, res) => {
     const query = req.query.q;
     if (!query) {

@@ -282,7 +282,7 @@ async function onMessageHandler(target, context, msg, self) {
     // Usa o handler unificado de comandos
     try {
         broadcastLog(`Comando: ${username} usou ${fullCommandInput}`, 'info');
-        await commands.handle(client, target, { username, ...context }, cmdConfig.name, args, cmdConfig);
+        await commands.handleCommand(client, target, { username, ...context }, msg);
     } catch (error) {
         console.error(`[BOT] Erro ao executar comando ${fullCommandInput}:`, error);
         broadcastLog(`Erro no comando ${fullCommandInput}: ${error.message}`, 'error');
