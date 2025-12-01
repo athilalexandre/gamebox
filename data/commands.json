@@ -14,7 +14,7 @@
       "!saldo"
     ],
     "hidden": false,
-    "response": "💰 {user}, você tem **{balance} {currency}** e **{boxes} caixas**."
+    "response": "💰 {user}, você tem [{balance} {currency}] e [{boxes} caixas]."
   },
   {
     "name": "!level",
@@ -31,7 +31,7 @@
       "!nivel"
     ],
     "hidden": false,
-    "response": "📈 {user}, você está no nível **{level} – {title}** com **{xp} XP**. Você precisa de **{nextlevel} XP** para o próximo nível (**{progress}%**)."
+    "response": "📈 {user}, você está no nível [{level} – {title}] com [{xp} XP]. Você precisa de [{nextlevel} XP] para o próximo nível ([{progress}%])."
   },
   {
     "name": "!profile",
@@ -64,7 +64,7 @@
       "!jogos"
     ],
     "hidden": false,
-    "response": "🎮 {user}, você tem **{inventory} jogos** na sua coleção."
+    "response": "🎮 {user}, você tem [{inventory} jogos] na sua coleção."
   },
   {
     "name": "!rarities",
@@ -160,19 +160,18 @@
   },
   {
     "name": "!gamebox",
-    "type": "custom",
+    "type": "core",
     "core": true,
     "category": "util",
     "description": "Mostra estatísticas globais do GameBox",
     "enabled": true,
     "cooldown": 20,
-    "level": "admin",
+    "level": "viewer",
     "aliases": [
       "!gb",
       "!status"
     ],
-    "hidden": false,
-    "response": ""
+    "hidden": false
   },
   {
     "name": "!help",
@@ -190,38 +189,6 @@
     ],
     "hidden": false,
     "response": "📋 Comandos principais: !balance, !level, !profile, !buybox, !openbox, !inventory, !rarities, !topcoins, !topxp, !gamebox. Use {prefix}help para mais informações!"
-  },
-  {
-    "name": "!uptime",
-    "type": "core",
-    "core": true,
-    "category": "util",
-    "description": "Mostra há quanto tempo o bot está online",
-    "enabled": true,
-    "cooldown": 30,
-    "level": "viewer",
-    "aliases": [
-      "!tempo",
-      "!online"
-    ],
-    "hidden": false,
-    "response": "⏱️ Bot online há {uptime}. Hora atual: {time} – {date}."
-  },
-  {
-    "name": "!game",
-    "type": "core",
-    "core": true,
-    "category": "util",
-    "description": "Mostra o jogo atual da stream",
-    "enabled": true,
-    "cooldown": 10,
-    "level": "viewer",
-    "aliases": [
-      "!jogo",
-      "!now"
-    ],
-    "hidden": false,
-    "response": "🎮 Jogo atual da stream: {game}."
   },
   {
     "name": "!giftcoins",
@@ -243,15 +210,62 @@
     "type": "core",
     "core": true,
     "category": "economy",
-    "description": "Resgata sua recompensa diária",
+    "description": "Resgata sua recompensa diária (Coins, Caixas ou Jogos)",
     "enabled": true,
     "cooldown": 86400,
     "level": "viewer",
     "aliases": [
       "!bonus",
-      "!login"
+      "!login",
+      "!diario"
     ],
     "hidden": false
+  },
+  {
+    "name": "!trade",
+    "type": "core",
+    "core": true,
+    "category": "game",
+    "description": "Inicia uma troca de jogos com outro usuário",
+    "enabled": true,
+    "cooldown": 10,
+    "level": "viewer",
+    "aliases": [
+      "!troca",
+      "!trocar"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "!sim",
+    "type": "core",
+    "core": true,
+    "category": "game",
+    "description": "Aceita uma troca pendente",
+    "enabled": true,
+    "cooldown": 0,
+    "level": "viewer",
+    "aliases": [
+      "!yes",
+      "!aceitar"
+    ],
+    "hidden": true
+  },
+  {
+    "name": "!nao",
+    "type": "core",
+    "core": true,
+    "category": "game",
+    "description": "Rejeita uma troca pendente",
+    "enabled": true,
+    "cooldown": 0,
+    "level": "viewer",
+    "aliases": [
+      "!no",
+      "!não",
+      "!recusar"
+    ],
+    "hidden": true
   },
   {
     "name": "!adminaddcoins",

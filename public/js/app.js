@@ -86,6 +86,10 @@ function setupNavigation() {
                 loadCommands();
             }
             if (pageId === 'settings') fetchSettings();
+            if (pageId === 'trading') {
+                fetchSettings();
+                fetchTrades();
+            }
         });
     });
 }
@@ -310,6 +314,14 @@ function fillSettingsForm() {
     document.getElementById('conf-igdb-id').value = s.igdbClientId || '';
     document.getElementById('conf-igdb-secret').value = s.igdbClientSecret || '';
 
+    // Trading
+    if (document.getElementById('trading-enabled')) {
+        document.getElementById('trading-enabled').checked = s.tradingEnabled !== false;
+        document.getElementById('trade-cost').value = s.tradeCoinCost || 50;
+        document.getElementById('trade-min-coins').value = s.tradeMinCoinsRequired || 100;
+        document.getElementById('trade-cooldown').value = s.tradeCommandCooldownSeconds || 60;
+    }
+
     // Level Table
     renderLevelTable(s.levelTable || []);
 }
@@ -431,6 +443,35 @@ function setupEventListeners() {
     document.getElementById('search-games').addEventListener('input', renderGamesTable);
     document.getElementById('filter-rarity').addEventListener('change', renderGamesTable);
     document.getElementById('search-users').addEventListener('input', renderUsersTable);
+
+
+
+    // Save Trade Config
+    const btnSaveTrade = document.getElementById('btn-save-trade-config');
+    if (btnSaveTrade) {
+        btnSaveTrade.addEventListener('click', async () => {
+            const config = {
+                ...currentState.settings,
+                tradingEnabled: document.getElementById('trading-enabled').checked,
+                tradeCoinCost: parseInt(document.getElementById('trade-cost').value),
+                tradeMinCoinsRequired: parseInt(document.getElementById('trade-min-coins').value),
+                tradeCommandCooldownSeconds: parseInt(document.getElementById('trade-cooldown').value)
+            };
+
+            const res = await fetch(`${API_URL}/settings`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(config)
+            });
+
+            if (res.ok) {
+                alert('Configurações de troca salvas com sucesso!');
+                fetchSettings();
+            } else {
+                alert('Erro ao salvar configurações.');
+            }
+        });
+    }
 
     // Game Modal
     document.getElementById('btn-add-game').addEventListener('click', () => {

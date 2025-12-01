@@ -3,7 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { startBot, stopBot, getBotStatus } from '../bot/index.js';
-import { loadConfig, saveConfig, loadCommands, saveCommands } from '../utils/storage.js';
+import { loadConfig, saveConfig, loadCommands, saveCommands, loadTrades } from '../utils/storage.js';
 import * as UserService from '../services/userService.js';
 import * as GameService from '../services/gameService.js';
 import * as IgdbService from '../services/igdbService.js';
@@ -73,6 +73,12 @@ app.put('/api/settings', (req, res) => {
     }
 });
 
+// Trades
+app.get('/api/trades', (req, res) => {
+    const trades = loadTrades();
+    res.json(trades);
+});
+
 // Reset Database (DANGER ZONE)
 app.post('/api/reset-database', async (req, res) => {
     try {
@@ -86,7 +92,7 @@ app.post('/api/reset-database', async (req, res) => {
         const dataDir = path.join(__dirname, '../../data');
 
         // Deleta arquivos de dados de usuários e jogos
-        const filesToDelete = ['games.json', 'users.json'];
+        const filesToDelete = ['games.json', 'users.json', 'trades.json'];
 
         filesToDelete.forEach(file => {
             const filePath = path.join(dataDir, file);
@@ -98,6 +104,7 @@ app.post('/api/reset-database', async (req, res) => {
         // Recria arquivos vazios/padrão
         fs.writeFileSync(path.join(dataDir, 'games.json'), JSON.stringify([], null, 2));
         fs.writeFileSync(path.join(dataDir, 'users.json'), JSON.stringify({}, null, 2));
+        fs.writeFileSync(path.join(dataDir, 'trades.json'), JSON.stringify([], null, 2));
 
         // Remove apenas comandos customizados (preserva core)
         resetCustomCommands();

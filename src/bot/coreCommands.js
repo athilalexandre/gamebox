@@ -198,12 +198,55 @@ export const CORE_COMMANDS = [
         type: 'core',
         core: true,
         category: 'economy',
-        description: 'Resgata sua recompensa diária',
+        description: 'Resgata sua recompensa diária (Coins, Caixas ou Jogos)',
         enabled: true,
-        cooldown: 86400, // 24 hours
+        cooldown: 5, // Lógica interna verifica 24h
         level: 'viewer',
-        aliases: ['!bonus', '!login'],
+        aliases: ['!bonus', '!login', '!diario'],
         hidden: false,
+        // Handler will be implemented in code
+    },
+
+    // ==================== TRADING SYSTEM ====================
+    {
+        name: '!trade',
+        type: 'core',
+        core: true,
+        category: 'game',
+        description: 'Inicia uma troca de jogos com outro usuário',
+        enabled: true,
+        cooldown: 10,
+        level: 'viewer',
+        aliases: ['!troca', '!trocar'],
+        hidden: false,
+        // Handler will be implemented in code
+    },
+
+    {
+        name: '!sim',
+        type: 'core',
+        core: true,
+        category: 'game',
+        description: 'Aceita uma troca pendente',
+        enabled: true,
+        cooldown: 0,
+        level: 'viewer',
+        aliases: ['!yes', '!aceitar'],
+        hidden: true,
+        // Handler will be implemented in code
+    },
+
+    {
+        name: '!nao',
+        type: 'core',
+        core: true,
+        category: 'game',
+        description: 'Rejeita uma troca pendente',
+        enabled: true,
+        cooldown: 0,
+        level: 'viewer',
+        aliases: ['!no', '!não', '!recusar'],
+        hidden: true,
         // Handler will be implemented in code
     },
 

@@ -16,7 +16,8 @@ export function getOrCreateUser(username) {
             inventory: [],
             createdAt: new Date().toISOString(),
             lastActive: new Date().toISOString(),
-            lastMessageReward: null
+            lastMessageReward: null,
+            lastDailyRewardAt: null
         };
         saveUsers(users);
     }

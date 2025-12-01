@@ -15,6 +15,9 @@ const DATA_DIR = path.join(__dirname, '../../data');
 export function readJSON(filename) {
   try {
     const filePath = path.join(DATA_DIR, filename);
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
     const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
@@ -39,13 +42,12 @@ export function writeJSON(filename, data) {
     return false;
   }
 }
-
 /**
  * Carrega a configuração do bot
  * @returns {Object} Configuração
  */
 export function loadConfig() {
-  return readJSON('config.json') || {
+  const defaults = {
     // Configurações do Bot Twitch
     twitchBotUsername: '',
     twitchOAuthToken: '',
@@ -99,16 +101,26 @@ export function loadConfig() {
     boxOpenAnimation: true,          // Mostrar animação ao abrir caixa
     rarityAnnouncement: true,        // Anunciar raridades altas (S+) no chat
 
+    // Sistema de Recompensa Diária
+    dailyEnabled: true,
+    dailyCooldownHours: 24,
+    dailyCoinsAmount: 200,
+    dailyBoxesAmount: 1,
+    dailyGameEBRarities: ['E', 'D', 'C', 'B'],
+
+    // Sistema de Trocas (Trading)
+    tradingEnabled: true,
+    tradeCoinCost: 50,
+    tradeMinCoinsRequired: 100,
+    tradeCommandCooldownSeconds: 60,
+
     // Estado do Bot
     botConnected: false
   };
-}
 
-/**
- * Salva a configuração do bot
- * @param {Object} config - Configuração para salvar
- * @returns {boolean} Sucesso
- */
+  const loaded = readJSON('config.json') || {};
+  return { ...defaults, ...loaded };
+}
 export function saveConfig(config) {
   return writeJSON('config.json', config);
 }
@@ -148,20 +160,31 @@ export function saveGames(games) {
 }
 
 /**
- * Carrega configuração de comandos
- * @returns {Array} Array de comandos
+ * Carrega a lista de comandos
  */
 export function loadCommands() {
   return readJSON('commands.json') || [];
 }
 
 /**
- * Salva configuração de comandos
- * @param {Array} commands - Array de comandos
- * @returns {boolean} Sucesso
+ * Salva a lista de comandos
  */
 export function saveCommands(commands) {
   return writeJSON('commands.json', commands);
+}
+
+/**
+ * Carrega a lista de trocas
+ */
+export function loadTrades() {
+  return readJSON('trades.json') || [];
+}
+
+/**
+ * Salva a lista de trocas
+ */
+export function saveTrades(trades) {
+  return writeJSON('trades.json', trades);
 }
 
 /**

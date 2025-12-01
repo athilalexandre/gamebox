@@ -2,6 +2,8 @@ import * as UserService from '../services/userService.js';
 import * as BoxService from '../services/boxService.js';
 import * as XpService from '../services/xpService.js';
 import * as GameService from '../services/gameService.js';
+import * as DailyService from '../services/dailyService.js';
+import * as TradeService from '../services/tradeService.js';
 import { loadConfig, loadCommands } from '../utils/storage.js';
 import { CORE_COMMANDS } from './coreCommands.js';
 
@@ -127,9 +129,8 @@ const coreHandlers = {
         }
     },
 
-    // !inventory
+    // !inventory - APENAS UMA MENSAGEM
     inventory: async (client, channel, user, args) => {
-        const userData = UserService.getOrCreateUser(user.username);
         const stats = UserService.getInventoryStats(user.username);
 
         if (stats.total === 0) {
@@ -137,29 +138,14 @@ const coreHandlers = {
             return;
         }
 
-        // Resumo com raridades no chat
+        // APENAS uma mensagem com resumo completo
         const rarities = ['SSS', 'SS', 'S', 'A', 'B', 'C', 'D', 'E'];
         const rarityText = rarities
             .filter(r => stats.byRarity[r] > 0)
-            .map(r => `${r}:${stats.byRarity[r]}`)
+            .map(r => `${r}: ${stats.byRarity[r]}`)
             .join(' | ');
 
-        client.say(channel, `🎮 @${user.username}, você tem ${stats.total} jogo(s) na coleção. ${rarityText}`);
-
-        // Lista de jogos (primeiros 5) diretamente no chat
-        if (userData.inventory && userData.inventory.length > 0) {
-            const gamesToShow = userData.inventory.slice(0, 5); // Primeiros 5
-            const gamesList = gamesToShow
-                .map((game, index) => {
-                    const gameName = game.name || game.gameName || 'Jogo Desconhecido';
-                    const rarity = game.rarity || 'E';
-                    return `${index + 1}. ${gameName} [${rarity}]`;
-                })
-                .join(', ');
-
-            const moreGames = userData.inventory.length > 5 ? ` (+${userData.inventory.length - 5} outros)` : '';
-            client.say(channel, `📦 Jogos: ${gamesList}${moreGames}`);
-        }
+        client.say(channel, `🎮 @${user.username}, você tem [${stats.total} jogo(s)] na coleção. ${rarityText}`);
     },
 
     // !topcoins
@@ -242,8 +228,62 @@ const coreHandlers = {
 
     // !daily
     daily: (client, channel, user, args) => {
-        // Implementação futura de daily reward
-        client.say(channel, `@${user.username} Sistema de recompensa diária em breve!`);
+        const result = DailyService.claimDaily(user.username);
+        if (result.success) {
+            client.say(channel, result.message);
+        } else {
+            if (result.type === 'cooldown') {
+                client.say(channel, result.message);
+            } else {
+                client.say(channel, `❌ @${user.username} ${result.error}`);
+            }
+        }
+    },
+
+    // !trade
+    trade: (client, channel, user, args) => {
+        if (args.length < 2) {
+            client.say(channel, `@${user.username} Uso: !trade <@usuario> <seu jogo> | <jogo dele>`);
+            return;
+        }
+
+        const target = args[0].replace('@', '');
+        const rest = args.slice(1).join(' ');
+
+        let myGame, theirGame;
+        if (rest.includes('|')) {
+            [myGame, theirGame] = rest.split('|').map(s => s.trim());
+        } else {
+            client.say(channel, `@${user.username} Use "|" para separar os jogos. Ex: !trade @${target} Mario | Zelda`);
+            return;
+        }
+
+        const result = TradeService.initiateTrade(user.username, target, myGame, theirGame);
+        if (result.success) {
+            client.say(channel, result.message);
+        } else {
+            client.say(channel, `❌ @${user.username} ${result.error}`);
+        }
+    },
+
+    // !sim
+    sim: (client, channel, user, args) => {
+        const result = TradeService.acceptTrade(user.username);
+        if (result.success) {
+            client.say(channel, result.message);
+        } else {
+            client.say(channel, `❌ @${user.username} ${result.error}`);
+        }
+    },
+
+    // !nao
+    nao: (client, channel, user, args) => {
+        const result = TradeService.rejectTrade(user.username);
+        if (result.success) {
+            client.say(channel, result.message);
+        } else {
+            client.say(channel, `❌ @${user.username} ${result.error}`);
+        }
     },
 
     // Admin Commands
