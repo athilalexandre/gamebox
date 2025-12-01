@@ -173,3 +173,19 @@ export function getRandomGameByRarity(rarity) {
     const randomIndex = Math.floor(Math.random() * games.length);
     return games[randomIndex];
 }
+
+/**
+ * Salva todos os jogos (substituindo o arquivo inteiro)
+ * Útil para operações em lote como importação massiva
+ * @param {Array} games - Array completo de jogos
+ * @returns {boolean} Sucesso da operação
+ */
+export function saveAllGames(games) {
+    try {
+        saveGames(games);
+        return true;
+    } catch (error) {
+        console.error('Erro ao salvar jogos:', error);
+        return false;
+    }
+}

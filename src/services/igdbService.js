@@ -66,7 +66,8 @@ export async function getTopGames() {
         const config = loadConfig();
 
         // Busca jogos populares (rating alto e com bastante votos)
-        const body = `fields name, cover.url, platforms.name, first_release_date, rating, summary; sort rating desc; where rating_count > 50 & rating != null & parent_game = null; limit 50;`;
+        // Aumentado limite para 500 para permitir distribuição de raridade
+        const body = `fields name, cover.url, platforms.name, first_release_date, rating, summary; sort rating desc; where rating_count > 10 & rating != null & parent_game = null & version_parent = null; limit 500;`;
 
         const res = await fetch('https://api.igdb.com/v4/games', {
             method: 'POST',

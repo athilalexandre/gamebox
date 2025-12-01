@@ -1,5 +1,4535 @@
 [
   {
+    "id": 182,
+    "rarity": "SSS",
+    "name": "Metal Gear Solid: The Legacy Collection",
+    "console": "PlayStation 3",
+    "releaseYear": 2013,
+    "originalRating": 99.55086082028336,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co45jf.jpg"
+  },
+  {
+    "id": 185,
+    "rarity": "SSS",
+    "name": "Wizardry: Bane of the Cosmic Forge",
+    "console": "Satellaview, Linux, PC (Microsoft Windows), Mac, DOS, FM Towns, Amiga, Super Famicom",
+    "releaseYear": 1990,
+    "originalRating": 99.53891576481203,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co285x.jpg"
+  },
+  {
+    "id": 189,
+    "rarity": "SSS",
+    "name": "Golden Axe Warrior",
+    "console": "Sega Master System/Mark III",
+    "releaseYear": 1991,
+    "originalRating": 99.538618212704,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2b8f.jpg"
+  },
+  {
+    "id": 194,
+    "rarity": "SSS",
+    "name": "Lizards Must Die",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2023,
+    "originalRating": 99.47436609291134,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7888.jpg"
+  },
+  {
+    "id": 200,
+    "rarity": "SS",
+    "name": "MLB Power Pros 2008",
+    "console": "Wii, Nintendo DS, PlayStation 2",
+    "releaseYear": 2008,
+    "originalRating": 99.42015575603362,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4hkv.jpg"
+  },
+  {
+    "id": 207,
+    "rarity": "SS",
+    "name": "Batman: Arkham Collection",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2018,
+    "originalRating": 99.36023987127876,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8wgm.jpg"
+  },
+  {
+    "id": 215,
+    "rarity": "SS",
+    "name": "Undertale Yellow",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2023,
+    "originalRating": 99.24412623883276,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2el1.jpg"
+  },
+  {
+    "id": 224,
+    "rarity": "SS",
+    "name": "Scaler",
+    "console": "Xbox, Nintendo GameCube, PlayStation 2",
+    "releaseYear": 2004,
+    "originalRating": 99.21216767537456,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4bvj.jpg"
+  },
+  {
+    "id": 234,
+    "rarity": "SS",
+    "name": "Hrot",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2023,
+    "originalRating": 99.1068557399229,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2omv.jpg"
+  },
+  {
+    "id": 245,
+    "rarity": "SS",
+    "name": "Anstoss 3",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2000,
+    "originalRating": 98.98294206691313,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7ky3.jpg"
+  },
+  {
+    "id": 257,
+    "rarity": "SS",
+    "name": "Adastra",
+    "console": "Linux, Android, PC (Microsoft Windows), Mac",
+    "releaseYear": 2020,
+    "originalRating": 98.77337144218174,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ata.jpg"
+  },
+  {
+    "id": 270,
+    "rarity": "SS",
+    "name": "Kingdom Hearts II Final Mix+",
+    "console": "PlayStation 2",
+    "releaseYear": 2007,
+    "originalRating": 98.5997140189304,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co30ss.jpg"
+  },
+  {
+    "id": 284,
+    "rarity": "SS",
+    "name": "Goblin Sword",
+    "console": "iOS, Nintendo Switch",
+    "releaseYear": 2014,
+    "originalRating": 98.52337318975812,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1zdd.jpg"
+  },
+  {
+    "id": 299,
+    "rarity": "SS",
+    "name": "Pokémon Infinite Fusion",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2015,
+    "originalRating": 98.4708050193513,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7k5u.jpg"
+  },
+  {
+    "id": 315,
+    "rarity": "S",
+    "name": "Castlevania Advance Collection",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 98.37108147036506,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3vn4.jpg"
+  },
+  {
+    "id": 332,
+    "rarity": "S",
+    "name": "Ena: Dream BBQ",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2025,
+    "originalRating": 98.33951867750025,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co62ei.jpg"
+  },
+  {
+    "id": 350,
+    "rarity": "S",
+    "name": "Hiveswap: Act 1",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2017,
+    "originalRating": 98.1826684825902,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1s8t.jpg"
+  },
+  {
+    "id": 369,
+    "rarity": "S",
+    "name": "SOCOM: US Navy SEALs",
+    "console": "PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 98.12035589147862,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co99ju.jpg"
+  },
+  {
+    "id": 389,
+    "rarity": "S",
+    "name": "NextWorld2",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 98.00481321762533,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8gqz.jpg"
+  },
+  {
+    "id": 410,
+    "rarity": "S",
+    "name": "Epiko Regal",
+    "console": "Android, iOS",
+    "releaseYear": 2024,
+    "originalRating": 97.821058428879,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8wq0.jpg"
+  },
+  {
+    "id": 432,
+    "rarity": "S",
+    "name": "Umineko no Naku Koro ni Chiru",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2011,
+    "originalRating": 97.74226168366063,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4szy.jpg"
+  },
+  {
+    "id": 455,
+    "rarity": "S",
+    "name": "Streets of Rage Remake",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2011,
+    "originalRating": 97.5701213851357,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2srh.jpg"
+  },
+  {
+    "id": 479,
+    "rarity": "S",
+    "name": "Voices of the Void",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2000,
+    "originalRating": 97.33112765370831,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8uks.jpg"
+  },
+  {
+    "id": 504,
+    "rarity": "S",
+    "name": "Lurkers",
+    "console": "Web browser, PC (Microsoft Windows)",
+    "releaseYear": 2019,
+    "originalRating": 97.30397394491462,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9hgu.jpg"
+  },
+  {
+    "id": 530,
+    "rarity": "S",
+    "name": "Jurassic Park",
+    "console": "Nintendo Entertainment System",
+    "releaseYear": 1993,
+    "originalRating": 97.22643160240133,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2zpb.jpg"
+  },
+  {
+    "id": 557,
+    "rarity": "S",
+    "name": "Catan Universe",
+    "console": "PC (Microsoft Windows), iOS, Mac, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 97.06011781459662,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co22ve.jpg"
+  },
+  {
+    "id": 150,
+    "name": "Animal Company",
+    "rarity": "S",
+    "console": "Meta Quest 2, SteamVR",
+    "releaseYear": 2024,
+    "genre": null,
+    "series": null,
+    "originalRating": 96.69610648090557,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coauu2.jpg"
+  },
+  {
+    "id": 585,
+    "rarity": "S",
+    "name": "Persona Q2: New Cinema Labyrinth",
+    "console": "Nintendo 3DS",
+    "releaseYear": 2018,
+    "originalRating": 96.59524756647245,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8l09.jpg"
+  },
+  {
+    "id": 614,
+    "rarity": "S",
+    "name": "Beast Battle Simulator",
+    "console": "PC (Microsoft Windows), iOS",
+    "releaseYear": 2017,
+    "originalRating": 96.41172265904217,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1mui.jpg"
+  },
+  {
+    "id": 644,
+    "rarity": "S",
+    "name": "Geotastic",
+    "console": "Web browser",
+    "releaseYear": 2020,
+    "originalRating": 96.39900015622558,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co49cq.jpg"
+  },
+  {
+    "id": 675,
+    "rarity": "S",
+    "name": "Yu-Gi-Oh! ARC-V Tag Force Special",
+    "console": "PlayStation Portable",
+    "releaseYear": 2015,
+    "originalRating": 96.33243416451248,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4kot.jpg"
+  },
+  {
+    "id": 707,
+    "rarity": "S",
+    "name": "Death Stranding 2: On The Beach",
+    "console": "PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 96.22557196782552,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9ipx.jpg"
+  },
+  {
+    "id": 151,
+    "name": "Dragon Ball: Sparking! Zero",
+    "rarity": "S",
+    "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2024,
+    "genre": null,
+    "series": null,
+    "originalRating": 96.21809232255515,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8bhn.jpg"
+  },
+  {
+    "id": 152,
+    "name": "Baldur's Gate III",
+    "rarity": "A",
+    "console": "Google Stadia, Xbox Series X|S, PC (Microsoft Windows), PlayStation 5, Mac",
+    "releaseYear": 2023,
+    "genre": null,
+    "series": null,
+    "originalRating": 96.03589570038564,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co670h.jpg"
+  },
+  {
+    "id": 740,
+    "rarity": "A",
+    "name": "Super Mario All-Stars + Super Mario World",
+    "console": "Super Nintendo Entertainment System",
+    "releaseYear": 1994,
+    "originalRating": 95.97048120107205,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co98uf.jpg"
+  },
+  {
+    "id": 774,
+    "rarity": "A",
+    "name": "Star Control II",
+    "console": "Linux, PC (Microsoft Windows), 3DO Interactive Multiplayer, Mac, DOS",
+    "releaseYear": 1992,
+    "originalRating": 95.92038020803878,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2d9l.jpg"
+  },
+  {
+    "id": 809,
+    "rarity": "A",
+    "name": "Ultima Online",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1997,
+    "originalRating": 95.82737126590315,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2rru.jpg"
+  },
+  {
+    "id": 845,
+    "rarity": "A",
+    "name": "Action Fighter",
+    "console": "Arcade, Commodore C64/128/MAX, ZX Spectrum, Legacy Computer, Atari ST/STE, DOS, Amiga, Amstrad CPC, Sega Master System/Mark III",
+    "releaseYear": 1986,
+    "originalRating": 95.73296269150433,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coacwf.jpg"
+  },
+  {
+    "id": 882,
+    "rarity": "A",
+    "name": "NHL 96",
+    "console": "Super Nintendo Entertainment System, Sega Mega Drive/Genesis, 3DO Interactive Multiplayer, DOS, PlayStation",
+    "releaseYear": 1995,
+    "originalRating": 95.72058792066115,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2gox.jpg"
+  },
+  {
+    "id": 920,
+    "rarity": "A",
+    "name": "My Racing Career",
+    "console": "Web browser, Android",
+    "releaseYear": 2012,
+    "originalRating": 95.6902356902357,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9o2e.jpg"
+  },
+  {
+    "id": 959,
+    "rarity": "A",
+    "name": "Polity",
+    "console": "Android, PC (Microsoft Windows), iOS, Mac",
+    "releaseYear": 2024,
+    "originalRating": 95.6880227688091,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8fui.jpg"
+  },
+  {
+    "id": 999,
+    "rarity": "A",
+    "name": "Kirka.io",
+    "console": "Web browser",
+    "releaseYear": 2000,
+    "originalRating": 95.65604717261273,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3c5d.jpg"
+  },
+  {
+    "id": 1040,
+    "rarity": "A",
+    "name": "Population: One",
+    "console": "Oculus VR, Meta Quest 2, SteamVR, Oculus Quest",
+    "releaseYear": 2020,
+    "originalRating": 95.56756756756756,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2hxt.jpg"
+  },
+  {
+    "id": 1082,
+    "rarity": "A",
+    "name": "Grindstone",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), iOS, PlayStation 5, Nintendo Switch",
+    "releaseYear": 2019,
+    "originalRating": 95.32196177773899,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2f2q.jpg"
+  },
+  {
+    "id": 1125,
+    "rarity": "A",
+    "name": "Hunter Moonstrike",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2025,
+    "originalRating": 95.14242878560721,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co96tr.jpg"
+  },
+  {
+    "id": 1169,
+    "rarity": "A",
+    "name": "Mega Man Legacy Collection 2",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 95.09364511043844,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co204r.jpg"
+  },
+  {
+    "id": 1214,
+    "rarity": "A",
+    "name": "Bad End Theater",
+    "console": "Xbox Series X|S, PlayStation 4, Linux, Android, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 94.99357321360237,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co44y4.jpg"
+  },
+  {
+    "id": 1260,
+    "rarity": "A",
+    "name": "Monkey Island Special Edition Collection",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2011,
+    "originalRating": 94.92816025664172,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co26hu.jpg"
+  },
+  {
+    "id": 1307,
+    "rarity": "A",
+    "name": "NFUT Cards",
+    "console": "Web browser",
+    "releaseYear": 2020,
+    "originalRating": 94.78260869565217,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co45d4.jpg"
+  },
+  {
+    "id": 1355,
+    "rarity": "A",
+    "name": "My Grandfather's Farm",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2018,
+    "originalRating": 94.67228738904788,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/s9v8ggxiaqwtp3n0koas.jpg"
+  },
+  {
+    "id": 131,
+    "name": "Elden Ring",
+    "rarity": "A",
+    "console": "Xbox Series X|S, PlayStation 4, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Xbox One",
+    "releaseYear": 2022,
+    "originalRating": 94.6198249205246,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4jni.jpg"
+  },
+  {
+    "id": 1404,
+    "rarity": "A",
+    "name": "Sengoku Rance",
+    "console": "PC (Microsoft Windows), OOParts",
+    "releaseYear": 2006,
+    "originalRating": 94.58266952002751,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7k0m.jpg"
+  },
+  {
+    "id": 1454,
+    "rarity": "A",
+    "name": "Metroid Prime: Trilogy",
+    "console": "Wii, Wii U",
+    "releaseYear": 2009,
+    "originalRating": 94.38207666980473,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co404a.jpg"
+  },
+  {
+    "id": 1505,
+    "rarity": "A",
+    "name": "PlayM2M",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2025,
+    "originalRating": 94.3540647318955,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9l8q.jpg"
+  },
+  {
+    "id": 117,
+    "name": "The Witcher 3: Wild Hunt",
+    "rarity": "A",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2015,
+    "originalRating": 93.99912160874406,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaarl.jpg"
+  },
+  {
+    "id": 1557,
+    "rarity": "A",
+    "name": "Mega Man ZX Advent",
+    "console": "Nintendo DS",
+    "releaseYear": 2007,
+    "originalRating": 93.85283596213284,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2047.jpg"
+  },
+  {
+    "id": 1610,
+    "rarity": "A",
+    "name": "Enigma of Fear",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 93.79943252700349,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co93ft.jpg"
+  },
+  {
+    "id": 1664,
+    "rarity": "A",
+    "name": "Faith",
+    "console": "PC (Microsoft Windows), Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 93.70948144404771,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co48pe.jpg"
+  },
+  {
+    "id": 1719,
+    "rarity": "A",
+    "name": "SOCOM II: U.S. Navy SEALs",
+    "console": "PlayStation 2",
+    "releaseYear": 2003,
+    "originalRating": 93.53607535658907,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co99jv.jpg"
+  },
+  {
+    "id": 1775,
+    "rarity": "A",
+    "name": "Panzer General",
+    "console": "3DO Interactive Multiplayer, DOS, PlayStation",
+    "releaseYear": 1994,
+    "originalRating": 93.53053024039397,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5pbv.jpg"
+  },
+  {
+    "id": 1832,
+    "rarity": "A",
+    "name": "A Twisted Path To Renown",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 93.50703251095227,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7d0t.jpg"
+  },
+  {
+    "id": 1890,
+    "rarity": "A",
+    "name": "Jungles of Maxtheria",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2020,
+    "originalRating": 93.47721822541968,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2i39.jpg"
+  },
+  {
+    "id": 1949,
+    "rarity": "A",
+    "name": "The Salma World",
+    "console": "Web browser",
+    "releaseYear": 2025,
+    "originalRating": 93.47258485639686,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9vz2.jpg"
+  },
+  {
+    "id": 2009,
+    "rarity": "A",
+    "name": "IL-2 Sturmovik: 1946",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2006,
+    "originalRating": 93.38676865350963,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co22aq.jpg"
+  },
+  {
+    "id": 157,
+    "name": "Steins;Gate",
+    "rarity": "B",
+    "console": "PlayStation 3, PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation Vita, PlayStation Portable, Xbox 360",
+    "releaseYear": 2009,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.37633351335865,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5ff7.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Chrono Trigger",
+    "rarity": "B",
+    "console": "Satellaview, Super Nintendo Entertainment System, Wii, Super Famicom",
+    "releaseYear": 1995,
+    "originalRating": 93.36662092520406,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3plw.jpg"
+  },
+  {
+    "id": 2070,
+    "rarity": "B",
+    "name": "Town Star",
+    "console": "Web browser",
+    "releaseYear": 2020,
+    "originalRating": 93.31641285956007,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2wwf.jpg"
+  },
+  {
+    "id": 159,
+    "name": "The Legend of Zelda: Tears of the Kingdom",
+    "rarity": "B",
+    "console": "Nintendo Switch",
+    "releaseYear": 2023,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.26925319733556,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5vmg.jpg"
+  },
+  {
+    "id": 136,
+    "name": "Red Dead Redemption 2",
+    "rarity": "B",
+    "console": "Google Stadia, PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2018,
+    "originalRating": 93.26576713242787,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1q1f.jpg"
+  },
+  {
+    "id": 160,
+    "name": "Mass Effect Trilogy",
+    "rarity": "B",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2012,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.24220314423229,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4a7a.jpg"
+  },
+  {
+    "id": 2132,
+    "rarity": "B",
+    "name": "Donkey Kong Bananza",
+    "console": "Nintendo Switch 2, Nintendo Switch",
+    "releaseYear": 2025,
+    "originalRating": 93.21620277465009,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa082.jpg"
+  },
+  {
+    "id": 2195,
+    "rarity": "B",
+    "name": "Super Bomberman 5",
+    "console": "Super Famicom",
+    "releaseYear": 1997,
+    "originalRating": 93.20175935700263,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2w8i.jpg"
+  },
+  {
+    "id": 161,
+    "name": "Hollow Knight: Silksong",
+    "rarity": "B",
+    "console": "Xbox Series X|S, PlayStation 4, Linux, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2025,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.19825582228628,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaend.jpg"
+  },
+  {
+    "id": 162,
+    "name": "The Last of Us",
+    "rarity": "B",
+    "console": "PlayStation 3",
+    "releaseYear": 2013,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.15248184811458,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1r7f.jpg"
+  },
+  {
+    "id": 163,
+    "name": "Clair Obscur: Expedition 33",
+    "rarity": "B",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.1013577801651,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9gam.jpg"
+  },
+  {
+    "id": 164,
+    "name": "Half-Life Alyx",
+    "rarity": "B",
+    "console": "Windows Mixed Reality, SteamVR, Oculus Rift",
+    "releaseYear": 2020,
+    "genre": null,
+    "series": null,
+    "originalRating": 93.0746150222358,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co87vg.jpg"
+  },
+  {
+    "id": 2259,
+    "rarity": "B",
+    "name": "Figment 2: Creed Valley",
+    "console": "Xbox Series X|S, PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2023,
+    "originalRating": 93.02637107585079,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3m7p.jpg"
+  },
+  {
+    "id": 2324,
+    "rarity": "B",
+    "name": "Mega Man ZX",
+    "console": "Nintendo DS",
+    "releaseYear": 2006,
+    "originalRating": 92.99933120780238,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7ji9.jpg"
+  },
+  {
+    "id": 2390,
+    "rarity": "B",
+    "name": "Neko Atsume: Kitty Collector",
+    "console": "Nintendo 3DS, Android, iOS",
+    "releaseYear": 2014,
+    "originalRating": 92.90458868928745,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8y7t.jpg"
+  },
+  {
+    "id": 2457,
+    "rarity": "B",
+    "name": "Football Manager 2012",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2011,
+    "originalRating": 92.85958368307706,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2k6y.jpg"
+  },
+  {
+    "id": 2525,
+    "rarity": "B",
+    "name": "Lotus III: The Ultimate Challenge",
+    "console": "Atari ST/STE, DOS, Amiga",
+    "releaseYear": 1992,
+    "originalRating": 92.76662804997265,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2jmt.jpg"
+  },
+  {
+    "id": 130,
+    "name": "Disco Elysium",
+    "rarity": "B",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2019,
+    "originalRating": 92.74979933607057,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1sfj.jpg"
+  },
+  {
+    "id": 2594,
+    "rarity": "B",
+    "name": "Epic Seven",
+    "console": "Android, PC (Microsoft Windows), iOS, Mac",
+    "releaseYear": 2018,
+    "originalRating": 92.73290581046405,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3wj9.jpg"
+  },
+  {
+    "id": 165,
+    "name": "Persona 5",
+    "rarity": "B",
+    "console": "PlayStation 3, PlayStation 4",
+    "releaseYear": 2016,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.7019252179688,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1r76.jpg"
+  },
+  {
+    "id": 166,
+    "name": "The Legend of Zelda: Breath of the Wild",
+    "rarity": "B",
+    "console": "Wii U, Nintendo Switch",
+    "releaseYear": 2017,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.61565284079113,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3p2d.jpg"
+  },
+  {
+    "id": 2664,
+    "rarity": "B",
+    "name": "Gloam",
+    "console": "Android, PC (Microsoft Windows)",
+    "releaseYear": 2021,
+    "originalRating": 92.5925925925926,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2u6x.jpg"
+  },
+  {
+    "id": 167,
+    "name": "System Shock",
+    "rarity": "B",
+    "console": "PC-9800 Series, PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1994,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.55261626422636,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4e44.jpg"
+  },
+  {
+    "id": 2735,
+    "rarity": "B",
+    "name": "Spatial",
+    "console": "Web browser, Android, iOS, Oculus Quest",
+    "releaseYear": 2020,
+    "originalRating": 92.5,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co83m1.jpg"
+  },
+  {
+    "id": 2807,
+    "rarity": "B",
+    "name": "Rising Star",
+    "console": "Web browser",
+    "releaseYear": 2020,
+    "originalRating": 92.48826291079811,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4ch0.jpg"
+  },
+  {
+    "id": 168,
+    "name": "Fate/Grand Order",
+    "rarity": "B",
+    "console": "Android, iOS",
+    "releaseYear": 2015,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.47304370496502,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1qq4.jpg"
+  },
+  {
+    "id": 2880,
+    "rarity": "B",
+    "name": "Aquaria",
+    "console": "Linux, Android, PC (Microsoft Windows), iOS, Mac",
+    "releaseYear": 2007,
+    "originalRating": 92.40161758763902,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1r7r.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Metroid Prime",
+    "rarity": "B",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2002,
+    "originalRating": 92.34649363891964,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3w4w.jpg"
+  },
+  {
+    "id": 169,
+    "name": "Sunflower Land",
+    "rarity": "B",
+    "console": "Web browser",
+    "releaseYear": 2022,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.34168500023742,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co521n.jpg"
+  },
+  {
+    "id": 27,
+    "name": "The Legend of Zelda: A Link to the Past",
+    "rarity": "B",
+    "console": "Satellaview, Super Nintendo Entertainment System, Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1991,
+    "originalRating": 92.33250935736353,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3vzn.jpg"
+  },
+  {
+    "id": 2954,
+    "rarity": "B",
+    "name": "Astro Bot: Rescue Mission",
+    "console": "PlayStation VR",
+    "releaseYear": 2018,
+    "originalRating": 92.32214709548086,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2eao.jpg"
+  },
+  {
+    "id": 3029,
+    "rarity": "B",
+    "name": "Discworld Noir",
+    "console": "PC (Microsoft Windows), PlayStation",
+    "releaseYear": 1999,
+    "originalRating": 92.26935678142351,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3h5y.jpg"
+  },
+  {
+    "id": 3105,
+    "rarity": "B",
+    "name": "Ashen Sky",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2019,
+    "originalRating": 92.23300970873787,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co856i.jpg"
+  },
+  {
+    "id": 170,
+    "name": "God of War",
+    "rarity": "B",
+    "console": "PlayStation 4, PC (Microsoft Windows)",
+    "releaseYear": 2018,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.2266311407612,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tmu.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Super Metroid",
+    "rarity": "B",
+    "console": "Super Nintendo Entertainment System, Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1994,
+    "originalRating": 92.22461809074326,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5osy.jpg"
+  },
+  {
+    "id": 62,
+    "name": "Paper Mario: The Thousand-Year Door",
+    "rarity": "B",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2004,
+    "originalRating": 92.19544636363443,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25us.jpg"
+  },
+  {
+    "id": 73,
+    "name": "Castlevania: Symphony of the Night",
+    "rarity": "B",
+    "console": "PlayStation 3, PlayStation, PlayStation Portable, Xbox 360",
+    "releaseYear": 1997,
+    "originalRating": 92.19450007119858,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co53m8.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Super Mario World",
+    "rarity": "B",
+    "console": "Arcade, Super Nintendo Entertainment System, Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1990,
+    "originalRating": 92.17060104686196,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8lo8.jpg"
+  },
+  {
+    "id": 140,
+    "name": "Hollow Knight",
+    "rarity": "B",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Wii U, Xbox One, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 92.12209534977936,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co93cr.jpg"
+  },
+  {
+    "id": 3182,
+    "rarity": "B",
+    "name": "iRacing",
+    "console": "PC (Microsoft Windows), Oculus Rift",
+    "releaseYear": 2008,
+    "originalRating": 92.08651099211791,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2sjw.jpg"
+  },
+  {
+    "id": 172,
+    "name": "Sid Meier's Alpha Centauri",
+    "rarity": "B",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 1999,
+    "genre": null,
+    "series": null,
+    "originalRating": 92.05537224107674,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3wp5.jpg"
+  },
+  {
+    "id": 173,
+    "name": "Master of Orion II: Battle at Antares",
+    "rarity": "B",
+    "console": "PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1996,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.9872588205418,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2fhi.jpg"
+  },
+  {
+    "id": 3260,
+    "rarity": "B",
+    "name": "Ogre Battle 64: Person of Lordly Caliber",
+    "console": "Wii, Nintendo 64, 64DD, Wii U",
+    "releaseYear": 1999,
+    "originalRating": 91.92212448261569,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co54xx.jpg"
+  },
+  {
+    "id": 174,
+    "name": "13 Sentinels: Aegis Rim",
+    "rarity": "B",
+    "console": "PlayStation 4, Nintendo Switch",
+    "releaseYear": 2019,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.91301839988456,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2uls.jpg"
+  },
+  {
+    "id": 145,
+    "name": "Bloodborne",
+    "rarity": "B",
+    "console": "PlayStation 4",
+    "releaseYear": 2015,
+    "originalRating": 91.8984217446657,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rba.jpg"
+  },
+  {
+    "id": 3339,
+    "rarity": "B",
+    "name": "Blood Strike",
+    "console": "Android, PC (Microsoft Windows), iOS",
+    "releaseYear": 2023,
+    "originalRating": 91.84828416616496,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co971y.jpg"
+  },
+  {
+    "id": 175,
+    "name": "Metal Gear Solid 3 Snake Eater",
+    "rarity": "B",
+    "console": "PlayStation 2",
+    "releaseYear": 2004,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.81156941499535,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5ei5.jpg"
+  },
+  {
+    "id": 3419,
+    "rarity": "B",
+    "name": "The Legend of Zelda: Breath of the Wild - Expansion Pass",
+    "console": "Wii U, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 91.78374341489217,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa24j.jpg"
+  },
+  {
+    "id": 85,
+    "name": "Suikoden II",
+    "rarity": "B",
+    "console": "PlayStation 3, PC (Microsoft Windows), PlayStation Vita, PlayStation, PlayStation Portable",
+    "releaseYear": 1998,
+    "originalRating": 91.77592417149002,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1y6a.jpg"
+  },
+  {
+    "id": 176,
+    "name": "Microsoft Flight Simulator",
+    "rarity": "B",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2020,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.77575534667216,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2dqk.jpg"
+  },
+  {
+    "id": 42,
+    "name": "The Legend of Zelda: Ocarina of Time",
+    "rarity": "B",
+    "console": "Wii, Nintendo 64, 64DD, Wii U",
+    "releaseYear": 1998,
+    "originalRating": 91.74900583656563,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3nnx.jpg"
+  },
+  {
+    "id": 3500,
+    "rarity": "B",
+    "name": "Gratuitous Space Battles",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2009,
+    "originalRating": 91.6460535148007,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2hko.jpg"
+  },
+  {
+    "id": 177,
+    "name": "Persona 3",
+    "rarity": "B",
+    "console": "PlayStation 2",
+    "releaseYear": 2006,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.62107340172648,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5mo6.jpg"
+  },
+  {
+    "id": 3582,
+    "rarity": "B",
+    "name": "Umineko no Naku Koro ni",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2010,
+    "originalRating": 91.57191643321548,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co78jq.jpg"
+  },
+  {
+    "id": 178,
+    "name": "Astro Bot",
+    "rarity": "B",
+    "console": "PlayStation 5",
+    "releaseYear": 2024,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.54939179674984,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8hl0.jpg"
+  },
+  {
+    "id": 118,
+    "name": "Portal 2",
+    "rarity": "B",
+    "console": "PlayStation 3, Linux, PC (Microsoft Windows), Mac, Xbox 360, Nintendo Switch",
+    "releaseYear": 2011,
+    "originalRating": 91.52167139689696,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rs4.jpg"
+  },
+  {
+    "id": 3665,
+    "rarity": "B",
+    "name": "Space Rangers 2: Dominators",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2004,
+    "originalRating": 91.51232364468962,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2xs1.jpg"
+  },
+  {
+    "id": 3749,
+    "rarity": "B",
+    "name": "Space Quest IV: Roger Wilco and the Time Rippers",
+    "console": "PC (Microsoft Windows), Mac, DOS, Amiga",
+    "releaseYear": 1990,
+    "originalRating": 91.4464892267411,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5v4t.jpg"
+  },
+  {
+    "id": 179,
+    "name": "Mass Effect 2",
+    "rarity": "B",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2010,
+    "genre": null,
+    "series": null,
+    "originalRating": 91.42048383640487,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co20ac.jpg"
+  },
+  {
+    "id": 3834,
+    "rarity": "B",
+    "name": "Star Citizen",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2013,
+    "originalRating": 91.26815444542731,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coauzg.jpg"
+  },
+  {
+    "id": 3920,
+    "rarity": "B",
+    "name": "Dispatch",
+    "console": "PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 91.21595197309959,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co95gb.jpg"
+  },
+  {
+    "id": 92,
+    "name": "Silent Hill 2",
+    "rarity": "C",
+    "console": "PlayStation 2",
+    "releaseYear": 2001,
+    "originalRating": 91.18750148112683,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2vyg.jpg"
+  },
+  {
+    "id": 144,
+    "name": "Sekiro: Shadows Die Twice",
+    "rarity": "C",
+    "console": "Google Stadia, PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2019,
+    "originalRating": 91.15619171681159,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2a23.jpg"
+  },
+  {
+    "id": 4007,
+    "rarity": "C",
+    "name": "Shelldom",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2025,
+    "originalRating": 91.15128955065143,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9d5u.jpg"
+  },
+  {
+    "id": 4095,
+    "rarity": "C",
+    "name": "Mass Effect Legendary Edition",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One",
+    "releaseYear": 2021,
+    "originalRating": 91.1129119760138,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2k5h.jpg"
+  },
+  {
+    "id": 4184,
+    "rarity": "C",
+    "name": "ESPN NFL 2K5",
+    "console": "Xbox, PlayStation 2",
+    "releaseYear": 2004,
+    "originalRating": 91.11219548634949,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2xij.jpg"
+  },
+  {
+    "id": 4274,
+    "rarity": "C",
+    "name": "Shinobi: Art of Vengeance",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2025,
+    "originalRating": 91.11099251745702,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9e1j.jpg"
+  },
+  {
+    "id": 4365,
+    "rarity": "C",
+    "name": "Pathologic 2",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2019,
+    "originalRating": 91.04655458644567,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1ndy.jpg"
+  },
+  {
+    "id": 4457,
+    "rarity": "C",
+    "name": "Digimon Story: Time Stranger",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 91.02862167018655,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coakzr.jpg"
+  },
+  {
+    "id": 4550,
+    "rarity": "C",
+    "name": "Sid Meier's Civilization",
+    "console": "PC-9800 Series, Atari ST/STE, PC (Microsoft Windows), Mac, DOS, Amiga",
+    "releaseYear": 1991,
+    "originalRating": 91.02052593330416,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1y9x.jpg"
+  },
+  {
+    "id": 4644,
+    "rarity": "C",
+    "name": "God of War Ragnarök",
+    "console": "PlayStation 4, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2022,
+    "originalRating": 91.00967014075543,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5s5v.jpg"
+  },
+  {
+    "id": 4739,
+    "rarity": "C",
+    "name": "Last Window: The Secret of Cape West",
+    "console": "Nintendo DS",
+    "releaseYear": 2010,
+    "originalRating": 90.99794178922453,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1uvf.jpg"
+  },
+  {
+    "id": 4835,
+    "rarity": "C",
+    "name": "MVP Baseball 2005",
+    "console": "Xbox, Nintendo GameCube, PC (Microsoft Windows), PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 90.91207745346424,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3d4y.jpg"
+  },
+  {
+    "id": 137,
+    "name": "The Last of Us Part II",
+    "rarity": "C",
+    "console": "PlayStation 4, PlayStation 5",
+    "releaseYear": 2020,
+    "originalRating": 90.88859097380954,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5ziw.jpg"
+  },
+  {
+    "id": 4932,
+    "rarity": "C",
+    "name": "Football Manager 2019",
+    "console": "Android, PC (Microsoft Windows), iOS, Mac",
+    "releaseYear": 2018,
+    "originalRating": 90.82951532376457,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1njl.jpg"
+  },
+  {
+    "id": 5030,
+    "rarity": "C",
+    "name": "Atom RPG",
+    "console": "PlayStation 4, Linux, Android, PC (Microsoft Windows), iOS, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 90.79951091985102,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1qvc.jpg"
+  },
+  {
+    "id": 5129,
+    "rarity": "C",
+    "name": "Mega Man Legacy Collection",
+    "console": "PlayStation 4, Nintendo 3DS, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2015,
+    "originalRating": 90.78962500895432,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co204v.jpg"
+  },
+  {
+    "id": 5229,
+    "rarity": "C",
+    "name": "Gyakuten Kenji 2",
+    "console": "Android, iOS, Nintendo DS",
+    "releaseYear": 2011,
+    "originalRating": 90.77475411289765,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9ov1.jpg"
+  },
+  {
+    "id": 5330,
+    "rarity": "C",
+    "name": "The Henry Stickmin Collection",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2020,
+    "originalRating": 90.76396466285736,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2mgv.jpg"
+  },
+  {
+    "id": 5432,
+    "rarity": "C",
+    "name": "Gangsters 2: Vendetta",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 90.75911743240584,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5x93.jpg"
+  },
+  {
+    "id": 5535,
+    "rarity": "C",
+    "name": "Clannad",
+    "console": "PC (Microsoft Windows), Legacy Mobile Device",
+    "releaseYear": 2004,
+    "originalRating": 90.69498811342514,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6ytz.jpg"
+  },
+  {
+    "id": 5639,
+    "rarity": "C",
+    "name": "Kingdom Hearts HD 1.5 + 2.5 Remix",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2017,
+    "originalRating": 90.6378299938737,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co312w.jpg"
+  },
+  {
+    "id": 5744,
+    "rarity": "C",
+    "name": "Uncharted 4: A Thief's End",
+    "console": "PlayStation 4",
+    "releaseYear": 2016,
+    "originalRating": 90.58317203519175,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1r7h.jpg"
+  },
+  {
+    "id": 71,
+    "name": "Final Fantasy VII",
+    "rarity": "C",
+    "console": "PlayStation 3, PlayStation, PlayStation Portable",
+    "releaseYear": 1997,
+    "originalRating": 90.558133877123,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2kx2.jpg"
+  },
+  {
+    "id": 5850,
+    "rarity": "C",
+    "name": "Sonic the Hedgehog 2",
+    "console": "Nintendo 3DS, Wii, Sega Game Gear, Sega Master System/Mark III",
+    "releaseYear": 1992,
+    "originalRating": 90.52254954010857,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1zus.jpg"
+  },
+  {
+    "id": 72,
+    "name": "Metal Gear Solid",
+    "rarity": "C",
+    "console": "Xbox Series X|S, PlayStation 3, PlayStation 4, PC (Microsoft Windows), PlayStation 5, PlayStation, PlayStation Portable, Nintendo Switch",
+    "releaseYear": 1998,
+    "originalRating": 90.49904003931196,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7k2q.jpg"
+  },
+  {
+    "id": 5957,
+    "rarity": "C",
+    "name": "Star Wars: Knights of the Old Republic",
+    "console": "Xbox, Android, PC (Microsoft Windows), iOS, Mac, Nintendo Switch",
+    "releaseYear": 2003,
+    "originalRating": 90.48224694424772,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tmz.jpg"
+  },
+  {
+    "id": 6065,
+    "rarity": "C",
+    "name": "Dungeon Crawl Stone Soup",
+    "console": "Web browser, Linux, Android, PC (Microsoft Windows), Mac",
+    "releaseYear": 2006,
+    "originalRating": 90.44863679850353,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3bff.jpg"
+  },
+  {
+    "id": 6174,
+    "rarity": "C",
+    "name": "NieR: Automata",
+    "console": "PlayStation 4, PC (Microsoft Windows)",
+    "releaseYear": 2017,
+    "originalRating": 90.44044178953327,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5pcj.jpg"
+  },
+  {
+    "id": 6284,
+    "rarity": "C",
+    "name": "Shin Megami Tensei: Strange Journey",
+    "console": "Nintendo DS",
+    "releaseYear": 2009,
+    "originalRating": 90.42148026753583,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co26fw.jpg"
+  },
+  {
+    "id": 6395,
+    "rarity": "C",
+    "name": "Ruthnar Online",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 90.36528669470889,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7yw3.jpg"
+  },
+  {
+    "id": 116,
+    "name": "Half-Life 2",
+    "rarity": "C",
+    "console": "Xbox, PlayStation 3, Linux, Android, PC (Microsoft Windows), Mac, Xbox 360",
+    "releaseYear": 2004,
+    "originalRating": 90.33566545985246,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1nmw.jpg"
+  },
+  {
+    "id": 6507,
+    "rarity": "C",
+    "name": "Fire Emblem: The Sacred Stones",
+    "console": "Nintendo 3DS, Wii U, Game Boy Advance",
+    "releaseYear": 2004,
+    "originalRating": 90.31974214882646,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25q4.jpg"
+  },
+  {
+    "id": 6620,
+    "rarity": "C",
+    "name": "Omori",
+    "console": "Xbox Series X|S, PlayStation 4, Nintendo 3DS, PC (Microsoft Windows), Mac, PlayStation Vita, Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 90.28609577203665,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1xlp.jpg"
+  },
+  {
+    "id": 6734,
+    "rarity": "C",
+    "name": "Dedalium",
+    "console": "Web browser",
+    "releaseYear": 2022,
+    "originalRating": 90.28070175438597,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4pmg.jpg"
+  },
+  {
+    "id": 6849,
+    "rarity": "C",
+    "name": "Original War",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 90.25221012763025,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co20k6.jpg"
+  },
+  {
+    "id": 6965,
+    "rarity": "C",
+    "name": "Centurion: Defender of Rome",
+    "console": "PC-9800 Series, Sega Mega Drive/Genesis, DOS, FM Towns, Amiga",
+    "releaseYear": 1990,
+    "originalRating": 90.24791535655517,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1zrp.jpg"
+  },
+  {
+    "id": 7082,
+    "rarity": "C",
+    "name": "The Night of the Rabbit",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), PlayStation 5, Mac, Nintendo Switch",
+    "releaseYear": 2013,
+    "originalRating": 90.23923376865932,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1qrz.jpg"
+  },
+  {
+    "id": 86,
+    "name": "Grand Theft Auto: San Andreas",
+    "rarity": "C",
+    "console": "Xbox, PlayStation 3, PlayStation 4, Android, PC (Microsoft Windows), iOS, Mac, Xbox 360, PlayStation 2",
+    "releaseYear": 2004,
+    "originalRating": 90.22246302595205,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2lb9.jpg"
+  },
+  {
+    "id": 7200,
+    "rarity": "C",
+    "name": "Lethal League Blaze",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 90.17099335331164,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2toi.jpg"
+  },
+  {
+    "id": 7319,
+    "rarity": "C",
+    "name": "DDraceNetwork",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2020,
+    "originalRating": 90.1639344262295,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2f4u.jpg"
+  },
+  {
+    "id": 7439,
+    "rarity": "C",
+    "name": "NBA Street Vol. 2",
+    "console": "Xbox, Nintendo GameCube, PlayStation 2",
+    "releaseYear": 2003,
+    "originalRating": 90.14339368725501,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2etl.jpg"
+  },
+  {
+    "id": 7560,
+    "rarity": "C",
+    "name": "The Great Ace Attorney 2 Resolve",
+    "console": "Nintendo 3DS, Android, iOS",
+    "releaseYear": 2017,
+    "originalRating": 90.13602919972513,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ym3.jpg"
+  },
+  {
+    "id": 7682,
+    "rarity": "C",
+    "name": "Xenosaga Episode III: Also sprach Zarathustra",
+    "console": "PlayStation 2",
+    "releaseYear": 2006,
+    "originalRating": 90.12448451972807,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3fe3.jpg"
+  },
+  {
+    "id": 7805,
+    "rarity": "C",
+    "name": "Katamari Forever",
+    "console": "PlayStation 3",
+    "releaseYear": 2009,
+    "originalRating": 90.08662209412807,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4hjm.jpg"
+  },
+  {
+    "id": 7929,
+    "rarity": "C",
+    "name": "Yume 2kki",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2007,
+    "originalRating": 90.08594848613455,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2vm0.jpg"
+  },
+  {
+    "id": 8054,
+    "rarity": "C",
+    "name": "Mother 3",
+    "console": "Wii U, Game Boy Advance",
+    "releaseYear": 2006,
+    "originalRating": 90.07876422924943,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa3qi.jpg"
+  },
+  {
+    "id": 8180,
+    "rarity": "C",
+    "name": "Lisa: The Painful",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2014,
+    "originalRating": 90.07762404418966,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1odr.jpg"
+  },
+  {
+    "id": 8307,
+    "rarity": "C",
+    "name": "Utawarerumono: Mask of Truth",
+    "console": "PlayStation 3, PlayStation 4, PC (Microsoft Windows), PlayStation Vita, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 90.07076310236017,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1w6v.jpg"
+  },
+  {
+    "id": 8435,
+    "rarity": "C",
+    "name": "Dune II: The Building of a Dynasty",
+    "console": "Acorn Archimedes, Sega Mega Drive/Genesis, DOS, Amiga",
+    "releaseYear": 1992,
+    "originalRating": 90.03061137655259,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4vw0.jpg"
+  },
+  {
+    "id": 8564,
+    "rarity": "C",
+    "name": "Xenoblade Chronicles 2",
+    "console": "Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 90.02336066131058,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1o5h.jpg"
+  },
+  {
+    "id": 8694,
+    "rarity": "C",
+    "name": "Fire Emblem: Shadow Dragon and the Blade of Light",
+    "console": "Nintendo 3DS, Wii, Family Computer, Wii U",
+    "releaseYear": 1990,
+    "originalRating": 90.0216867028544,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9i5k.jpg"
+  },
+  {
+    "id": 8825,
+    "rarity": "C",
+    "name": "Ghost Trick: Phantom Detective",
+    "console": "iOS, Nintendo DS",
+    "releaseYear": 2010,
+    "originalRating": 89.99972612928728,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2yj9.jpg"
+  },
+  {
+    "id": 8957,
+    "rarity": "C",
+    "name": "Cataclysm: Dark Days Ahead",
+    "console": "Web browser, Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2013,
+    "originalRating": 89.98105748720684,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2hqe.jpg"
+  },
+  {
+    "id": 9090,
+    "rarity": "C",
+    "name": "Disgaea 5: Alliance of Vengeance",
+    "console": "PlayStation 4",
+    "releaseYear": 2015,
+    "originalRating": 89.96902314227728,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6h3i.jpg"
+  },
+  {
+    "id": 9224,
+    "rarity": "C",
+    "name": "Castlevania Requiem: Symphony of the Night & Rondo of Blood",
+    "console": "PlayStation 4",
+    "releaseYear": 2018,
+    "originalRating": 89.95874572358808,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co49m1.jpg"
+  },
+  {
+    "id": 9359,
+    "rarity": "C",
+    "name": "Tactics Ogre: Let Us Cling Together",
+    "console": "Satellaview, Wii, Sega Saturn, PlayStation, Super Famicom",
+    "releaseYear": 1995,
+    "originalRating": 89.9500960407457,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co48g3.jpg"
+  },
+  {
+    "id": 9495,
+    "rarity": "C",
+    "name": "SpaceEngine",
+    "console": "PC (Microsoft Windows), SteamVR",
+    "releaseYear": 2019,
+    "originalRating": 89.93982130510638,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1uo2.jpg"
+  },
+  {
+    "id": 9632,
+    "rarity": "C",
+    "name": "Disciples II: Gallean's Return",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2006,
+    "originalRating": 89.93660174795556,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3onb.jpg"
+  },
+  {
+    "id": 9770,
+    "rarity": "C",
+    "name": "Indiana Jones and the Fate of Atlantis",
+    "console": "Linux, PC (Microsoft Windows), Mac, DOS, Amiga",
+    "releaseYear": 1992,
+    "originalRating": 89.93284056689905,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6ys2.jpg"
+  },
+  {
+    "id": 9909,
+    "rarity": "C",
+    "name": "Assassin's Creed: Ezio Trilogy",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2012,
+    "originalRating": 89.93261758903003,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co49hd.jpg"
+  },
+  {
+    "id": 10049,
+    "rarity": "C",
+    "name": "The Cat Lady",
+    "console": "Linux, PC (Microsoft Windows)",
+    "releaseYear": 2012,
+    "originalRating": 89.92142279282251,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rfw.jpg"
+  },
+  {
+    "id": 10190,
+    "rarity": "C",
+    "name": "Championship Manager 4",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2003,
+    "originalRating": 89.91702310888164,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co94ly.jpg"
+  },
+  {
+    "id": 10332,
+    "rarity": "C",
+    "name": "Master of Magic",
+    "console": "PC (Microsoft Windows), DOS",
+    "releaseYear": 1994,
+    "originalRating": 89.86887081996119,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co255e.jpg"
+  },
+  {
+    "id": 10475,
+    "rarity": "C",
+    "name": "Outlast: Bundle of Terror",
+    "console": "PlayStation 4, Xbox One, Nintendo Switch",
+    "releaseYear": 2014,
+    "originalRating": 89.85969562408131,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaezb.jpg"
+  },
+  {
+    "id": 10619,
+    "rarity": "C",
+    "name": "Baldur's Gate II: Shadows of Amn",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2000,
+    "originalRating": 89.85234772148513,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co71yr.jpg"
+  },
+  {
+    "id": 10764,
+    "rarity": "C",
+    "name": "Turrican II: The Final Fight",
+    "console": "Commodore C64/128/MAX, ZX Spectrum, Atari ST/STE, Commodore CDTV, DOS, Amiga, Amstrad CPC",
+    "releaseYear": 1991,
+    "originalRating": 89.85074572069655,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2l0r.jpg"
+  },
+  {
+    "id": 10910,
+    "rarity": "C",
+    "name": "Heroes of Might and Magic III: The Restoration of Erathia",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 1999,
+    "originalRating": 89.8492182176019,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2a47.jpg"
+  },
+  {
+    "id": 11057,
+    "rarity": "C",
+    "name": "Higurashi When They Cry",
+    "console": "Android, PC (Microsoft Windows), iOS",
+    "releaseYear": 2009,
+    "originalRating": 89.82137755790377,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6yw6.jpg"
+  },
+  {
+    "id": 11205,
+    "rarity": "C",
+    "name": "Summon Night: Swordcraft Story 2",
+    "console": "Game Boy Advance",
+    "releaseYear": 2004,
+    "originalRating": 89.82076419990206,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2w42.jpg"
+  },
+  {
+    "id": 139,
+    "name": "Hades",
+    "rarity": "C",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), iOS, PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 89.81628684526449,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co39vc.jpg"
+  },
+  {
+    "id": 11354,
+    "rarity": "C",
+    "name": "Sakuna: Of Rice and Ruin",
+    "console": "PlayStation 4, PC (Microsoft Windows), Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 89.8064675694058,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2las.jpg"
+  },
+  {
+    "id": 11504,
+    "rarity": "C",
+    "name": "Landstalker",
+    "console": "Linux, Wii, Sega Mega Drive/Genesis, PC (Microsoft Windows), Mac",
+    "releaseYear": 1992,
+    "originalRating": 89.79759472400025,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2kb9.jpg"
+  },
+  {
+    "id": 11655,
+    "rarity": "C",
+    "name": "GT Legends",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2005,
+    "originalRating": 89.77878120552103,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co86cd.jpg"
+  },
+  {
+    "id": 11807,
+    "rarity": "C",
+    "name": "AneeMate",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 89.77777777777777,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9r2b.jpg"
+  },
+  {
+    "id": 11960,
+    "rarity": "C",
+    "name": "The Great Ace Attorney: Adventures",
+    "console": "PlayStation 4, Nintendo 3DS, Android, PC (Microsoft Windows), iOS, Nintendo Switch",
+    "releaseYear": 2015,
+    "originalRating": 89.74889028162002,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ym2.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Terranigma",
+    "rarity": "C",
+    "console": "Satellaview, Super Nintendo Entertainment System, Super Famicom",
+    "releaseYear": 1995,
+    "originalRating": 89.74589939405318,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co26g4.jpg"
+  },
+  {
+    "id": 12114,
+    "rarity": "C",
+    "name": "Solatorobo: Red the Hunter",
+    "console": "Nintendo DSi, Nintendo DS",
+    "releaseYear": 2010,
+    "originalRating": 89.72583173840192,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9rvz.jpg"
+  },
+  {
+    "id": 12269,
+    "rarity": "C",
+    "name": "Startopia",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 89.71448925689378,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2jp9.jpg"
+  },
+  {
+    "id": 12425,
+    "rarity": "C",
+    "name": "My Time at Sandrock",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2023,
+    "originalRating": 89.70221226973237,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coab00.jpg"
+  },
+  {
+    "id": 12582,
+    "rarity": "C",
+    "name": "The Lost Crown",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2008,
+    "originalRating": 89.69718311718644,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2rmy.jpg"
+  },
+  {
+    "id": 12740,
+    "rarity": "C",
+    "name": "Old World",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2021,
+    "originalRating": 89.68918053391877,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7ozg.jpg"
+  },
+  {
+    "id": 12899,
+    "rarity": "C",
+    "name": "Harvest Moon 64",
+    "console": "Nintendo 64, Wii U",
+    "releaseYear": 1999,
+    "originalRating": 89.67943430228935,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ae7.jpg"
+  },
+  {
+    "id": 13059,
+    "rarity": "C",
+    "name": "Devil May Cry HD Collection",
+    "console": "PlayStation 3, PlayStation 4, PC (Microsoft Windows), Xbox 360, Xbox One",
+    "releaseYear": 2012,
+    "originalRating": 89.66459224689817,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2n18.jpg"
+  },
+  {
+    "id": 13220,
+    "rarity": "C",
+    "name": "Ultima VII: The Black Gate",
+    "console": "DOS",
+    "releaseYear": 1992,
+    "originalRating": 89.65930855595174,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2zq7.jpg"
+  },
+  {
+    "id": 13382,
+    "rarity": "C",
+    "name": "ARC Raiders",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 89.64690810333529,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9rk1.jpg"
+  },
+  {
+    "id": 13545,
+    "rarity": "C",
+    "name": "Limbus Company",
+    "console": "Android, PC (Microsoft Windows), iOS",
+    "releaseYear": 2023,
+    "originalRating": 89.63899673636767,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co630b.jpg"
+  },
+  {
+    "id": 13709,
+    "rarity": "C",
+    "name": "Pathfinder: Wrath of the Righteous",
+    "console": "PlayStation 4, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 89.62504108359268,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1uq7.jpg"
+  },
+  {
+    "id": 13874,
+    "rarity": "C",
+    "name": "Arc the Lad",
+    "console": "PlayStation 3, PlayStation, PlayStation Portable",
+    "releaseYear": 1995,
+    "originalRating": 89.62430770859902,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9euu.jpg"
+  },
+  {
+    "id": 14040,
+    "rarity": "C",
+    "name": "Vandal Hearts",
+    "console": "PC (Microsoft Windows), Sega Saturn, PlayStation",
+    "releaseYear": 1996,
+    "originalRating": 89.62058101140016,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2n5p.jpg"
+  },
+  {
+    "id": 14207,
+    "rarity": "C",
+    "name": "Kohan: Immortal Sovereigns",
+    "console": "Linux, PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 89.6124865446717,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co70cr.jpg"
+  },
+  {
+    "id": 14375,
+    "rarity": "C",
+    "name": "Kirby's Return to Dream Land",
+    "console": "Wii, Wii U",
+    "releaseYear": 2011,
+    "originalRating": 89.60117115088217,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1w9v.jpg"
+  },
+  {
+    "id": 14544,
+    "rarity": "C",
+    "name": "Fist of the North Star: Lost Paradise",
+    "console": "PlayStation 4",
+    "releaseYear": 2018,
+    "originalRating": 89.58809963372406,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5ac9.jpg"
+  },
+  {
+    "id": 14714,
+    "rarity": "D",
+    "name": "Dreams",
+    "console": "PlayStation 4, PlayStation VR, PlayStation 5",
+    "releaseYear": 2020,
+    "originalRating": 89.57599940928888,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co84g8.jpg"
+  },
+  {
+    "id": 14885,
+    "rarity": "D",
+    "name": "Emperor: Rise of the Middle Kingdom",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2002,
+    "originalRating": 89.56029329768009,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co22rl.jpg"
+  },
+  {
+    "id": 15057,
+    "rarity": "D",
+    "name": "Mario & Luigi: Bowser's Inside Story",
+    "console": "Nintendo DS",
+    "releaseYear": 2009,
+    "originalRating": 89.5486254673688,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21vr.jpg"
+  },
+  {
+    "id": 15230,
+    "rarity": "D",
+    "name": "Gitaroo Man",
+    "console": "PlayStation 2",
+    "releaseYear": 2001,
+    "originalRating": 89.5453143443897,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2s04.jpg"
+  },
+  {
+    "id": 15404,
+    "rarity": "D",
+    "name": "Outer Wilds",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2019,
+    "originalRating": 89.53211418409427,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co65ac.jpg"
+  },
+  {
+    "id": 15579,
+    "rarity": "D",
+    "name": "Ys VIII: Lacrimosa of Dana",
+    "console": "Google Stadia, PlayStation 4, PC (Microsoft Windows), PlayStation 5, PlayStation Vita, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 89.5312710320696,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co234k.jpg"
+  },
+  {
+    "id": 15755,
+    "rarity": "D",
+    "name": "Drova: Forsaken Kin",
+    "console": "Xbox Series X|S, Linux, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2024,
+    "originalRating": 89.50739800792948,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6ztq.jpg"
+  },
+  {
+    "id": 15932,
+    "rarity": "D",
+    "name": "Azure Striker Gunvolt 2",
+    "console": "PlayStation 4, Nintendo 3DS, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 89.50082985195291,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1n1o.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Super Mario Bros. 3",
+    "rarity": "D",
+    "console": "Arcade, Nintendo 3DS, Wii, Family Computer, Wii U, Nintendo Entertainment System",
+    "releaseYear": 1988,
+    "originalRating": 89.49448522555308,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7ozx.jpg"
+  },
+  {
+    "id": 16110,
+    "rarity": "D",
+    "name": "428: Shibuya Scramble",
+    "console": "PlayStation 3, PlayStation 4, Wii, Android, PC (Microsoft Windows), iOS, PlayStation Portable",
+    "releaseYear": 2008,
+    "originalRating": 89.4680941964102,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co28rd.jpg"
+  },
+  {
+    "id": 16289,
+    "rarity": "D",
+    "name": "Lemmings 2: The Tribes",
+    "console": "DOS, Amiga",
+    "releaseYear": 1993,
+    "originalRating": 89.45180516860331,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2hgz.jpg"
+  },
+  {
+    "id": 16469,
+    "rarity": "D",
+    "name": "Transport Fever",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2016,
+    "originalRating": 89.43919960721175,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2rqm.jpg"
+  },
+  {
+    "id": 16650,
+    "rarity": "D",
+    "name": "Mashinky",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2018,
+    "originalRating": 89.42859799654109,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa9ak.jpg"
+  },
+  {
+    "id": 16832,
+    "rarity": "D",
+    "name": "Sonic Gems Collection",
+    "console": "Nintendo GameCube, PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 89.41809224971806,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co29p3.jpg"
+  },
+  {
+    "id": 17015,
+    "rarity": "D",
+    "name": "Halls of Torment",
+    "console": "Xbox Series X|S, Linux, Android, PC (Microsoft Windows), iOS, PlayStation 5",
+    "releaseYear": 2024,
+    "originalRating": 89.41022404737053,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co65yp.jpg"
+  },
+  {
+    "id": 17199,
+    "rarity": "D",
+    "name": "Mega Man Star Force 3: Black Ace",
+    "console": "Nintendo DS",
+    "releaseYear": 2008,
+    "originalRating": 89.40957630580101,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3ilk.jpg"
+  },
+  {
+    "id": 17384,
+    "rarity": "D",
+    "name": "Cube Escape Collection",
+    "console": "Android, PC (Microsoft Windows), iOS, Mac",
+    "releaseYear": 2020,
+    "originalRating": 89.39120221727002,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7h4w.jpg"
+  },
+  {
+    "id": 17570,
+    "rarity": "D",
+    "name": "Crimzon Clover: World Ignition",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2014,
+    "originalRating": 89.3702846111484,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2j8x.jpg"
+  },
+  {
+    "id": 17757,
+    "rarity": "D",
+    "name": "Wing Commander IV: The Price of Freedom",
+    "console": "PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1996,
+    "originalRating": 89.36957616085793,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2khv.jpg"
+  },
+  {
+    "id": 17945,
+    "rarity": "D",
+    "name": "Red Dead Redemption",
+    "console": "PlayStation 3, Xbox 360",
+    "releaseYear": 2010,
+    "originalRating": 89.36837780403084,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2lcv.jpg"
+  },
+  {
+    "id": 18134,
+    "rarity": "D",
+    "name": "Star Wars: TIE Fighter",
+    "console": "Mac, DOS",
+    "releaseYear": 1993,
+    "originalRating": 89.3453912178846,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ac5.jpg"
+  },
+  {
+    "id": 18324,
+    "rarity": "D",
+    "name": "The Orange Box",
+    "console": "PlayStation 3, Linux, PC (Microsoft Windows), Mac, Xbox 360",
+    "releaseYear": 2007,
+    "originalRating": 89.33026957208101,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2yez.jpg"
+  },
+  {
+    "id": 18515,
+    "rarity": "D",
+    "name": "Black Myth: Wukong",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2024,
+    "originalRating": 89.32112245689521,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8h3y.jpg"
+  },
+  {
+    "id": 18707,
+    "rarity": "D",
+    "name": "Don Bradman Cricket 14",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360, Xbox One",
+    "releaseYear": 2014,
+    "originalRating": 89.318905558535,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co60im.jpg"
+  },
+  {
+    "id": 18900,
+    "rarity": "D",
+    "name": "Vintage Story",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2018,
+    "originalRating": 89.3162004274899,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2j6g.jpg"
+  },
+  {
+    "id": 19094,
+    "rarity": "D",
+    "name": "XCOM 2 Collection",
+    "console": "PlayStation 4, Linux, Android, PC (Microsoft Windows), iOS, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 89.31293006078906,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2g41.jpg"
+  },
+  {
+    "id": 19289,
+    "rarity": "D",
+    "name": "Split Fiction",
+    "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 89.30241454806422,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co95gf.jpg"
+  },
+  {
+    "id": 19485,
+    "rarity": "D",
+    "name": "Final Fantasy III",
+    "console": "Super Nintendo Entertainment System, Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1994,
+    "originalRating": 89.28756819335369,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaq5k.jpg"
+  },
+  {
+    "id": 31,
+    "name": "EarthBound",
+    "rarity": "D",
+    "console": "Super Nintendo Entertainment System, Wii U, New Nintendo 3DS, Game Boy Advance, Super Famicom",
+    "releaseYear": 1994,
+    "originalRating": 89.28644853814322,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6v07.jpg"
+  },
+  {
+    "id": 19682,
+    "rarity": "D",
+    "name": "Donkey Kong Country 2: Diddy's Kong Quest",
+    "console": "Super Nintendo Entertainment System, Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1995,
+    "originalRating": 89.2859830332423,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co217m.jpg"
+  },
+  {
+    "id": 19880,
+    "rarity": "D",
+    "name": "Arcanum: of Steamworks and Magick Obscura",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 89.26822366694198,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co26ed.jpg"
+  },
+  {
+    "id": 20079,
+    "rarity": "D",
+    "name": "Fallout 2",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 1998,
+    "originalRating": 89.26748133466083,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8ado.jpg"
+  },
+  {
+    "id": 20279,
+    "rarity": "D",
+    "name": "Assassin's Creed: The Ezio Collection",
+    "console": "PlayStation 4, Xbox One, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 89.25838334133374,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1nrv.jpg"
+  },
+  {
+    "id": 20480,
+    "rarity": "D",
+    "name": "Hitman World of Assassination",
+    "console": "Xbox Series X|S, PlayStation 4, PlayStation VR, PC (Microsoft Windows), iOS, PlayStation 5, Mac, Xbox One",
+    "releaseYear": 2023,
+    "originalRating": 89.24624246431266,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co620f.jpg"
+  },
+  {
+    "id": 20682,
+    "rarity": "D",
+    "name": "Bounce",
+    "console": "Legacy Mobile Device",
+    "releaseYear": 2001,
+    "originalRating": 89.23821648980167,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coavg9.jpg"
+  },
+  {
+    "id": 20885,
+    "rarity": "D",
+    "name": "Elasto Mania",
+    "console": "PC (Microsoft Windows), iOS",
+    "releaseYear": 2000,
+    "originalRating": 89.2336427112388,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co27s6.jpg"
+  },
+  {
+    "id": 21089,
+    "rarity": "D",
+    "name": "Lorelei and the Laser Eyes",
+    "console": "PlayStation 4, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2024,
+    "originalRating": 89.22935139355674,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4x7e.jpg"
+  },
+  {
+    "id": 21294,
+    "rarity": "D",
+    "name": "Super Mario Galaxy 2",
+    "console": "Wii, Wii U",
+    "releaseYear": 2010,
+    "originalRating": 89.2259449089089,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21tl.jpg"
+  },
+  {
+    "id": 21500,
+    "rarity": "D",
+    "name": "SSX 3",
+    "console": "Xbox, Nintendo GameCube, PlayStation 2",
+    "releaseYear": 2003,
+    "originalRating": 89.22296649854376,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1o4m.jpg"
+  },
+  {
+    "id": 21707,
+    "rarity": "D",
+    "name": "Muv-Luv Alternative",
+    "console": "PlayStation 3, PC (Microsoft Windows), PlayStation Vita, Xbox 360",
+    "releaseYear": 2006,
+    "originalRating": 89.21799363895775,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8ksc.jpg"
+  },
+  {
+    "id": 21915,
+    "rarity": "D",
+    "name": "Synth Riders",
+    "console": "Meta Quest 2, PlayStation VR2, PlayStation VR, visionOS, SteamVR, Meta Quest 3, Oculus Quest",
+    "releaseYear": 2018,
+    "originalRating": 89.20251271106268,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8umj.jpg"
+  },
+  {
+    "id": 22124,
+    "rarity": "D",
+    "name": "Game of Thrones: Kingsroad",
+    "console": "Android, PC (Microsoft Windows), iOS",
+    "releaseYear": 2025,
+    "originalRating": 89.19831223628692,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9mg4.jpg"
+  },
+  {
+    "id": 22334,
+    "rarity": "D",
+    "name": "Melatonin",
+    "console": "PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2022,
+    "originalRating": 89.19779539051143,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3nsn.jpg"
+  },
+  {
+    "id": 22545,
+    "rarity": "D",
+    "name": "NBA Live 06",
+    "console": "Xbox, Nintendo GameCube, PC (Microsoft Windows), PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 89.18850828327807,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1oxr.jpg"
+  },
+  {
+    "id": 22757,
+    "rarity": "D",
+    "name": "Your Turn to Die: Death Game by Majority",
+    "console": "Web browser, PC (Microsoft Windows)",
+    "releaseYear": 2017,
+    "originalRating": 89.18202049632468,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co65s3.jpg"
+  },
+  {
+    "id": 22970,
+    "rarity": "D",
+    "name": "MegaWorld",
+    "console": "Web browser",
+    "releaseYear": 2018,
+    "originalRating": 89.17411395716967,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7r4f.jpg"
+  },
+  {
+    "id": 23184,
+    "rarity": "D",
+    "name": "Cloverpit",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2025,
+    "originalRating": 89.16987515843653,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coave4.jpg"
+  },
+  {
+    "id": 23399,
+    "rarity": "D",
+    "name": "BroodStar",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 89.16666666666666,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2jc6.jpg"
+  },
+  {
+    "id": 23615,
+    "rarity": "D",
+    "name": "The Ico & Shadow of the Colossus Collection",
+    "console": "PlayStation 3",
+    "releaseYear": 2011,
+    "originalRating": 89.15321638353723,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4ako.jpg"
+  },
+  {
+    "id": 129,
+    "name": "System Shock 2",
+    "rarity": "D",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 1999,
+    "originalRating": 89.14377949374226,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4bak.jpg"
+  },
+  {
+    "id": 23832,
+    "rarity": "D",
+    "name": "Abobo's Big Adventure",
+    "console": "Web browser, PC (Microsoft Windows), Mac",
+    "releaseYear": 2012,
+    "originalRating": 89.14082438145775,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2d2b.jpg"
+  },
+  {
+    "id": 24050,
+    "rarity": "D",
+    "name": "Project Gotham Racing 3",
+    "console": "Xbox 360",
+    "releaseYear": 2005,
+    "originalRating": 89.1393321344843,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1uoj.jpg"
+  },
+  {
+    "id": 24269,
+    "rarity": "D",
+    "name": "Mr. Shifty",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 89.13486067217868,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co209u.jpg"
+  },
+  {
+    "id": 24489,
+    "rarity": "D",
+    "name": "Kingdom Come: Deliverance II",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 89.12897590540123,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8qmv.jpg"
+  },
+  {
+    "id": 24710,
+    "rarity": "D",
+    "name": "Doom 3",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2019,
+    "originalRating": 89.12440778679441,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co512p.jpg"
+  },
+  {
+    "id": 24932,
+    "rarity": "D",
+    "name": "Minami Lane",
+    "console": "Xbox Series X|S, PlayStation 4, Linux, PC (Microsoft Windows), Mac, Nintendo Switch",
+    "releaseYear": 2024,
+    "originalRating": 89.1174685209618,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7puk.jpg"
+  },
+  {
+    "id": 25155,
+    "rarity": "D",
+    "name": "Persona Q: Shadow of the Labyrinth",
+    "console": "Nintendo 3DS",
+    "releaseYear": 2014,
+    "originalRating": 89.10246933221188,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6jpi.jpg"
+  },
+  {
+    "id": 25379,
+    "rarity": "D",
+    "name": "Football Manager 2013",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2012,
+    "originalRating": 89.10050906735678,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2k78.jpg"
+  },
+  {
+    "id": 25604,
+    "rarity": "D",
+    "name": "Sonic the Hedgehog 3 & Knuckles",
+    "console": "Sega Mega Drive/Genesis, PC (Microsoft Windows)",
+    "releaseYear": 1994,
+    "originalRating": 89.09227559184183,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7c0w.jpg"
+  },
+  {
+    "id": 25830,
+    "rarity": "D",
+    "name": "Eastward",
+    "console": "PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 89.0833489009404,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3tul.jpg"
+  },
+  {
+    "id": 56,
+    "name": "Super Smash Bros. Melee",
+    "rarity": "D",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2001,
+    "originalRating": 89.08190322231283,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21yv.jpg"
+  },
+  {
+    "id": 26057,
+    "rarity": "D",
+    "name": "Top Spin 4",
+    "console": "PlayStation 3, Wii, Xbox 360",
+    "releaseYear": 2011,
+    "originalRating": 89.07748549851712,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3a8h.jpg"
+  },
+  {
+    "id": 26285,
+    "rarity": "D",
+    "name": "Sega Genesis Classics",
+    "console": "PlayStation 4, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 89.06277605725691,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6sm8.jpg"
+  },
+  {
+    "id": 26514,
+    "rarity": "D",
+    "name": "Star Ocean: Till the End of Time",
+    "console": "PlayStation 4, PlayStation 2",
+    "releaseYear": 2003,
+    "originalRating": 89.0556024225788,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1p1j.jpg"
+  },
+  {
+    "id": 26744,
+    "rarity": "D",
+    "name": "Might and Magic VII: For Blood and Honor",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1999,
+    "originalRating": 89.04982482700856,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21cm.jpg"
+  },
+  {
+    "id": 26975,
+    "rarity": "D",
+    "name": "CrossCode",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 89.04334929111477,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co28wy.jpg"
+  },
+  {
+    "id": 27207,
+    "rarity": "D",
+    "name": "Wing Commander: Privateer",
+    "console": "PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1993,
+    "originalRating": 89.02540621877839,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2khs.jpg"
+  },
+  {
+    "id": 27440,
+    "rarity": "D",
+    "name": "Super Mario Odyssey",
+    "console": "Nintendo Switch 2, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 89.02245979979116,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1mxf.jpg"
+  },
+  {
+    "id": 27674,
+    "rarity": "D",
+    "name": "Football Manager 2011",
+    "console": "PC (Microsoft Windows), Mac, PlayStation Portable",
+    "releaseYear": 2010,
+    "originalRating": 89.02127093021626,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2k77.jpg"
+  },
+  {
+    "id": 27909,
+    "rarity": "D",
+    "name": "Danganronpa V3: Killing Harmony",
+    "console": "PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation Vita, Nintendo Switch",
+    "releaseYear": 2017,
+    "originalRating": 89.0147178145657,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1u57.jpg"
+  },
+  {
+    "id": 28145,
+    "rarity": "D",
+    "name": "Ys: Book I & II",
+    "console": "Wii, Turbografx-16/PC Engine CD",
+    "releaseYear": 1989,
+    "originalRating": 89.01318772523793,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3gs9.jpg"
+  },
+  {
+    "id": 28382,
+    "rarity": "D",
+    "name": "MechWarrior Online",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2013,
+    "originalRating": 89.01144018741853,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2so3.jpg"
+  },
+  {
+    "id": 28620,
+    "rarity": "D",
+    "name": "PowerMonger",
+    "console": "Super Nintendo Entertainment System, Sega Mega Drive/Genesis, Atari ST/STE, Mac, DOS, Amiga, Sega CD",
+    "releaseYear": 1990,
+    "originalRating": 88.98152932176808,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21zk.jpg"
+  },
+  {
+    "id": 28859,
+    "rarity": "D",
+    "name": "Kingdom Hearts HD 2.5 Remix",
+    "console": "PlayStation 3",
+    "releaseYear": 2014,
+    "originalRating": 88.96379518222601,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co315m.jpg"
+  },
+  {
+    "id": 29099,
+    "rarity": "D",
+    "name": "Monster Hunter Wilds",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "originalRating": 88.95893585535501,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co904o.jpg"
+  },
+  {
+    "id": 87,
+    "name": "Shadow of the Colossus",
+    "rarity": "D",
+    "console": "PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 88.94199491368565,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1ozz.jpg"
+  },
+  {
+    "id": 29340,
+    "rarity": "D",
+    "name": "Breath of Fire: Dragon Quarter",
+    "console": "PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 88.94124325933511,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7k1t.jpg"
+  },
+  {
+    "id": 29582,
+    "rarity": "D",
+    "name": "Shady Part of Me",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 88.92993677608558,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2mfz.jpg"
+  },
+  {
+    "id": 29825,
+    "rarity": "D",
+    "name": "Bahamut Lagoon",
+    "console": "Wii, Wii U, Super Famicom",
+    "releaseYear": 1996,
+    "originalRating": 88.92207812295419,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2c6p.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Super Mario 64",
+    "rarity": "D",
+    "console": "Wii, Nintendo 64, Wii U",
+    "releaseYear": 1996,
+    "originalRating": 88.89558653030673,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co721v.jpg"
+  },
+  {
+    "id": 30069,
+    "rarity": "D",
+    "name": "One Must Fall: 2097",
+    "console": "DOS",
+    "releaseYear": 1994,
+    "originalRating": 88.88078893604782,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2qvz.jpg"
+  },
+  {
+    "id": 30314,
+    "rarity": "D",
+    "name": "Dofus",
+    "console": "Web browser, Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2004,
+    "originalRating": 88.87709152052966,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co93i0.jpg"
+  },
+  {
+    "id": 30560,
+    "rarity": "D",
+    "name": "Metal Gear Solid 2: Sons of Liberty",
+    "console": "PlayStation 2",
+    "releaseYear": 2001,
+    "originalRating": 88.86874553537177,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5e1c.jpg"
+  },
+  {
+    "id": 30807,
+    "rarity": "D",
+    "name": "WipEout: Omega Collection",
+    "console": "PlayStation 4, PlayStation VR",
+    "releaseYear": 2017,
+    "originalRating": 88.84915427187279,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2iv6.jpg"
+  },
+  {
+    "id": 31055,
+    "rarity": "D",
+    "name": "Radiant Silvergun",
+    "console": "Arcade",
+    "releaseYear": 1998,
+    "originalRating": 88.84613285251731,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa9p5.jpg"
+  },
+  {
+    "id": 31304,
+    "rarity": "D",
+    "name": "The Banner Saga 3",
+    "console": "PlayStation 4, Android, PC (Microsoft Windows), iOS, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 88.84239147333403,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rcv.jpg"
+  },
+  {
+    "id": 31554,
+    "rarity": "D",
+    "name": "Ignition",
+    "console": "PC (Microsoft Windows), DOS",
+    "releaseYear": 1997,
+    "originalRating": 88.83705513295305,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2a4b.jpg"
+  },
+  {
+    "id": 31805,
+    "rarity": "D",
+    "name": "Tex Murphy: Under a Killing Moon",
+    "console": "Linux, PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1994,
+    "originalRating": 88.8190693601722,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5zoe.jpg"
+  },
+  {
+    "id": 32057,
+    "rarity": "D",
+    "name": "Tzar: The Burden of the Crown",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2000,
+    "originalRating": 88.81886111708427,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2rro.jpg"
+  },
+  {
+    "id": 32310,
+    "rarity": "D",
+    "name": "Ranger X",
+    "console": "Sega Mega Drive/Genesis",
+    "releaseYear": 1993,
+    "originalRating": 88.81751319486139,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2zhs.jpg"
+  },
+  {
+    "id": 32564,
+    "rarity": "D",
+    "name": "Operation Flashpoint: Cold War Crisis",
+    "console": "Xbox, PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 88.81550757257585,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2qw5.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Perfect Dark",
+    "rarity": "D",
+    "console": "Nintendo 64",
+    "releaseYear": 2000,
+    "originalRating": 88.81222789987638,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co77xv.jpg"
+  },
+  {
+    "id": 32819,
+    "rarity": "D",
+    "name": "Fire Emblem: Thracia 776",
+    "console": "Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1999,
+    "originalRating": 88.8089924444125,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25w5.jpg"
+  },
+  {
+    "id": 33075,
+    "rarity": "D",
+    "name": "Sonic Mega Collection",
+    "console": "Xbox, Nintendo GameCube, PC (Microsoft Windows), PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 88.80662678879766,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2v6h.jpg"
+  },
+  {
+    "id": 33332,
+    "rarity": "D",
+    "name": "Day of the Tentacle",
+    "console": "Mac, DOS, Amiga",
+    "releaseYear": 1993,
+    "originalRating": 88.79136122197363,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co30yt.jpg"
+  },
+  {
+    "id": 33590,
+    "rarity": "D",
+    "name": "Mega Man Battle Network 3 White",
+    "console": "Game Boy Advance",
+    "releaseYear": 2002,
+    "originalRating": 88.78977108373951,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co203l.jpg"
+  },
+  {
+    "id": 33849,
+    "rarity": "D",
+    "name": "Blackwood Crossing",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2017,
+    "originalRating": 88.77062515192722,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1ybb.jpg"
+  },
+  {
+    "id": 34109,
+    "rarity": "D",
+    "name": "The Legend of Heroes: Trails of Cold Steel IV",
+    "console": "Google Stadia, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 88.75949044537045,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co31wc.jpg"
+  },
+  {
+    "id": 34370,
+    "rarity": "D",
+    "name": "Coloring Pixels",
+    "console": "Linux, Android, PC (Microsoft Windows), iOS, Mac, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 88.7534468416601,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2958.jpg"
+  },
+  {
+    "id": 34632,
+    "rarity": "D",
+    "name": "Clash at Demonhead",
+    "console": "Family Computer, Nintendo Entertainment System",
+    "releaseYear": 1989,
+    "originalRating": 88.7482018075305,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6v2y.jpg"
+  },
+  {
+    "id": 34895,
+    "rarity": "D",
+    "name": "Mordheim: City of the Damned",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2015,
+    "originalRating": 88.74728747420717,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1odq.jpg"
+  },
+  {
+    "id": 35159,
+    "rarity": "D",
+    "name": "Ghost of Tsushima",
+    "console": "PlayStation 4",
+    "releaseYear": 2020,
+    "originalRating": 88.74065151768606,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2crj.jpg"
+  },
+  {
+    "id": 35424,
+    "rarity": "D",
+    "name": "Planescape: Torment",
+    "console": "Linux, PC (Microsoft Windows), iOS, Mac",
+    "releaseYear": 1999,
+    "originalRating": 88.7228129169509,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3ggb.jpg"
+  },
+  {
+    "id": 35690,
+    "rarity": "D",
+    "name": "Freedom Force vs. The 3rd Reich",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2005,
+    "originalRating": 88.72113964750619,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co28fk.jpg"
+  },
+  {
+    "id": 35957,
+    "rarity": "D",
+    "name": "Return of the Obra Dinn",
+    "console": "PlayStation 4, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 88.69022813491327,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co27j9.jpg"
+  },
+  {
+    "id": 36225,
+    "rarity": "D",
+    "name": "DinoScape",
+    "console": "Android, PC (Microsoft Windows), iOS",
+    "releaseYear": 2020,
+    "originalRating": 88.68852459016394,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2sjm.jpg"
+  },
+  {
+    "id": 36494,
+    "rarity": "D",
+    "name": "Atelier Rorona: The Alchemist of Arland",
+    "console": "PlayStation 3",
+    "releaseYear": 2009,
+    "originalRating": 88.67500279953379,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2phc.jpg"
+  },
+  {
+    "id": 36764,
+    "rarity": "D",
+    "name": "Just Dance 2015",
+    "console": "PlayStation 3, PlayStation 4, Wii, Wii U, Xbox 360, Xbox One",
+    "releaseYear": 2014,
+    "originalRating": 88.66300585469946,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1xf5.jpg"
+  },
+  {
+    "id": 37035,
+    "rarity": "D",
+    "name": "Guilty Gear X2",
+    "console": "Arcade, PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 88.61403035730697,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaw8s.jpg"
+  },
+  {
+    "id": 37307,
+    "rarity": "D",
+    "name": "Golden Sun: The Lost Age",
+    "console": "Wii U, Game Boy Advance",
+    "releaseYear": 2002,
+    "originalRating": 88.60579793380185,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25rt.jpg"
+  },
+  {
+    "id": 37580,
+    "rarity": "D",
+    "name": "Uncharted 2: Among Thieves",
+    "console": "PlayStation 3",
+    "releaseYear": 2009,
+    "originalRating": 88.59455003353625,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tnb.jpg"
+  },
+  {
+    "id": 37854,
+    "rarity": "D",
+    "name": "Super Mario Galaxy",
+    "console": "Wii, Wii U",
+    "releaseYear": 2007,
+    "originalRating": 88.5935986298314,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21ro.jpg"
+  },
+  {
+    "id": 38129,
+    "rarity": "D",
+    "name": "Beautiful Katamari",
+    "console": "Xbox 360",
+    "releaseYear": 2007,
+    "originalRating": 88.58846579033667,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co48qa.jpg"
+  },
+  {
+    "id": 38405,
+    "rarity": "D",
+    "name": "Fell Seal: Arbiter's Mark",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2019,
+    "originalRating": 88.57353291899744,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1k9m.jpg"
+  },
+  {
+    "id": 38682,
+    "rarity": "D",
+    "name": "Pilot Brothers",
+    "console": "Windows Phone, Android, PC (Microsoft Windows), iOS",
+    "releaseYear": 1997,
+    "originalRating": 88.56107745206364,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3vbd.jpg"
+  },
+  {
+    "id": 38960,
+    "rarity": "D",
+    "name": "The Case of the Golden Idol",
+    "console": "Xbox Series X|S, PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2022,
+    "originalRating": 88.54536069524387,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9tog.jpg"
+  },
+  {
+    "id": 39239,
+    "rarity": "D",
+    "name": "The Banner Saga 2",
+    "console": "PlayStation 4, Android, PC (Microsoft Windows), iOS, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 88.54044632423063,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co27ai.jpg"
+  },
+  {
+    "id": 39519,
+    "rarity": "D",
+    "name": "The Battle of Polytopia",
+    "console": "Linux, Android, PC (Microsoft Windows), iOS, Mac, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 88.53492977925714,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coav77.jpg"
+  },
+  {
+    "id": 125,
+    "name": "StarCraft",
+    "rarity": "D",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 1998,
+    "originalRating": 88.53409473571061,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9n6m.jpg"
+  },
+  {
+    "id": 39800,
+    "rarity": "D",
+    "name": "Tales of Symphonia Chronicles",
+    "console": "PlayStation 3",
+    "releaseYear": 2013,
+    "originalRating": 88.52561019856341,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2h0v.jpg"
+  },
+  {
+    "id": 40082,
+    "rarity": "D",
+    "name": "Mechabellum",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 88.51777076006155,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8ylz.jpg"
+  },
+  {
+    "id": 40365,
+    "rarity": "D",
+    "name": "Star Wars: X-Wing Alliance",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1999,
+    "originalRating": 88.51451437815875,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ac7.jpg"
+  },
+  {
+    "id": 40649,
+    "rarity": "D",
+    "name": "Super Mario 3D World + Bowser's Fury",
+    "console": "Nintendo Switch 2, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 88.513613473091,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2uo9.jpg"
+  },
+  {
+    "id": 40934,
+    "rarity": "D",
+    "name": "Micro Machines V3",
+    "console": "PC (Microsoft Windows), PlayStation",
+    "releaseYear": 1997,
+    "originalRating": 88.5133549036982,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6psc.jpg"
+  },
+  {
+    "id": 41220,
+    "rarity": "D",
+    "name": "It Takes Two",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 88.51054889230916,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2t97.jpg"
+  },
+  {
+    "id": 41507,
+    "rarity": "D",
+    "name": "Pentiment",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2022,
+    "originalRating": 88.50454198405234,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4v1e.jpg"
+  },
+  {
+    "id": 41795,
+    "rarity": "D",
+    "name": "Return of the Tentacle",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2018,
+    "originalRating": 88.48336790323386,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/jb1jrbctlgmt9gggs0ja.jpg"
+  },
+  {
+    "id": 42084,
+    "rarity": "D",
+    "name": "Toonstruck",
+    "console": "PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1996,
+    "originalRating": 88.46943004266478,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co71r2.jpg"
+  },
+  {
+    "id": 42374,
+    "rarity": "D",
+    "name": "Ikaruga",
+    "console": "Arcade",
+    "releaseYear": 2001,
+    "originalRating": 88.46820649003311,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1qjb.jpg"
+  },
+  {
+    "id": 42665,
+    "rarity": "D",
+    "name": "GentleMoon 2",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2016,
+    "originalRating": 88.46153846153847,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rry.jpg"
+  },
+  {
+    "id": 42957,
+    "rarity": "D",
+    "name": "Rhythm Doctor",
+    "console": "Xbox Series X|S, Android, PC (Microsoft Windows), iOS, Mac, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 88.43903039667326,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9xi0.jpg"
+  },
+  {
+    "id": 124,
+    "name": "Diablo II",
+    "rarity": "D",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2000,
+    "originalRating": 88.43756689699056,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3gfq.jpg"
+  },
+  {
+    "id": 43250,
+    "rarity": "D",
+    "name": "The Legend of Heroes: Trails in the Sky the 3rd",
+    "console": "PlayStation 3, PC (Microsoft Windows), PlayStation Portable",
+    "releaseYear": 2007,
+    "originalRating": 88.42669270248902,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co23da.jpg"
+  },
+  {
+    "id": 43544,
+    "rarity": "D",
+    "name": "Sid Meier's Civilization II",
+    "console": "PC (Microsoft Windows), Mac, PlayStation",
+    "releaseYear": 1996,
+    "originalRating": 88.42381330985546,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6yhe.jpg"
+  },
+  {
+    "id": 43839,
+    "rarity": "D",
+    "name": "Football Manager 2018",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2017,
+    "originalRating": 88.39774721165011,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co24hg.jpg"
+  },
+  {
+    "id": 44135,
+    "rarity": "D",
+    "name": "Half-Life",
+    "console": "Linux, PC (Microsoft Windows), Mac, PlayStation 2",
+    "releaseYear": 1998,
+    "originalRating": 88.39231714853946,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coag8n.jpg"
+  },
+  {
+    "id": 91,
+    "name": "Kingdom Hearts II",
+    "rarity": "D",
+    "console": "PlayStation 3, PlayStation 4, PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 88.38657708054211,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co30t1.jpg"
+  },
+  {
+    "id": 44432,
+    "rarity": "D",
+    "name": ".Hack//G.U. Vol. 1: Rebirth",
+    "console": "PlayStation 2",
+    "releaseYear": 2006,
+    "originalRating": 88.38575708434172,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2vtb.jpg"
+  },
+  {
+    "id": 44730,
+    "rarity": "D",
+    "name": "Hypnospace Outlaw",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2019,
+    "originalRating": 88.3585740954241,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2f5i.jpg"
+  },
+  {
+    "id": 45029,
+    "rarity": "D",
+    "name": "Harvest Moon: Friends of Mineral Town",
+    "console": "Wii U, Game Boy Advance",
+    "releaseYear": 2003,
+    "originalRating": 88.35600110939423,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25u5.jpg"
+  },
+  {
+    "id": 45329,
+    "rarity": "D",
+    "name": "1000xResist",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2024,
+    "originalRating": 88.35149018097931,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co87zq.jpg"
+  },
+  {
+    "id": 45630,
+    "rarity": "D",
+    "name": "Stationeers",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2017,
+    "originalRating": 88.34954317712939,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaier.jpg"
+  },
+  {
+    "id": 45932,
+    "rarity": "D",
+    "name": "The Duel: Test Drive II",
+    "console": "Apple IIGS, Commodore C64/128/MAX, ZX Spectrum, Super Nintendo Entertainment System, Sega Mega Drive/Genesis, Atari ST/STE, Mac, DOS, Amiga, Amstrad CPC, MSX",
+    "releaseYear": 1989,
+    "originalRating": 88.3263440091527,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7wom.jpg"
+  },
+  {
+    "id": 46235,
+    "rarity": "D",
+    "name": "Tooth and Tail",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2017,
+    "originalRating": 88.31910243209138,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rk6.jpg"
+  },
+  {
+    "id": 46539,
+    "rarity": "D",
+    "name": "Super Danganronpa Another 2 ~The Moon of Hope and Sun of Despair~",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2020,
+    "originalRating": 88.31838822314388,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa2na.jpg"
+  },
+  {
+    "id": 46844,
+    "rarity": "D",
+    "name": "Monkey Island 2: LeChuck's Revenge",
+    "console": "Mac, DOS, Amiga",
+    "releaseYear": 1991,
+    "originalRating": 88.31441152406072,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co30yr.jpg"
+  },
+  {
+    "id": 47150,
+    "rarity": "D",
+    "name": "Fate/Stay Night",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2004,
+    "originalRating": 88.30603742234425,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2h3l.jpg"
+  },
+  {
+    "id": 47457,
+    "rarity": "D",
+    "name": "Discworld II: Mortality Bytes!",
+    "console": "PC (Microsoft Windows), DOS, Sega Saturn, PlayStation",
+    "releaseYear": 1996,
+    "originalRating": 88.30267785460134,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2pxe.jpg"
+  },
+  {
+    "id": 47765,
+    "rarity": "D",
+    "name": "Lorelai",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2019,
+    "originalRating": 88.27025392683342,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1l51.jpg"
+  },
+  {
+    "id": 48074,
+    "rarity": "D",
+    "name": "The Neverhood",
+    "console": "PC (Microsoft Windows), PlayStation",
+    "releaseYear": 1996,
+    "originalRating": 88.26636303984635,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2h4m.jpg"
+  },
+  {
+    "id": 48384,
+    "rarity": "D",
+    "name": "Tales of Symphonia",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2003,
+    "originalRating": 88.25435129182218,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1peo.jpg"
+  },
+  {
+    "id": 48695,
+    "rarity": "D",
+    "name": "Phantasy Star IV: The End of the Millennium",
+    "console": "Linux, Wii, Sega Mega Drive/Genesis, PC (Microsoft Windows), Mac",
+    "releaseYear": 1993,
+    "originalRating": 88.25061161648044,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2g92.jpg"
+  },
+  {
+    "id": 49007,
+    "rarity": "E",
+    "name": "NieR RepliCant",
+    "console": "PlayStation 3",
+    "releaseYear": 2010,
+    "originalRating": 88.2274834348808,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2u0r.jpg"
+  },
+  {
+    "id": 49320,
+    "rarity": "E",
+    "name": "Velocity 2X",
+    "console": "PlayStation 4, PC (Microsoft Windows), PlayStation Vita, Xbox One, Nintendo Switch",
+    "releaseYear": 2014,
+    "originalRating": 88.22510327517199,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3wij.jpg"
+  },
+  {
+    "id": 49634,
+    "rarity": "E",
+    "name": "N++",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2015,
+    "originalRating": 88.20961198154735,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2535.jpg"
+  },
+  {
+    "id": 49949,
+    "rarity": "E",
+    "name": "R4: Ridge Racer Type 4",
+    "console": "PlayStation 3, PlayStation, PlayStation Portable",
+    "releaseYear": 1998,
+    "originalRating": 88.19132135474203,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co86ta.jpg"
+  },
+  {
+    "id": 50265,
+    "rarity": "E",
+    "name": "Warcraft III: Reign of Chaos",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2002,
+    "originalRating": 88.18681692156348,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1xuq.jpg"
+  },
+  {
+    "id": 50582,
+    "rarity": "E",
+    "name": "Zero Escape: Virtue's Last Reward",
+    "console": "PlayStation 4, Nintendo 3DS, PC (Microsoft Windows), PlayStation Vita, Xbox One",
+    "releaseYear": 2012,
+    "originalRating": 88.18095305876514,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co260l.jpg"
+  },
+  {
+    "id": 50900,
+    "rarity": "E",
+    "name": "Pharaoh + Cleopatra",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2000,
+    "originalRating": 88.17297420262769,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1noj.jpg"
+  },
+  {
+    "id": 51219,
+    "rarity": "E",
+    "name": "Monster Sanctuary",
+    "console": "PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 88.16716173731893,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1q3q.jpg"
+  },
+  {
+    "id": 51539,
+    "rarity": "E",
+    "name": "Uncharted: Legacy of Thieves Collection",
+    "console": "PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2022,
+    "originalRating": 88.1285677998739,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3swl.jpg"
+  },
+  {
+    "id": 51860,
+    "rarity": "E",
+    "name": "Library of Ruina",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 88.12024230542767,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8z9s.jpg"
+  },
+  {
+    "id": 52182,
+    "rarity": "E",
+    "name": "Grand Theft Auto: The Trilogy",
+    "console": "Xbox, PlayStation 4, PC (Microsoft Windows), Mac, PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 88.09459346454814,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ms5.jpg"
+  },
+  {
+    "id": 52505,
+    "rarity": "E",
+    "name": "Football Manager 2014",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2013,
+    "originalRating": 88.07260906774601,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2k7a.jpg"
+  },
+  {
+    "id": 52829,
+    "rarity": "E",
+    "name": "Anarchy Online",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 88.07039690656246,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tvs.jpg"
+  },
+  {
+    "id": 53154,
+    "rarity": "E",
+    "name": "The Talos Principle II",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2023,
+    "originalRating": 88.05265855063851,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6jbl.jpg"
+  },
+  {
+    "id": 53480,
+    "rarity": "E",
+    "name": "Device 6",
+    "console": "iOS",
+    "releaseYear": 2013,
+    "originalRating": 88.04993625478804,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/o5tlcze9xgbv0kpnkzxc.jpg"
+  },
+  {
+    "id": 53807,
+    "rarity": "E",
+    "name": "MechWarrior 3",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1999,
+    "originalRating": 88.04155711482807,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ij1.jpg"
+  },
+  {
+    "id": 54135,
+    "rarity": "E",
+    "name": "Castlevania: Aria of Sorrow",
+    "console": "Wii U, Game Boy Advance",
+    "releaseYear": 2003,
+    "originalRating": 88.02355250414797,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1nh5.jpg"
+  },
+  {
+    "id": 54464,
+    "rarity": "E",
+    "name": "Wing Commander: Prophecy",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1997,
+    "originalRating": 87.99596343116772,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2kkb.jpg"
+  },
+  {
+    "id": 54794,
+    "rarity": "E",
+    "name": "Occupy White Walls",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2022,
+    "originalRating": 87.991452991453,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co28hy.jpg"
+  },
+  {
+    "id": 78,
+    "name": "Final Fantasy IX",
+    "rarity": "E",
+    "console": "PlayStation 3, PlayStation, PlayStation Portable",
+    "releaseYear": 2000,
+    "originalRating": 87.97924064913013,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2unc.jpg"
+  },
+  {
+    "id": 55125,
+    "rarity": "E",
+    "name": "NHL 2005",
+    "console": "Xbox, Nintendo GameCube, PC (Microsoft Windows), PlayStation 2",
+    "releaseYear": 2004,
+    "originalRating": 87.96677100740479,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2got.jpg"
+  },
+  {
+    "id": 55457,
+    "rarity": "E",
+    "name": "Europa Universalis IV",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2013,
+    "originalRating": 87.94301246525627,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaarv.jpg"
+  },
+  {
+    "id": 90,
+    "name": "Final Fantasy X",
+    "rarity": "E",
+    "console": "PlayStation 2",
+    "releaseYear": 2001,
+    "originalRating": 87.93766945392953,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tr1.jpg"
+  },
+  {
+    "id": 55790,
+    "rarity": "E",
+    "name": "Ghost 1.0",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2016,
+    "originalRating": 87.92826722702999,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1ue6.jpg"
+  },
+  {
+    "id": 56124,
+    "rarity": "E",
+    "name": "Super Mario World: Super Mario Advance 2",
+    "console": "Wii U, Game Boy Advance",
+    "releaseYear": 2001,
+    "originalRating": 87.92668116260599,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6nhk.jpg"
+  },
+  {
+    "id": 56459,
+    "rarity": "E",
+    "name": "Clone Hero",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2022,
+    "originalRating": 87.91341201217371,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6ptj.jpg"
+  },
+  {
+    "id": 56795,
+    "rarity": "E",
+    "name": "Lost Judgment",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One",
+    "releaseYear": 2021,
+    "originalRating": 87.8991620703731,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co53ld.jpg"
+  },
+  {
+    "id": 57132,
+    "rarity": "E",
+    "name": "We Love Katamari",
+    "console": "PlayStation 2",
+    "releaseYear": 2005,
+    "originalRating": 87.89586246335455,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4af9.jpg"
+  },
+  {
+    "id": 57470,
+    "rarity": "E",
+    "name": "Space Rangers",
+    "console": "PC (Microsoft Windows), DOS",
+    "releaseYear": 2002,
+    "originalRating": 87.86575160168019,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6iia.jpg"
+  },
+  {
+    "id": 57809,
+    "rarity": "E",
+    "name": "Unavowed",
+    "console": "Linux, PC (Microsoft Windows), Mac, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 87.86046042794824,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1qv2.jpg"
+  },
+  {
+    "id": 58149,
+    "rarity": "E",
+    "name": "UFO 50",
+    "console": "PC (Microsoft Windows), Nintendo Switch",
+    "releaseYear": 2024,
+    "originalRating": 87.8591112744989,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co24v0.jpg"
+  },
+  {
+    "id": 58490,
+    "rarity": "E",
+    "name": "Sheepy: A Short Adventure",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2024,
+    "originalRating": 87.85442211551319,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7rkr.jpg"
+  },
+  {
+    "id": 58832,
+    "rarity": "E",
+    "name": "Final Fantasy: Brave Exvius",
+    "console": "Android, iOS",
+    "releaseYear": 2015,
+    "originalRating": 87.85429123546666,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1j27.jpg"
+  },
+  {
+    "id": 59175,
+    "rarity": "E",
+    "name": "Darkest Hour: A Hearts of Iron Game",
+    "console": "Linux, PC (Microsoft Windows)",
+    "releaseYear": 2011,
+    "originalRating": 87.84986384983236,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2i94.jpg"
+  },
+  {
+    "id": 59519,
+    "rarity": "E",
+    "name": "NBA 2K11",
+    "console": "OnLive Game System, PlayStation 3, Wii, PC (Microsoft Windows), PlayStation Portable, Xbox 360, PlayStation 2",
+    "releaseYear": 2010,
+    "originalRating": 87.84471883025994,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2gih.jpg"
+  },
+  {
+    "id": 59864,
+    "rarity": "E",
+    "name": "Grand Prix 2",
+    "console": "DOS",
+    "releaseYear": 1996,
+    "originalRating": 87.8291397547145,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2q9q.jpg"
+  },
+  {
+    "id": 60210,
+    "rarity": "E",
+    "name": "Ōkami",
+    "console": "PlayStation 3, Wii, PlayStation 2",
+    "releaseYear": 2006,
+    "originalRating": 87.79829935750556,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3mpk.jpg"
+  },
+  {
+    "id": 60557,
+    "rarity": "E",
+    "name": "Pokémon Silver Version",
+    "console": "Game Boy Color, Nintendo 3DS",
+    "releaseYear": 1999,
+    "originalRating": 87.78784077976286,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5pid.jpg"
+  },
+  {
+    "id": 60905,
+    "rarity": "E",
+    "name": "Master of Orion",
+    "console": "Linux, PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1993,
+    "originalRating": 87.77872879436552,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4ejt.jpg"
+  },
+  {
+    "id": 61254,
+    "rarity": "E",
+    "name": "Bayonetta 2",
+    "console": "Wii U",
+    "releaseYear": 2014,
+    "originalRating": 87.7655463400682,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6ffy.jpg"
+  },
+  {
+    "id": 61604,
+    "rarity": "E",
+    "name": "Triangle Strategy",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2022,
+    "originalRating": 87.74732865144767,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8wc0.jpg"
+  },
+  {
+    "id": 61955,
+    "rarity": "E",
+    "name": "Ultima IV: Quest of the Avatar",
+    "console": "Atari 8-bit, PC-9800 Series, Sharp X68000, PC-8800 Series, Commodore C64/128/MAX, Sharp X1, Atari ST/STE, PC (Microsoft Windows), iOS, Mac, DOS, FM Towns, Amiga, Apple II, FM-7, Sega Master System/Mark III, MSX",
+    "releaseYear": 1985,
+    "originalRating": 87.73995756289578,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2cqa.jpg"
+  },
+  {
+    "id": 62307,
+    "rarity": "E",
+    "name": "God of War Collection",
+    "console": "PlayStation 3, PlayStation Vita",
+    "releaseYear": 2009,
+    "originalRating": 87.72807480625696,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2enh.jpg"
+  },
+  {
+    "id": 62660,
+    "rarity": "E",
+    "name": "The Dark Occult",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2018,
+    "originalRating": 87.72088789022062,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1him.jpg"
+  },
+  {
+    "id": 63014,
+    "rarity": "E",
+    "name": "Rage of Mages II: Necromancer",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1999,
+    "originalRating": 87.71782272588298,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co21ho.jpg"
+  },
+  {
+    "id": 63369,
+    "rarity": "E",
+    "name": "Bomberman '94",
+    "console": "PlayStation 3, Wii, TurboGrafx-16/PC Engine, Wii U, PlayStation Portable, Legacy Mobile Device",
+    "releaseYear": 1993,
+    "originalRating": 87.69801212384408,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9sg7.jpg"
+  },
+  {
+    "id": 80,
+    "name": "Xenogears",
+    "rarity": "E",
+    "console": "PlayStation 3, PlayStation, PlayStation Portable",
+    "releaseYear": 1998,
+    "originalRating": 87.64451599832671,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa8ei.jpg"
+  },
+  {
+    "id": 63725,
+    "rarity": "E",
+    "name": "Serious Sam Classics: Revolution",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2019,
+    "originalRating": 87.61706494111856,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2r9t.jpg"
+  },
+  {
+    "id": 64082,
+    "rarity": "E",
+    "name": "Metroid Prime 3: Corruption",
+    "console": "Wii",
+    "releaseYear": 2007,
+    "originalRating": 87.60312242747344,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1wwp.jpg"
+  },
+  {
+    "id": 63,
+    "name": "Pikmin 2",
+    "rarity": "E",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2004,
+    "originalRating": 87.59895003646446,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5y6q.jpg"
+  },
+  {
+    "id": 64440,
+    "rarity": "E",
+    "name": "Horizon Zero Dawn",
+    "console": "PlayStation 4, PC (Microsoft Windows)",
+    "releaseYear": 2017,
+    "originalRating": 87.58542055205227,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2una.jpg"
+  },
+  {
+    "id": 64799,
+    "rarity": "E",
+    "name": "Koikatsu Party",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2019,
+    "originalRating": 87.58286833572211,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2f82.jpg"
+  },
+  {
+    "id": 65159,
+    "rarity": "E",
+    "name": "Geometry Wars: Retro Evolved 2",
+    "console": "Xbox 360, Xbox One",
+    "releaseYear": 2008,
+    "originalRating": 87.564648275194,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coa6m1.jpg"
+  },
+  {
+    "id": 65520,
+    "rarity": "E",
+    "name": "Chaos;Child",
+    "console": "PlayStation 3, PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation Vita, Xbox One, Nintendo Switch",
+    "releaseYear": 2014,
+    "originalRating": 87.54142289252322,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co26xc.jpg"
+  },
+  {
+    "id": 59,
+    "name": "Resident Evil 4",
+    "rarity": "E",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2005,
+    "originalRating": 87.53251157635324,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2wk8.jpg"
+  },
+  {
+    "id": 65882,
+    "rarity": "E",
+    "name": "Knights and Merchants: The Shattered Kingdom",
+    "console": "Linux, PC (Microsoft Windows)",
+    "releaseYear": 1998,
+    "originalRating": 87.53055653821175,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co44jv.jpg"
+  },
+  {
+    "id": 66245,
+    "rarity": "E",
+    "name": "Batman: Arkham City",
+    "console": "OnLive Game System, PlayStation 3, PC (Microsoft Windows), Xbox 360, Nintendo Switch",
+    "releaseYear": 2011,
+    "originalRating": 87.52209344442397,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1voh.jpg"
+  },
+  {
+    "id": 66609,
+    "rarity": "E",
+    "name": "Guilty Gear Xrd: Revelator",
+    "console": "Arcade, PlayStation 3, PlayStation 4, PC (Microsoft Windows)",
+    "releaseYear": 2015,
+    "originalRating": 87.50248530799257,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2zs0.jpg"
+  },
+  {
+    "id": 66974,
+    "rarity": "E",
+    "name": "Transport Tycoon",
+    "console": "iOS, DOS",
+    "releaseYear": 1994,
+    "originalRating": 87.50176731818888,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2rqn.jpg"
+  },
+  {
+    "id": 67340,
+    "rarity": "E",
+    "name": "The Elder Scrolls V: Skyrim",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2011,
+    "originalRating": 87.49316268729608,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tnw.jpg"
+  },
+  {
+    "id": 67707,
+    "rarity": "E",
+    "name": "The Great Ace Attorney Chronicles",
+    "console": "PlayStation 4, PC (Microsoft Windows), Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 87.48723961496347,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2ylx.jpg"
+  },
+  {
+    "id": 68075,
+    "rarity": "E",
+    "name": "Indiana Jones and the Great Circle",
+    "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2024,
+    "originalRating": 87.47699361304458,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7nbc.jpg"
+  },
+  {
+    "id": 68444,
+    "rarity": "E",
+    "name": "Metal Gear Solid 4: Guns of the Patriots",
+    "console": "PlayStation 3",
+    "releaseYear": 2008,
+    "originalRating": 87.46855288235122,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5eju.jpg"
+  },
+  {
+    "id": 68814,
+    "rarity": "E",
+    "name": "Praetorians",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2003,
+    "originalRating": 87.46092466514196,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1rsk.jpg"
+  },
+  {
+    "id": 69185,
+    "rarity": "E",
+    "name": "Valkyrie Profile",
+    "console": "PlayStation",
+    "releaseYear": 1999,
+    "originalRating": 87.45781998486669,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1u5x.jpg"
+  },
+  {
+    "id": 69557,
+    "rarity": "E",
+    "name": "Super Mario Bros. Wonder",
+    "console": "Nintendo Switch",
+    "releaseYear": 2023,
+    "originalRating": 87.45051217080585,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6nnl.jpg"
+  },
+  {
+    "id": 69930,
+    "rarity": "E",
+    "name": "Aggressive Inline",
+    "console": "Xbox, Nintendo GameCube, PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 87.43590377217741,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3g90.jpg"
+  },
+  {
+    "id": 70304,
+    "rarity": "E",
+    "name": "Osu! Tatakae! Ouendan",
+    "console": "Nintendo DS",
+    "releaseYear": 2005,
+    "originalRating": 87.43181063248863,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25uu.jpg"
+  },
+  {
+    "id": 70679,
+    "rarity": "E",
+    "name": "Rocksmith 2014",
+    "console": "PlayStation 3, PlayStation 4, PC (Microsoft Windows), Mac, Xbox 360, Xbox One",
+    "releaseYear": 2013,
+    "originalRating": 87.43158034257374,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co48zw.jpg"
+  },
+  {
+    "id": 71055,
+    "rarity": "E",
+    "name": "Test Drive",
+    "console": "Commodore C64/128/MAX, Atari ST/STE, DOS, Amiga, Apple II",
+    "releaseYear": 1987,
+    "originalRating": 87.42385376787635,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4i7c.jpg"
+  },
+  {
+    "id": 99,
+    "name": "Katamari Damacy",
+    "rarity": "E",
+    "console": "PlayStation 3, PlayStation 2",
+    "releaseYear": 2004,
+    "originalRating": 87.4224557400847,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co67mq.jpg"
+  },
+  {
+    "id": 71432,
+    "rarity": "E",
+    "name": "Darkest Dungeon II",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2023,
+    "originalRating": 87.41974760393359,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6grp.jpg"
+  },
+  {
+    "id": 71810,
+    "rarity": "E",
+    "name": "Uncharted: The Nathan Drake Collection",
+    "console": "PlayStation 4",
+    "releaseYear": 2015,
+    "originalRating": 87.41819026819825,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tps.jpg"
+  },
+  {
+    "id": 72189,
+    "rarity": "E",
+    "name": "Monster Hunter Rise + Sunbreak",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2022,
+    "originalRating": 87.4143465275401,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7i5f.jpg"
+  },
+  {
+    "id": 72569,
+    "rarity": "E",
+    "name": "Dark Souls",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2011,
+    "originalRating": 87.40977478941424,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1x78.jpg"
+  },
+  {
+    "id": 72950,
+    "rarity": "E",
+    "name": "Dwarf Fortress",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2000,
+    "originalRating": 87.40247466110839,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2yqt.jpg"
+  },
+  {
+    "id": 73332,
+    "rarity": "E",
+    "name": "Super Mario World 2: Yoshi's Island",
+    "console": "Satellaview, Super Nintendo Entertainment System, Super Famicom",
+    "releaseYear": 1995,
+    "originalRating": 87.38887784869237,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2kn9.jpg"
+  },
+  {
+    "id": 73715,
+    "rarity": "E",
+    "name": "Grand Theft Auto: Vice City",
+    "console": "Xbox, PC (Microsoft Windows), Mac, PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 87.38827810309621,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2lbb.jpg"
+  },
+  {
+    "id": 74099,
+    "rarity": "E",
+    "name": "Severance: Blade of Darkness",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2001,
+    "originalRating": 87.3866609959753,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7nlj.jpg"
+  },
+  {
+    "id": 74484,
+    "rarity": "E",
+    "name": "Homeworld 2",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2003,
+    "originalRating": 87.37662357665332,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co29zu.jpg"
+  },
+  {
+    "id": 74870,
+    "rarity": "E",
+    "name": "StarCraft II: Wings of Liberty",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2010,
+    "originalRating": 87.37201898767402,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1tnn.jpg"
+  },
+  {
+    "id": 75257,
+    "rarity": "E",
+    "name": "Gabriel Knight: Sins of the Fathers",
+    "console": "PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1993,
+    "originalRating": 87.35086224187525,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2fl7.jpg"
+  },
+  {
+    "id": 75645,
+    "rarity": "E",
+    "name": "Utawarerumono",
+    "console": "PC (Microsoft Windows), PlayStation Portable, PlayStation 2",
+    "releaseYear": 2002,
+    "originalRating": 87.35065889240227,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4hgg.jpg"
+  },
+  {
+    "id": 76034,
+    "rarity": "E",
+    "name": "Golvellius: Valley of Doom",
+    "console": "Sega Master System/Mark III, MSX",
+    "releaseYear": 1987,
+    "originalRating": 87.34140126907539,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co91p7.jpg"
+  },
+  {
+    "id": 76424,
+    "rarity": "E",
+    "name": "Metaphor: ReFantazio",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2024,
+    "originalRating": 87.33002634107703,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co8d9t.jpg"
+  },
+  {
+    "id": 76815,
+    "rarity": "E",
+    "name": "Eye of the Beholder II: The Legend of Darkmoon",
+    "console": "PC-9800 Series, Linux, PC (Microsoft Windows), Mac, DOS, FM Towns, Amiga",
+    "releaseYear": 1991,
+    "originalRating": 87.32931297749671,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co28s8.jpg"
+  },
+  {
+    "id": 77207,
+    "rarity": "E",
+    "name": "Say No! More",
+    "console": "PC (Microsoft Windows), iOS, Mac, Nintendo Switch",
+    "releaseYear": 2021,
+    "originalRating": 87.32823576466757,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3m7k.jpg"
+  },
+  {
+    "id": 77600,
+    "rarity": "E",
+    "name": "The Legend of Zelda: A Link Between Worlds",
+    "console": "Nintendo 3DS",
+    "releaseYear": 2013,
+    "originalRating": 87.32805852288543,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3p0j.jpg"
+  },
+  {
+    "id": 77994,
+    "rarity": "E",
+    "name": "Galaga '88",
+    "console": "Arcade, Sharp X68000, Wii, Sega Game Gear, TurboGrafx-16/PC Engine",
+    "releaseYear": 1987,
+    "originalRating": 87.3224571990794,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2pol.jpg"
+  },
+  {
+    "id": 96,
+    "name": "Persona 4",
+    "rarity": "E",
+    "console": "PlayStation 3, PlayStation 2",
+    "releaseYear": 2008,
+    "originalRating": 87.32218050797866,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1u07.jpg"
+  },
+  {
+    "id": 78389,
+    "rarity": "E",
+    "name": "Paradigm",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2017,
+    "originalRating": 87.31897069997507,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/jag5vnsvydjwpiy0ni9o.jpg"
+  },
+  {
+    "id": 78785,
+    "rarity": "E",
+    "name": "Might and Magic VI: The Mandate of Heaven",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1998,
+    "originalRating": 87.31302005655193,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3czc.jpg"
+  },
+  {
+    "id": 79182,
+    "rarity": "E",
+    "name": "Mega Man Battle Network 3 Blue",
+    "console": "Game Boy Advance",
+    "releaseYear": 2002,
+    "originalRating": 87.30821483754445,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co203k.jpg"
+  },
+  {
+    "id": 79580,
+    "rarity": "E",
+    "name": "Gothic II",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2002,
+    "originalRating": 87.30654293368909,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co25ag.jpg"
+  },
+  {
+    "id": 79979,
+    "rarity": "E",
+    "name": "Anno 1602: Creation of a New World",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1998,
+    "originalRating": 87.29351538604652,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3xv2.jpg"
+  },
+  {
+    "id": 80379,
+    "rarity": "E",
+    "name": "Mr. Driller",
+    "console": "Arcade, PlayStation 3, PC (Microsoft Windows), PlayStation, PlayStation Portable, Dreamcast",
+    "releaseYear": 1999,
+    "originalRating": 87.29003608822202,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co5dk4.jpg"
+  },
+  {
+    "id": 80780,
+    "rarity": "E",
+    "name": "Dark Souls III",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2016,
+    "originalRating": 87.28822379216979,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/coaavt.jpg"
+  },
+  {
+    "id": 81182,
+    "rarity": "E",
+    "name": "Pokémon This Gym of Mine",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2019,
+    "originalRating": 87.27272727272727,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6e95.jpg"
+  },
+  {
+    "id": 81585,
+    "rarity": "E",
+    "name": "Paradise Killer",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 87.27199487829112,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9910.jpg"
+  },
+  {
+    "id": 81989,
+    "rarity": "E",
+    "name": "Bucky O'Hare",
+    "console": "Arcade",
+    "releaseYear": 1992,
+    "originalRating": 87.26840008050229,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co67l4.jpg"
+  },
+  {
+    "id": 82394,
+    "rarity": "E",
+    "name": "Mario's Super Picross",
+    "console": "Wii, Wii U, New Nintendo 3DS, Super Famicom",
+    "releaseYear": 1995,
+    "originalRating": 87.25717115402743,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4qxw.jpg"
+  },
+  {
+    "id": 82800,
+    "rarity": "E",
+    "name": "Dragon Quest VIII: Journey of the Cursed King",
+    "console": "PlayStation 2",
+    "releaseYear": 2004,
+    "originalRating": 87.25575117630298,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co7vf2.jpg"
+  },
+  {
+    "id": 83207,
+    "rarity": "E",
+    "name": "Sacrifice",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2000,
+    "originalRating": 87.25320357144273,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9do4.jpg"
+  },
+  {
+    "id": 83615,
+    "rarity": "E",
+    "name": "Mega Man X: Legacy Collection",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 87.24483709314822,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2052.jpg"
+  },
+  {
+    "id": 180,
+    "rarity": "E",
+    "name": "Grand Theft Auto V",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One",
+    "releaseYear": 2015,
+    "originalRating": 87.24054823846228,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co9751.jpg"
+  },
+  {
+    "id": 84024,
+    "rarity": "E",
+    "name": "Dungeon Keeper 2",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 1999,
+    "originalRating": 87.23094294055791,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co22na.jpg"
+  },
+  {
+    "id": 84434,
+    "rarity": "E",
+    "name": "Alan Wake II",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2023,
+    "originalRating": 87.22979872036342,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co6jar.jpg"
+  },
+  {
+    "id": 84845,
+    "rarity": "E",
+    "name": "Super Mario Advance 4: Super Mario Bros. 3",
+    "console": "Game Boy Advance",
+    "releaseYear": 2003,
+    "originalRating": 87.22912437712264,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co229t.jpg"
+  },
+  {
+    "id": 85257,
+    "rarity": "E",
+    "name": "Fallout: New Vegas",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2010,
+    "originalRating": 87.21745917034086,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1u60.jpg"
+  },
+  {
+    "id": 85670,
+    "rarity": "E",
+    "name": "One Piece: Pirate Warriors 4",
+    "console": "Xbox Series X|S, PlayStation 4, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 87.21106282826952,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2m9q.jpg"
+  },
+  {
+    "id": 86084,
+    "rarity": "E",
+    "name": "Kara no Shojo",
+    "console": "DVD Player, PC (Microsoft Windows)",
+    "releaseYear": 2008,
+    "originalRating": 87.19319560771413,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2nrj.jpg"
+  },
+  {
+    "id": 58,
+    "name": "The Legend of Zelda: The Wind Waker",
+    "rarity": "E",
+    "console": "Nintendo GameCube",
+    "releaseYear": 2002,
+    "originalRating": 87.18629816495941,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3ohz.jpg"
+  },
+  {
+    "id": 86499,
+    "rarity": "E",
+    "name": "Thief II: The Metal Age",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2000,
+    "originalRating": 87.17669802033073,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co698n.jpg"
+  },
+  {
+    "id": 86915,
+    "rarity": "E",
+    "name": "Divinity: Original Sin II",
+    "console": "PlayStation 4, PC (Microsoft Windows), iOS, Mac, Xbox One",
+    "releaseYear": 2017,
+    "originalRating": 87.17403571733492,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1y5v.jpg"
+  },
+  {
+    "id": 87332,
+    "rarity": "E",
+    "name": "Fire Emblem: The Blazing Blade",
+    "console": "Wii U, Game Boy Advance",
+    "releaseYear": 2003,
+    "originalRating": 87.16635323105707,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1p7c.jpg"
+  },
+  {
+    "id": 87750,
+    "rarity": "E",
+    "name": "Mini Royale",
+    "console": "Linux, PC (Microsoft Windows)",
+    "releaseYear": 2025,
+    "originalRating": 87.16521298719238,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4qyc.jpg"
+  },
+  {
+    "id": 88169,
+    "rarity": "E",
+    "name": "Psychonauts 2",
+    "console": "Xbox Series X|S, PlayStation 4, Linux, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One",
+    "releaseYear": 2021,
+    "originalRating": 87.16369206467668,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1sod.jpg"
+  },
+  {
+    "id": 88589,
+    "rarity": "E",
+    "name": "RoboCop Versus the Terminator",
+    "console": "Sega Mega Drive/Genesis",
+    "releaseYear": 1994,
+    "originalRating": 87.15558342617378,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2r6d.jpg"
+  },
+  {
+    "id": 89010,
+    "rarity": "E",
+    "name": "NHL 09",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360, PlayStation 2",
+    "releaseYear": 2008,
+    "originalRating": 87.14313086275686,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2jw7.jpg"
+  },
+  {
+    "id": 89432,
+    "rarity": "E",
+    "name": "NBA Street",
+    "console": "Nintendo GameCube, PlayStation 2",
+    "releaseYear": 2001,
+    "originalRating": 87.08563232757614,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2eki.jpg"
+  },
+  {
+    "id": 89855,
+    "rarity": "E",
+    "name": "Marvel's Spider-Man",
+    "console": "PlayStation 4",
+    "releaseYear": 2018,
+    "originalRating": 87.07012066436661,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1r77.jpg"
+  },
+  {
+    "id": 90279,
+    "rarity": "E",
+    "name": "Shadowrun",
+    "console": "Sega Mega Drive/Genesis",
+    "releaseYear": 1993,
+    "originalRating": 87.06705767381519,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co4tp6.jpg"
+  },
+  {
+    "id": 90704,
+    "rarity": "E",
+    "name": "Hearts of Iron III",
+    "console": "PC (Microsoft Windows), Mac",
+    "releaseYear": 2009,
+    "originalRating": 87.0613674634545,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2qbm.jpg"
+  },
+  {
+    "id": 91130,
+    "rarity": "E",
+    "name": "Ori and the Will of the Wisps",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), Xbox One, Nintendo Switch",
+    "releaseYear": 2020,
+    "originalRating": 87.0379650105607,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2e1l.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Paper Mario",
+    "rarity": "E",
+    "console": "Wii, Nintendo 64, Wii U",
+    "releaseYear": 2000,
+    "originalRating": 87.03728621828424,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co1qda.jpg"
+  },
+  {
+    "id": 141,
+    "name": "Celeste",
+    "rarity": "E",
+    "console": "Google Stadia, PlayStation 4, Linux, PC (Microsoft Windows), Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "originalRating": 87.01971682933107,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co3byy.jpg"
+  },
+  {
+    "id": 91557,
+    "rarity": "E",
+    "name": "Jagged Alliance 2",
+    "console": "Linux, PC (Microsoft Windows), Amiga",
+    "releaseYear": 1999,
+    "originalRating": 86.9914412447844,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co28qh.jpg"
+  },
+  {
+    "id": 91985,
+    "rarity": "E",
+    "name": "StarCraft II: Trilogy",
+    "console": "PC (Microsoft Windows)",
+    "releaseYear": 2015,
+    "originalRating": 86.98736640914085,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co49zh.jpg"
+  },
+  {
+    "id": 92414,
+    "rarity": "E",
+    "name": "Moero! Nekketsu Rhythm Damashii Osu! Tatakae! Ouendan 2",
+    "console": "Nintendo DS",
+    "releaseYear": 2007,
+    "originalRating": 86.95989062175171,
+    "cover": "//images.igdb.com/igdb/image/upload/t_thumb/co2753.jpg"
+  },
+  {
     "id": 1,
     "name": "Pac-Man",
     "rarity": "E",
@@ -30,28 +4560,28 @@
   {
     "id": 5,
     "name": "Street Fighter II",
-    "rarity": "C",
+    "rarity": "E",
     "console": "Arcade",
     "releaseYear": 1991
   },
   {
     "id": 6,
     "name": "Mortal Kombat",
-    "rarity": "C",
+    "rarity": "E",
     "console": "Arcade",
     "releaseYear": 1992
   },
   {
     "id": 7,
     "name": "Metal Slug",
-    "rarity": "C",
+    "rarity": "E",
     "console": "Arcade",
     "releaseYear": 1996
   },
   {
     "id": 8,
     "name": "Tetris",
-    "rarity": "D",
+    "rarity": "E",
     "console": "Arcade",
     "releaseYear": 1984
   },
@@ -72,77 +4602,70 @@
   {
     "id": 11,
     "name": "Super Mario Bros.",
-    "rarity": "D",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1985
   },
   {
-    "id": 12,
-    "name": "Super Mario Bros. 3",
-    "rarity": "C",
-    "console": "NES",
-    "releaseYear": 1988
-  },
-  {
     "id": 13,
     "name": "The Legend of Zelda",
-    "rarity": "C",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1986
   },
   {
     "id": 14,
     "name": "Metroid",
-    "rarity": "C",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1986
   },
   {
     "id": 15,
     "name": "Mega Man 2",
-    "rarity": "C",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1988
   },
   {
     "id": 16,
     "name": "Castlevania",
-    "rarity": "C",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1986
   },
   {
     "id": 17,
     "name": "Final Fantasy",
-    "rarity": "B",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1987
   },
   {
     "id": 18,
     "name": "Contra",
-    "rarity": "D",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1987
   },
   {
     "id": 19,
     "name": "Punch-Out!!",
-    "rarity": "D",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1987
   },
   {
     "id": 20,
     "name": "Kirby's Adventure",
-    "rarity": "D",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1993
   },
   {
     "id": 21,
     "name": "Ninja Gaiden",
-    "rarity": "B",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1988
   },
@@ -156,868 +4679,560 @@
   {
     "id": 23,
     "name": "Dragon Quest III",
-    "rarity": "A",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1988
   },
   {
     "id": 24,
     "name": "Mother (EarthBound Zero)",
-    "rarity": "A",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1989
   },
   {
     "id": 25,
     "name": "Battletoads",
-    "rarity": "B",
+    "rarity": "E",
     "console": "NES",
     "releaseYear": 1991
   },
   {
-    "id": 26,
-    "name": "Super Mario World",
-    "rarity": "D",
-    "console": "SNES",
-    "releaseYear": 1990
-  },
-  {
-    "id": 27,
-    "name": "The Legend of Zelda: A Link to the Past",
-    "rarity": "B",
-    "console": "SNES",
-    "releaseYear": 1991
-  },
-  {
-    "id": 28,
-    "name": "Super Metroid",
-    "rarity": "A",
-    "console": "SNES",
-    "releaseYear": 1994
-  },
-  {
-    "id": 29,
-    "name": "Chrono Trigger",
-    "rarity": "S",
-    "console": "SNES",
-    "releaseYear": 1995
-  },
-  {
     "id": 30,
     "name": "Final Fantasy VI",
-    "rarity": "A",
-    "console": "SNES",
-    "releaseYear": 1994
-  },
-  {
-    "id": 31,
-    "name": "EarthBound",
-    "rarity": "A+",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1994
   },
   {
     "id": 32,
     "name": "Donkey Kong Country",
-    "rarity": "C",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1994
   },
   {
     "id": 33,
     "name": "Street Fighter II Turbo",
-    "rarity": "C",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1993
   },
   {
     "id": 34,
     "name": "Mega Man X",
-    "rarity": "B",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1993
   },
   {
     "id": 35,
     "name": "Secret of Mana",
-    "rarity": "A",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1993
   },
   {
     "id": 36,
     "name": "Super Mario RPG",
-    "rarity": "A",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1996
   },
   {
     "id": 37,
     "name": "F-Zero",
-    "rarity": "D",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1990
   },
   {
     "id": 38,
     "name": "Star Fox",
-    "rarity": "D",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1993
   },
   {
     "id": 39,
     "name": "Yoshi's Island",
-    "rarity": "B",
+    "rarity": "E",
     "console": "SNES",
     "releaseYear": 1995
-  },
-  {
-    "id": 40,
-    "name": "Terranigma",
-    "rarity": "S",
-    "console": "SNES",
-    "releaseYear": 1995
-  },
-  {
-    "id": 41,
-    "name": "Super Mario 64",
-    "rarity": "C",
-    "console": "N64",
-    "releaseYear": 1996
-  },
-  {
-    "id": 42,
-    "name": "The Legend of Zelda: Ocarina of Time",
-    "rarity": "S",
-    "console": "N64",
-    "releaseYear": 1998
   },
   {
     "id": 43,
     "name": "GoldenEye 007",
-    "rarity": "B",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1997
   },
   {
     "id": 44,
     "name": "The Legend of Zelda: Majora's Mask",
-    "rarity": "A",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 2000
   },
   {
     "id": 45,
     "name": "Super Smash Bros.",
-    "rarity": "B",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1999
   },
   {
     "id": 46,
     "name": "Mario Kart 64",
-    "rarity": "C",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1996
   },
   {
     "id": 47,
     "name": "Star Fox 64",
-    "rarity": "C",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1997
   },
   {
     "id": 48,
     "name": "Banjo-Kazooie",
-    "rarity": "B",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1998
   },
   {
-    "id": 49,
-    "name": "Perfect Dark",
-    "rarity": "A",
-    "console": "N64",
-    "releaseYear": 2000
-  },
-  {
-    "id": 50,
-    "name": "Paper Mario",
-    "rarity": "A",
-    "console": "N64",
-    "releaseYear": 2000
-  },
-  {
     "id": 51,
     "name": "Conker's Bad Fur Day",
-    "rarity": "S",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 2001
   },
   {
     "id": 52,
     "name": "F-Zero X",
-    "rarity": "B",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1998
   },
   {
     "id": 53,
     "name": "Donkey Kong 64",
-    "rarity": "C",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1999
   },
   {
     "id": 54,
     "name": "Mario Party 2",
-    "rarity": "C",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1999
   },
   {
     "id": 55,
     "name": "Pokemon Stadium",
-    "rarity": "D",
+    "rarity": "E",
     "console": "N64",
     "releaseYear": 1999
   },
   {
-    "id": 56,
-    "name": "Super Smash Bros. Melee",
-    "rarity": "A",
-    "console": "GameCube",
-    "releaseYear": 2001
-  },
-  {
-    "id": 57,
-    "name": "Metroid Prime",
-    "rarity": "A",
-    "console": "GameCube",
-    "releaseYear": 2002
-  },
-  {
-    "id": 58,
-    "name": "The Legend of Zelda: The Wind Waker",
-    "rarity": "A",
-    "console": "GameCube",
-    "releaseYear": 2002
-  },
-  {
-    "id": 59,
-    "name": "Resident Evil 4",
-    "rarity": "B",
-    "console": "GameCube",
-    "releaseYear": 2005
-  },
-  {
     "id": 60,
     "name": "Super Mario Sunshine",
-    "rarity": "B",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2002
   },
   {
     "id": 61,
     "name": "Luigi's Mansion",
-    "rarity": "C",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2001
   },
   {
-    "id": 62,
-    "name": "Paper Mario: The Thousand-Year Door",
-    "rarity": "S",
-    "console": "GameCube",
-    "releaseYear": 2004
-  },
-  {
-    "id": 63,
-    "name": "Pikmin 2",
-    "rarity": "A",
-    "console": "GameCube",
-    "releaseYear": 2004
-  },
-  {
     "id": 64,
     "name": "F-Zero GX",
-    "rarity": "A+",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2003
   },
   {
     "id": 65,
     "name": "Eternal Darkness",
-    "rarity": "S",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2002
   },
   {
     "id": 66,
     "name": "Animal Crossing",
-    "rarity": "C",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2001
   },
   {
     "id": 67,
     "name": "Fire Emblem: Path of Radiance",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2005
   },
   {
     "id": 68,
     "name": "Mario Kart: Double Dash",
-    "rarity": "B",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2003
   },
   {
     "id": 69,
     "name": "Metal Gear Solid: The Twin Snakes",
-    "rarity": "S",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2004
   },
   {
     "id": 70,
     "name": "Skies of Arcadia Legends",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "GameCube",
     "releaseYear": 2002
   },
   {
-    "id": 71,
-    "name": "Final Fantasy VII",
-    "rarity": "S",
-    "console": "PS1",
-    "releaseYear": 1997
-  },
-  {
-    "id": 72,
-    "name": "Metal Gear Solid",
-    "rarity": "A",
-    "console": "PS1",
-    "releaseYear": 1998
-  },
-  {
-    "id": 73,
-    "name": "Castlevania: Symphony of the Night",
-    "rarity": "A+",
-    "console": "PS1",
-    "releaseYear": 1997
-  },
-  {
     "id": 74,
     "name": "Resident Evil 2",
-    "rarity": "B",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1998
   },
   {
     "id": 75,
     "name": "Silent Hill",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1999
   },
   {
     "id": 76,
     "name": "Gran Turismo 2",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1999
   },
   {
     "id": 77,
     "name": "Tekken 3",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1998
-  },
-  {
-    "id": 78,
-    "name": "Final Fantasy IX",
-    "rarity": "A",
-    "console": "PS1",
-    "releaseYear": 2000
   },
   {
     "id": 79,
     "name": "Chrono Cross",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1999
   },
   {
-    "id": 80,
-    "name": "Xenogears",
-    "rarity": "S",
-    "console": "PS1",
-    "releaseYear": 1998
-  },
-  {
     "id": 81,
     "name": "Spyro the Dragon",
-    "rarity": "D",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1998
   },
   {
     "id": 82,
     "name": "Crash Bandicoot 3: Warped",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 1998
   },
   {
     "id": 83,
     "name": "Tony Hawk's Pro Skater 2",
-    "rarity": "B",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 2000
   },
   {
     "id": 84,
     "name": "Vagrant Story",
-    "rarity": "S",
+    "rarity": "E",
     "console": "PS1",
     "releaseYear": 2000
   },
   {
-    "id": 85,
-    "name": "Suikoden II",
-    "rarity": "SSS",
-    "console": "PS1",
-    "releaseYear": 1998
-  },
-  {
-    "id": 86,
-    "name": "Grand Theft Auto: San Andreas",
-    "rarity": "C",
-    "console": "PS2",
-    "releaseYear": 2004
-  },
-  {
-    "id": 87,
-    "name": "Shadow of the Colossus",
-    "rarity": "SS",
-    "console": "PS2",
-    "releaseYear": 2005
-  },
-  {
     "id": 88,
     "name": "Metal Gear Solid 3: Snake Eater",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2004
   },
   {
     "id": 89,
     "name": "God of War II",
-    "rarity": "B",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2007
   },
   {
-    "id": 90,
-    "name": "Final Fantasy X",
-    "rarity": "B",
-    "console": "PS2",
-    "releaseYear": 2001
-  },
-  {
-    "id": 91,
-    "name": "Kingdom Hearts II",
-    "rarity": "B",
-    "console": "PS2",
-    "releaseYear": 2005
-  },
-  {
-    "id": 92,
-    "name": "Silent Hill 2",
-    "rarity": "A+",
-    "console": "PS2",
-    "releaseYear": 2001
-  },
-  {
     "id": 93,
     "name": "Resident Evil 4",
-    "rarity": "B",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2005
   },
   {
     "id": 94,
     "name": "Okami",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2006
   },
   {
     "id": 95,
     "name": "Devil May Cry 3",
-    "rarity": "B",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2005
   },
   {
-    "id": 96,
-    "name": "Persona 4",
-    "rarity": "A",
-    "console": "PS2",
-    "releaseYear": 2008
-  },
-  {
     "id": 97,
     "name": "Ico",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2001
   },
   {
     "id": 98,
     "name": "Burnout 3: Takedown",
-    "rarity": "C",
-    "console": "PS2",
-    "releaseYear": 2004
-  },
-  {
-    "id": 99,
-    "name": "Katamari Damacy",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2004
   },
   {
     "id": 100,
     "name": "Rule of Rose",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "PS2",
     "releaseYear": 2006
   },
   {
     "id": 101,
     "name": "Halo: Combat Evolved",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2001
   },
   {
     "id": 102,
     "name": "Halo 2",
-    "rarity": "B",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2004
   },
   {
     "id": 103,
     "name": "Star Wars: KOTOR",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2003
   },
   {
     "id": 104,
     "name": "Fable",
-    "rarity": "B",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2004
   },
   {
     "id": 105,
     "name": "Ninja Gaiden Black",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2005
   },
   {
     "id": 106,
     "name": "The Elder Scrolls III: Morrowind",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2002
   },
   {
     "id": 107,
     "name": "Splinter Cell: Chaos Theory",
-    "rarity": "B",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2005
   },
   {
     "id": 108,
     "name": "Jade Empire",
-    "rarity": "B",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2005
   },
   {
     "id": 109,
     "name": "Panzer Dragoon Orta",
-    "rarity": "S",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2002
   },
   {
     "id": 110,
     "name": "Jet Set Radio Future",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2002
   },
   {
     "id": 111,
     "name": "Steel Battalion",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2002
   },
   {
     "id": 112,
     "name": "Forza Motorsport",
-    "rarity": "C",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2005
   },
   {
     "id": 113,
     "name": "Project Gotham Racing 2",
-    "rarity": "C",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2003
   },
   {
     "id": 114,
     "name": "Psychonauts",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2005
   },
   {
     "id": 115,
     "name": "Conker: Live & Reloaded",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Xbox",
     "releaseYear": 2005
   },
   {
-    "id": 116,
-    "name": "Half-Life 2",
-    "rarity": "S",
-    "console": "PC",
-    "releaseYear": 2004
-  },
-  {
-    "id": 117,
-    "name": "The Witcher 3: Wild Hunt",
-    "rarity": "SS",
-    "console": "PC",
-    "releaseYear": 2015
-  },
-  {
-    "id": 118,
-    "name": "Portal 2",
-    "rarity": "A+",
-    "console": "PC",
-    "releaseYear": 2011
-  },
-  {
     "id": 119,
     "name": "Minecraft",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 2011
   },
   {
     "id": 120,
     "name": "World of Warcraft",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 2004
   },
   {
     "id": 121,
     "name": "Doom",
-    "rarity": "B",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 1993
   },
   {
     "id": 122,
     "name": "Deus Ex",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 2000
   },
   {
     "id": 123,
     "name": "Baldur's Gate II",
-    "rarity": "A",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 2000
-  },
-  {
-    "id": 124,
-    "name": "Diablo II",
-    "rarity": "B",
-    "console": "PC",
-    "releaseYear": 2000
-  },
-  {
-    "id": 125,
-    "name": "StarCraft",
-    "rarity": "B",
-    "console": "PC",
-    "releaseYear": 1998
   },
   {
     "id": 126,
     "name": "Counter-Strike 1.6",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 2000
   },
   {
     "id": 127,
     "name": "The Sims",
-    "rarity": "D",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 2000
   },
   {
     "id": 128,
     "name": "Age of Empires II",
-    "rarity": "C",
+    "rarity": "E",
     "console": "PC",
     "releaseYear": 1999
-  },
-  {
-    "id": 129,
-    "name": "System Shock 2",
-    "rarity": "S",
-    "console": "PC",
-    "releaseYear": 1999
-  },
-  {
-    "id": 130,
-    "name": "Disco Elysium",
-    "rarity": "SS",
-    "console": "PC",
-    "releaseYear": 2019
-  },
-  {
-    "id": 131,
-    "name": "Elden Ring",
-    "rarity": "SSS",
-    "console": "Multi",
-    "releaseYear": 2022
   },
   {
     "id": 132,
     "name": "Baldur's Gate 3",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2023
   },
   {
     "id": 133,
     "name": "The Legend of Zelda: BOTW",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2017
   },
   {
     "id": 134,
     "name": "The Legend of Zelda: TOTK",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2023
   },
   {
     "id": 135,
     "name": "God of War Ragnarok",
-    "rarity": "S",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2022
   },
   {
-    "id": 136,
-    "name": "Red Dead Redemption 2",
-    "rarity": "S",
-    "console": "Multi",
-    "releaseYear": 2018
-  },
-  {
-    "id": 137,
-    "name": "The Last of Us Part II",
-    "rarity": "S",
-    "console": "Multi",
-    "releaseYear": 2020
-  },
-  {
     "id": 138,
     "name": "Cyberpunk 2077",
-    "rarity": "A",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2020
-  },
-  {
-    "id": 139,
-    "name": "Hades",
-    "rarity": "A",
-    "console": "Multi",
-    "releaseYear": 2020
-  },
-  {
-    "id": 140,
-    "name": "Hollow Knight",
-    "rarity": "A+",
-    "console": "Multi",
-    "releaseYear": 2017
-  },
-  {
-    "id": 141,
-    "name": "Celeste",
-    "rarity": "A",
-    "console": "Multi",
-    "releaseYear": 2018
   },
   {
     "id": 142,
     "name": "Stardew Valley",
-    "rarity": "B",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2016
   },
   {
     "id": 143,
     "name": "Persona 5 Royal",
-    "rarity": "S",
+    "rarity": "E",
     "console": "Multi",
     "releaseYear": 2019
-  },
-  {
-    "id": 144,
-    "name": "Sekiro: Shadows Die Twice",
-    "rarity": "SS",
-    "console": "Multi",
-    "releaseYear": 2019
-  },
-  {
-    "id": 145,
-    "name": "Bloodborne",
-    "rarity": "SS",
-    "console": "Multi",
-    "releaseYear": 2015
   },
   {
     "id": 146,
     "name": "Grand Theft Auto V: Special Edition",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "PlayStation 3, Xbox 360",
     "releaseYear": 2013,
     "genre": null,
@@ -1026,7 +5241,7 @@
   {
     "id": 147,
     "name": "The Witcher 3: Wild Hunt - Game of the Year Edition",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
     "releaseYear": 2016,
     "genre": null,
@@ -1035,7 +5250,7 @@
   {
     "id": 148,
     "name": "The Witcher 3: Wild Hunt - Complete Edition",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
     "releaseYear": 2016,
     "genre": null,
@@ -1044,43 +5259,16 @@
   {
     "id": 149,
     "name": "Bloodborne: Game of the Year Edition",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "PlayStation 4",
     "releaseYear": 2015,
     "genre": null,
     "series": null
   },
   {
-    "id": 150,
-    "name": "Animal Company",
-    "rarity": "SSS",
-    "console": "Meta Quest 2, SteamVR",
-    "releaseYear": 2024,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 151,
-    "name": "Dragon Ball: Sparking! Zero",
-    "rarity": "SSS",
-    "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
-    "releaseYear": 2024,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 152,
-    "name": "Baldur's Gate III",
-    "rarity": "SSS",
-    "console": "Google Stadia, Xbox Series X|S, PC (Microsoft Windows), PlayStation 5, Mac",
-    "releaseYear": 2023,
-    "genre": null,
-    "series": null
-  },
-  {
     "id": 153,
     "name": "Cyberpunk 2077: Ultimate Edition",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Mac",
     "releaseYear": 2023,
     "genre": null,
@@ -1089,7 +5277,7 @@
   {
     "id": 154,
     "name": "Sonic Mania Plus",
-    "rarity": "SSS",
+    "rarity": "E",
     "console": "PlayStation 4, Android, PC (Microsoft Windows), iOS, Xbox One, Nintendo Switch",
     "releaseYear": 2018,
     "genre": null,
@@ -1098,7 +5286,7 @@
   {
     "id": 155,
     "name": "Heroes of Might and Magic III: Complete",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "Linux, PC (Microsoft Windows), Mac",
     "releaseYear": 2000,
     "genre": null,
@@ -1107,216 +5295,27 @@
   {
     "id": 156,
     "name": "Grand Theft Auto V: Premium Online Edition",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
     "releaseYear": 2018,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 157,
-    "name": "Steins;Gate",
-    "rarity": "SS",
-    "console": "PlayStation 3, PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation Vita, PlayStation Portable, Xbox 360",
-    "releaseYear": 2009,
     "genre": null,
     "series": null
   },
   {
     "id": 158,
     "name": "Batman: Arkham City - Game of the Year Edition",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "PlayStation 3, PC (Microsoft Windows), Mac, Xbox 360",
     "releaseYear": 2012,
     "genre": null,
     "series": null
   },
   {
-    "id": 159,
-    "name": "The Legend of Zelda: Tears of the Kingdom",
-    "rarity": "SS",
-    "console": "Nintendo Switch",
-    "releaseYear": 2023,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 160,
-    "name": "Mass Effect Trilogy",
-    "rarity": "SS",
-    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
-    "releaseYear": 2012,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 161,
-    "name": "Hollow Knight: Silksong",
-    "rarity": "SS",
-    "console": "Xbox Series X|S, PlayStation 4, Linux, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
-    "releaseYear": 2025,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 162,
-    "name": "The Last of Us",
-    "rarity": "SS",
-    "console": "PlayStation 3",
-    "releaseYear": 2013,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 163,
-    "name": "Clair Obscur: Expedition 33",
-    "rarity": "SS",
-    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
-    "releaseYear": 2025,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 164,
-    "name": "Half-Life Alyx",
-    "rarity": "SS",
-    "console": "Windows Mixed Reality, SteamVR, Oculus Rift",
-    "releaseYear": 2020,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 165,
-    "name": "Persona 5",
-    "rarity": "SS",
-    "console": "PlayStation 3, PlayStation 4",
-    "releaseYear": 2016,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 166,
-    "name": "The Legend of Zelda: Breath of the Wild",
-    "rarity": "SS",
-    "console": "Wii U, Nintendo Switch",
-    "releaseYear": 2017,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 167,
-    "name": "System Shock",
-    "rarity": "SS",
-    "console": "PC-9800 Series, PC (Microsoft Windows), Mac, DOS",
-    "releaseYear": 1994,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 168,
-    "name": "Fate/Grand Order",
-    "rarity": "SS",
-    "console": "Android, iOS",
-    "releaseYear": 2015,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 169,
-    "name": "Sunflower Land",
-    "rarity": "SS",
-    "console": "Web browser",
-    "releaseYear": 2022,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 170,
-    "name": "God of War",
-    "rarity": "SS",
-    "console": "PlayStation 4, PC (Microsoft Windows)",
-    "releaseYear": 2018,
-    "genre": null,
-    "series": null
-  },
-  {
     "id": 171,
     "name": "Dark Souls III: The Fire Fades Edition",
-    "rarity": "SS",
+    "rarity": "E",
     "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
     "releaseYear": 2017,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 172,
-    "name": "Sid Meier's Alpha Centauri",
-    "rarity": "SS",
-    "console": "Linux, PC (Microsoft Windows), Mac",
-    "releaseYear": 1999,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 173,
-    "name": "Master of Orion II: Battle at Antares",
-    "rarity": "SS",
-    "console": "PC (Microsoft Windows), Mac, DOS",
-    "releaseYear": 1996,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 174,
-    "name": "13 Sentinels: Aegis Rim",
-    "rarity": "SS",
-    "console": "PlayStation 4, Nintendo Switch",
-    "releaseYear": 2019,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 175,
-    "name": "Metal Gear Solid 3 Snake Eater",
-    "rarity": "SS",
-    "console": "PlayStation 2",
-    "releaseYear": 2004,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 176,
-    "name": "Microsoft Flight Simulator",
-    "rarity": "SS",
-    "console": "Xbox Series X|S, PC (Microsoft Windows), Xbox One",
-    "releaseYear": 2020,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 177,
-    "name": "Persona 3",
-    "rarity": "SS",
-    "console": "PlayStation 2",
-    "releaseYear": 2006,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 178,
-    "name": "Astro Bot",
-    "rarity": "SS",
-    "console": "PlayStation 5",
-    "releaseYear": 2024,
-    "genre": null,
-    "series": null
-  },
-  {
-    "id": 179,
-    "name": "Mass Effect 2",
-    "rarity": "SS",
-    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
-    "releaseYear": 2010,
     "genre": null,
     "series": null
   }

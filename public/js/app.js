@@ -760,53 +760,49 @@ async function searchIgdb() {
 }
 
 async function syncTopGames() {
-    if (!confirm('Isso irá importar os 50 jogos mais populares do IGDB para o seu banco de dados. Deseja continuar?')) return;
+    if (!confirm('Isso irá importar até 500 jogos populares do IGDB e rebalancear TODAS as raridades do banco de dados conforme distribuição:\n\nSSS: 0.5% | SS: 1.5% | S: 3% | A: 5%\nB: 10% | C: 15% | D: 25% | E: 40%\n\nDeseja continuar?')) return;
 
     const btn = document.getElementById('btn-sync-igdb');
     const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Importando...';
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Importando e balanceando...';
     btn.disabled = true;
 
     try {
-        const res = await fetch(`${API_URL}/igdb/top`);
-        const games = await res.json();
+        const res = await fetch(`${API_URL}/igdb/sync`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        });
 
-        if (games.error) {
-            alert('Erro ao buscar jogos populares: ' + games.error);
+        const data = await res.json();
+
+        if (data.error) {
+            alert('Erro ao sincronizar: ' + data.error);
             return;
         }
 
-        let addedCount = 0;
-        for (const game of games) {
-            // Verifica se já existe (por nome)
-            const exists = currentState.games.some(g => g.name.toLowerCase() === game.name.toLowerCase());
-            if (exists) continue;
+        if (data.success) {
+            // Monta mensagem detalhada com estatísticas
+            let message = `✅ Sincronização concluída!\n\n`;
+            message += `📊 Total de jogos: ${data.total}\n`;
+            message += `➕ Novos jogos adicionados: ${data.added}\n\n`;
+            message += `🎯 Distribuição de Raridade:\n`;
+            message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
+            message += `SSS: ${data.distribution.SSS} jogos (${((data.distribution.SSS / data.total) * 100).toFixed(1)}%)\n`;
+            message += `SS:  ${data.distribution.SS} jogos (${((data.distribution.SS / data.total) * 100).toFixed(1)}%)\n`;
+            message += `S:   ${data.distribution.S} jogos (${((data.distribution.S / data.total) * 100).toFixed(1)}%)\n`;
+            message += `A:   ${data.distribution.A} jogos (${((data.distribution.A / data.total) * 100).toFixed(1)}%)\n`;
+            message += `B:   ${data.distribution.B} jogos (${((data.distribution.B / data.total) * 100).toFixed(1)}%)\n`;
+            message += `C:   ${data.distribution.C} jogos (${((data.distribution.C / data.total) * 100).toFixed(1)}%)\n`;
+            message += `D:   ${data.distribution.D} jogos (${((data.distribution.D / data.total) * 100).toFixed(1)}%)\n`;
+            message += `E:   ${data.distribution.E} jogos (${((data.distribution.E / data.total) * 100).toFixed(1)}%)`;
 
-            const rarity = calculateRarity(game.rating);
-            const platforms = game.platforms ? game.platforms.map(p => p.name).join(', ') : 'N/A';
-            const year = game.first_release_date ? new Date(game.first_release_date * 1000).getFullYear() : 2000;
-
-            const gameData = {
-                name: game.name,
-                rarity: rarity,
-                console: platforms,
-                releaseYear: year
-            };
-
-            await fetch(`${API_URL}/games`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(gameData)
-            });
-            addedCount++;
+            alert(message);
+            fetchGames(); // Atualiza a tabela
         }
-
-        alert(`Importação concluída! ${addedCount} novos jogos adicionados.`);
-        fetchGames();
 
     } catch (err) {
         console.error(err);
-        alert('Erro ao sincronizar jogos.');
+        alert('Erro ao sincronizar jogos. Verifique se as credenciais do IGDB estão configuradas.');
     } finally {
         btn.innerHTML = originalText;
         btn.disabled = false;

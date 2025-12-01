@@ -212,11 +212,108 @@ app.get('/api/igdb/search', async (req, res) => {
     }
 });
 
-app.get('/api/igdb/top', async (req, res) => {
+// IGDB Bulk Sync with Rarity Balancing
+app.post('/api/igdb/sync', async (req, res) => {
     try {
-        const results = await IgdbService.getTopGames();
-        res.json(results);
+        // 1. Buscar 500 jogos do IGDB
+        const igdbGames = await IgdbService.getTopGames();
+
+        // 2. Carregar jogos existentes
+        let allGames = GameService.getAllGames();
+
+        // 3. Mesclar novos jogos (evitando duplicatas por nome)
+        let addedCount = 0;
+
+        igdbGames.forEach(igdbGame => {
+            const existingIndex = allGames.findIndex(g =>
+                g.name.toLowerCase().trim() === igdbGame.name.toLowerCase().trim()
+            );
+
+            const gameData = {
+                name: igdbGame.name,
+                console: igdbGame.platforms ? igdbGame.platforms.map(p => p.name).join(', ') : 'N/A',
+                releaseYear: igdbGame.first_release_date
+                    ? new Date(igdbGame.first_release_date * 1000).getFullYear()
+                    : 2000,
+                originalRating: igdbGame.rating || 0,
+                cover: igdbGame.cover ? igdbGame.cover.url : null
+            };
+
+            if (existingIndex >= 0) {
+                // Atualiza dados existentes (preserva ID e raridade atual temporariamente)
+                allGames[existingIndex] = {
+                    ...allGames[existingIndex],
+                    ...gameData
+                };
+            } else {
+                // Novo jogo
+                const newId = allGames.length > 0
+                    ? Math.max(...allGames.map(g => g.id)) + 1 + addedCount
+                    : 1 + addedCount;
+                allGames.push({ id: newId, rarity: 'E', ...gameData });
+                addedCount++;
+            }
+        });
+
+        // 4. Ordenar todos os jogos por rating (decrescente)
+        allGames.sort((a, b) => (b.originalRating || 0) - (a.originalRating || 0));
+
+        // 5. Aplicar Distribuição de Raridade Balanceada
+        const total = allGames.length;
+
+        // Percentuais conforme solicitado
+        const distribution = [
+            { rarity: 'SSS', percent: 0.005 },  // 0.5%
+            { rarity: 'SS', percent: 0.015 },   // 1.5%
+            { rarity: 'S', percent: 0.03 },     // 3%
+            { rarity: 'A', percent: 0.05 },     // 5%
+            { rarity: 'B', percent: 0.10 },     // 10%
+            { rarity: 'C', percent: 0.15 },     // 15%
+            { rarity: 'D', percent: 0.25 },     // 25%
+            // E = resto (40%)
+        ];
+
+        let currentIndex = 0;
+
+        distribution.forEach(({ rarity, percent }) => {
+            const count = Math.ceil(total * percent);
+            for (let i = 0; i < count && currentIndex < total; i++) {
+                allGames[currentIndex].rarity = rarity;
+                currentIndex++;
+            }
+        });
+
+        // Resto recebe E
+        while (currentIndex < total) {
+            allGames[currentIndex].rarity = 'E';
+            currentIndex++;
+        }
+
+        // 6. Salvar tudo
+        const success = GameService.saveAllGames(allGames);
+
+        if (success) {
+            res.json({
+                success: true,
+                total: total,
+                added: addedCount,
+                distribution: {
+                    SSS: allGames.filter(g => g.rarity === 'SSS').length,
+                    SS: allGames.filter(g => g.rarity === 'SS').length,
+                    S: allGames.filter(g => g.rarity === 'S').length,
+                    A: allGames.filter(g => g.rarity === 'A').length,
+                    B: allGames.filter(g => g.rarity === 'B').length,
+                    C: allGames.filter(g => g.rarity === 'C').length,
+                    D: allGames.filter(g => g.rarity === 'D').length,
+                    E: allGames.filter(g => g.rarity === 'E').length
+                }
+            });
+        } else {
+            res.status(500).json({ error: 'Erro ao salvar jogos' });
+        }
+
     } catch (error) {
+        console.error('Erro no sync IGDB:', error);
         res.status(500).json({ error: error.message });
     }
 });
