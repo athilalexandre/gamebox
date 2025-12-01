@@ -6,6 +6,7 @@ import { startBot, stopBot, getBotStatus } from '../bot/index.js';
 import { loadConfig, saveConfig, loadCommands, saveCommands } from '../utils/storage.js';
 import * as UserService from '../services/userService.js';
 import * as GameService from '../services/gameService.js';
+import * as IgdbService from '../services/igdbService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,32 +20,32 @@ app.use(express.static(path.join(__dirname, '../../public')));
 
 // --- API Routes ---
 
-// Status do Bot
-app.get('/api/status', (req, res) => {
+// Bot Control
+app.get('/api/bot/status', (req, res) => {
     res.json(getBotStatus());
 });
 
 app.post('/api/bot/connect', async (req, res) => {
-    const client = await startBot();
-    if (client) {
-        res.json({ success: true, status: 'connected' });
-    } else {
-        res.status(500).json({ success: false, error: 'Falha ao conectar. Verifique as configurações.' });
+    try {
+        await startBot();
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
     }
 });
 
 app.post('/api/bot/disconnect', async (req, res) => {
-    const success = await stopBot();
-    res.json({ success });
+    try {
+        await stopBot();
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
 });
 
 // Configurações
 app.get('/api/settings', (req, res) => {
     const config = loadConfig();
-    // Segurança: Mascarar o token antes de enviar para o frontend
-    if (config.twitchOAuthToken) {
-        config.twitchOAuthToken = 'oauth:****************';
-    }
     res.json(config);
 });
 
@@ -52,17 +53,14 @@ app.put('/api/settings', (req, res) => {
     const newConfig = req.body;
     const currentConfig = loadConfig();
 
-    // Validação básica
     if (newConfig.boxPrice < 0) {
         return res.status(400).json({ success: false, error: 'O preço da caixa não pode ser negativo.' });
     }
 
-    // Segurança: Se o token vier mascarado, manter o token antigo
     if (newConfig.twitchOAuthToken && newConfig.twitchOAuthToken.includes('***')) {
         newConfig.twitchOAuthToken = currentConfig.twitchOAuthToken;
     }
 
-    // Se o usuário limpou o campo (string vazia), salvar vazio
     if (newConfig.twitchOAuthToken === '') {
         newConfig.twitchOAuthToken = '';
     }
@@ -84,7 +82,6 @@ app.post('/api/commands', (req, res) => {
     const { name, description, response, type, level, cooldown, aliases, enabled } = req.body;
     const commands = loadCommands();
 
-    // Validação
     if (!name || !name.startsWith('!')) {
         return res.status(400).json({ success: false, error: 'Nome do comando deve começar com !' });
     }
@@ -99,81 +96,62 @@ app.post('/api/commands', (req, res) => {
 
     const newCommand = {
         name,
-        description: description || 'Comando customizado',
         type: type || 'custom',
+        description: description || '',
         response: response || '',
-        enabled: enabled !== undefined ? enabled : true,
-        cooldown: parseInt(cooldown) || 3,
         level: level || 'viewer',
-        aliases: aliases || []
+        cooldown: cooldown || 0,
+        aliases: aliases || [],
+        enabled: enabled !== undefined ? enabled : true
     };
 
     commands.push(newCommand);
-
-    if (saveCommands(commands)) {
-        broadcastLog(`Comando ${name} criado com sucesso.`, 'success');
-        res.json({ success: true, command: newCommand });
-    } else {
-        res.status(500).json({ success: false, error: 'Erro ao salvar comando' });
-    }
+    saveCommands(commands);
+    res.json({ success: true, command: newCommand });
 });
 
 app.put('/api/commands/:name', (req, res) => {
-    const commandName = req.params.name;
+    const commandName = decodeURIComponent(req.params.name);
     const updatedData = req.body;
-    const commands = loadCommands();
+    let commands = loadCommands();
 
     const index = commands.findIndex(c => c.name === commandName);
     if (index === -1) {
         return res.status(404).json({ success: false, error: 'Comando não encontrado' });
     }
 
-    // Atualiza os campos permitidos
-    commands[index] = {
-        ...commands[index],
-        description: updatedData.description || commands[index].description,
-        response: updatedData.response !== undefined ? updatedData.response : commands[index].response,
-        aliases: updatedData.aliases || [],
-        cooldown: parseInt(updatedData.cooldown) || 0,
-        level: updatedData.level || 'viewer',
-        enabled: updatedData.enabled !== undefined ? updatedData.enabled : true
-    };
+    commands[index] = { ...commands[index], ...updatedData };
 
-    if (saveCommands(commands)) {
-        broadcastLog(`Comando ${commandName} atualizado.`, 'info');
-        res.json({ success: true });
-    } else {
-        res.status(500).json({ success: false, error: 'Erro ao salvar comando' });
+    if (commands[index].type === 'core') {
+        commands[index].name = commandName;
     }
+
+    saveCommands(commands);
+    res.json({ success: true, command: commands[index] });
 });
 
 app.delete('/api/commands/:name', (req, res) => {
-    const commandName = req.params.name;
-    const commands = loadCommands();
+    const commandName = decodeURIComponent(req.params.name);
+    let commands = loadCommands();
 
-    const index = commands.findIndex(c => c.name === commandName);
-    if (index === -1) {
+    const cmd = commands.find(c => c.name === commandName);
+    if (!cmd) {
         return res.status(404).json({ success: false, error: 'Comando não encontrado' });
     }
 
-    // Não permitir deletar comandos core
-    if (commands[index].type !== 'custom') {
+    if (cmd.type === 'core') {
         return res.status(403).json({ success: false, error: 'Não é possível deletar comandos do sistema' });
     }
 
-    commands.splice(index, 1);
-
-    if (saveCommands(commands)) {
-        broadcastLog(`Comando ${commandName} removido.`, 'warning');
-        res.json({ success: true });
-    } else {
-        res.status(500).json({ success: false, error: 'Erro ao remover comando' });
-    }
+    commands = commands.filter(c => c.name !== commandName);
+    saveCommands(commands);
+    res.json({ success: true });
 });
 
 // Jogos
 app.get('/api/games', (req, res) => {
-    res.json(GameService.getAllGames());
+    const games = GameService.getAllGames();
+    res.json(games);
 });
 
 app.post('/api/games', (req, res) => {
@@ -182,22 +160,26 @@ app.post('/api/games', (req, res) => {
 });
 
 app.put('/api/games/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const game = GameService.updateGame(id, req.body);
-    if (game) res.json(game);
-    else res.status(404).json({ error: 'Jogo não encontrado' });
+    const game = GameService.updateGame(parseInt(req.params.id), req.body);
+    if (game) {
+        res.json(game);
+    } else {
+        res.status(404).json({ error: 'Jogo não encontrado' });
+    }
 });
 
 app.delete('/api/games/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const success = GameService.deleteGame(id);
-    res.json({ success });
+    const success = GameService.deleteGame(parseInt(req.params.id));
+    if (success) {
+        res.json({ success: true });
+    } else {
+        res.status(404).json({ error: 'Jogo não encontrado' });
+    }
 });
 
 // Usuários
 app.get('/api/users', (req, res) => {
     const users = UserService.getAllUsers();
-    // Converte objeto para array para facilitar no frontend
     const usersList = Object.entries(users).map(([username, data]) => ({
         username,
         ...data
@@ -215,12 +197,32 @@ app.put('/api/users/:username', (req, res) => {
     res.json(user);
 });
 
-// Rota padrão para SPA (se necessário, mas aqui é simples)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/index.html'));
+// IGDB Proxy
+app.get('/api/igdb/search', async (req, res) => {
+    const query = req.query.q;
+    if (!query) {
+        return res.status(400).json({ error: 'Query parameter "q" is required' });
+    }
+
+    try {
+        const results = await IgdbService.searchGames(query);
+        res.json(results);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get('/api/igdb/top', async (req, res) => {
+    try {
+        const results = await IgdbService.getTopGames();
+        res.json(results);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 // --- SSE (Server-Sent Events) para Logs em Tempo Real ---
+// IMPORTANTE: Esta rota deve vir ANTES da rota catch-all (*)
 let clients = [];
 
 app.get('/api/events', (req, res) => {
@@ -238,7 +240,6 @@ app.get('/api/events', (req, res) => {
     };
     clients.push(newClient);
 
-    // Envia mensagem inicial
     res.write(`data: ${JSON.stringify({ type: 'connected', message: 'Log conectado' })}\n\n`);
 
     req.on('close', () => {
@@ -257,6 +258,11 @@ export function broadcastLog(message, type = 'info') {
         client.res.write(`data: ${JSON.stringify(logEntry)}\n\n`);
     });
 }
+
+// Rota padrão para SPA (catch-all)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public/index.html'));
+});
 
 export function startServer(port = 3000) {
     app.listen(port, () => {

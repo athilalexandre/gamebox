@@ -21,8 +21,7 @@
                 <ul>
                     <li class="active" data-page="home"><i class="fa-solid fa-house"></i> Home</li>
                     <li data-page="games"><i class="fa-solid fa-list"></i> Jogos</li>
-                    <li data-page="users"><i class="fa-solid fa-users"></i> Usuários</li>
-                    <li data-page="commands"><i class="fa-solid fa-terminal"></i> Comandos</li>
+                    <li data-page="management"><i class="fa-solid fa-users-gear"></i> Gestão</li>
                     <li data-page="settings"><i class="fa-solid fa-gear"></i> Configurações</li>
                 </ul>
             </nav>
@@ -81,25 +80,34 @@
             <div id="games" class="page">
                 <header>
                     <h2>Gerenciar Jogos</h2>
-                    <button class="btn primary" id="btn-add-game"><i class="fa-solid fa-plus"></i> Adicionar
-                        Jogo</button>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn secondary" id="btn-sync-igdb"><i class="fa-solid fa-rotate"></i>
+                            Auto-Sync</button>
+                        <button class="btn secondary" id="btn-import-igdb"><i class="fa-solid fa-cloud-arrow-down"></i>
+                            Importar IGDB</button>
+                        <button class="btn primary" id="btn-add-game"><i class="fa-solid fa-plus"></i> Novo
+                            Jogo</button>
+                    </div>
                 </header>
 
                 <div class="card">
-                    <div class="filters">
-                        <input type="text" id="search-games" placeholder="🔍 Buscar jogo...">
-                        <select id="filter-rarity">
-                            <option value="">Todas as Raridades</option>
-                            <option value="E">E</option>
-                            <option value="D">D</option>
-                            <option value="C">C</option>
-                            <option value="B">B</option>
-                            <option value="A">A</option>
-                            <option value="A+">A+</option>
-                            <option value="S">S</option>
-                            <option value="SS">SS</option>
-                            <option value="SSS">SSS</option>
-                        </select>
+                    <div class="card-header"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div class="filters" style="display: flex; gap: 10px;">
+                            <input type="text" id="search-games" placeholder="🔍 Buscar jogo..." style="width: 250px;">
+                            <select id="filter-rarity">
+                                <option value="">Todas as Raridades</option>
+                                <option value="E">E</option>
+                                <option value="D">D</option>
+                                <option value="C">C</option>
+                                <option value="B">B</option>
+                                <option value="A">A</option>
+                                <option value="A+">A+</option>
+                                <option value="S">S</option>
+                                <option value="SS">SS</option>
+                                <option value="SSS">SSS</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="table-container">
@@ -122,17 +130,50 @@
                 </div>
             </div>
 
-            <!-- USERS PAGE -->
-            <div id="users" class="page">
+            <!-- MANAGEMENT PAGE -->
+            <div id="management" class="page">
                 <header>
-                    <h2>Usuários</h2>
-                </header>
-                <h2>Comandos do Bot</h2>
-                <button class="btn primary" id="btn-add-command"><i class="fa-solid fa-plus"></i> Criar
-                    Comando</button>
+                    <h2>Gestão do Sistema</h2>
                 </header>
 
+                <!-- Users Section -->
+                <div class="card" style="margin-bottom: 30px;">
+                    <div class="card-header"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>Usuários</h3>
+                        <div class="filters" style="margin: 0;">
+                            <input type="text" id="search-users" placeholder="🔍 Buscar usuário..."
+                                style="width: 250px;">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuário</th>
+                                    <th>Moedas</th>
+                                    <th>Caixas Disp.</th>
+                                    <th>Jogos (XP)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Commands Section -->
                 <div class="card">
+                    <div class="card-header"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>Comandos do Bot</h3>
+                        <button class="btn primary small" id="btn-add-command"><i class="fa-solid fa-plus"></i> Criar
+                            Comando</button>
+                    </div>
+
                     <div class="table-container">
                         <table id="commands-table">
                             <thead>
@@ -202,167 +243,254 @@
                         <div class="form-group">
                             <label>Moedas por Sub</label>
                             <input type="number" id="conf-sub-amount" placeholder="500">
-                            <div id="game-modal" class="modal hidden">
-                                <div class="modal-content">
-                                    <h3 id="modal-title">Adicionar Jogo</h3>
-                                    <form id="game-form">
-                                        <input type="hidden" id="game-id">
-                                        <div class="form-group">
-                                            <label>Nome</label>
-                                            <input type="text" id="game-name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Raridade</label>
-                                            <select id="game-rarity" required>
-                                                <option value="E">E</option>
-                                                <option value="D">D</option>
-                                                <option value="C">C</option>
-                                                <option value="B">B</option>
-                                                <option value="A">A</option>
-                                                <option value="A+">A+</option>
-                                                <option value="S">S</option>
-                                                <option value="SS">SS</option>
-                                                <option value="SSS">SSS</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Console</label>
-                                            <input type="text" id="game-console" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Ano</label>
-                                            <input type="number" id="game-year" required>
-                                        </div>
-                                        <div class="modal-actions">
-                                            <button type="button" class="btn" onclick="closeModal()">Cancelar</button>
-                                            <button type="submit" class="btn primary">Salvar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Moedas por Gift Sub</label>
+                            <input type="number" id="conf-gift-amount" placeholder="250">
+                        </div>
+                        <div class="form-group">
+                            <label>Moedas por Bit</label>
+                            <input type="number" id="conf-bit-amount" placeholder="1">
+                        </div>
+                    </div>
 
-                            <!-- Modal para Criar/Editar Comando -->
-                            <div id="command-modal" class="modal hidden">
-                                <div class="modal-content">
-                                    <h3 id="command-modal-title">Editar Comando</h3>
-                                    <form id="command-form">
-                                        <input type="hidden" id="cmd-name-original">
-                                        <input type="hidden" id="cmd-is-editing">
+                    <div class="card">
+                        <h3>🎮 Integração IGDB</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">
+                            Necessário para importar jogos automaticamente. <a href="https://dev.twitch.tv/console"
+                                target="_blank" style="color: var(--primary);">Obter credenciais</a>
+                        </p>
+                        <div class="form-group">
+                            <label>Client ID</label>
+                            <input type="text" id="conf-igdb-id" placeholder="Client ID da Twitch">
+                        </div>
+                        <div class="form-group">
+                            <label>Client Secret</label>
+                            <input type="password" id="conf-igdb-secret" placeholder="Client Secret da Twitch">
+                        </div>
+                    </div>
 
-                                        <div class="form-group">
-                                            <label>Comando</label>
-                                            <input type="text" id="cmd-name" placeholder="!meucoma ndo" required>
-                                        </div>
+                    <div class="card" style="grid-column: span 3;">
+                        <h3>⭐ Sistema de XP e Níveis</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Defina os níveis,
+                            XP necessário e títulos.</p>
 
-                                        <div class="form-group">
-                                            <label>Descrição</label>
-                                            <input type="text" id="cmd-description" placeholder="Descrição do comando">
-                                        </div>
+                        <div class="table-container" style="max-height: 300px; overflow-y: auto;">
+                            <table id="levels-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nível</th>
+                                        <th>XP Necessário</th>
+                                        <th>Título</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="levels-table-body">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="btn secondary" id="btn-add-level" style="margin-top: 10px; width: 100%;">
+                            <i class="fa-solid fa-plus"></i> Adicionar Nível
+                        </button>
+                    </div>
+                </div>
 
-                                        <div class="form-group" id="cmd-response-group">
-                                            <label>Mensagem de Resposta
-                                                <small
-                                                    style="color: var(--text-muted); display: block; margin-top: 5px;">
-                                                    Variáveis: {user}, {balance}, {boxes}, {level}
-                                                </small>
-                                            </label>
-                                            <textarea id="cmd-response" rows="3"
-                                                placeholder="Ex: Olá {user}! Você tem {balance} moedas 💰"
-                                                style="width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; font-size: 0.95rem; resize: vertical; font-family: 'Outfit', sans-serif;"></textarea>
-                                        </div>
+                <button class="btn primary" id="btn-save-settings" style="margin-top: 25px;">
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar Configurações
+                </button>
+            </div>
+        </main>
+    </div>
 
-                                        <div class="form-group">
-                                            <label>Aliases (separados por vírgula)</label>
-                                            <input type="text" id="cmd-aliases" placeholder="Ex: !atalho1, !atalho2">
-                                        </div>
+    <!-- Modal para Adicionar/Editar Jogo -->
+    <div id="game-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">Adicionar Jogo</h3>
+            <form id="game-form">
+                <input type="hidden" id="game-id">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" id="game-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Raridade</label>
+                    <select id="game-rarity" required>
+                        <option value="E">E</option>
+                        <option value="D">D</option>
+                        <option value="C">C</option>
+                        <option value="B">B</option>
+                        <option value="A">A</option>
+                        <option value="A+">A+</option>
+                        <option value="S">S</option>
+                        <option value="SS">SS</option>
+                        <option value="SSS">SSS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Console</label>
+                    <input type="text" id="game-console" required>
+                </div>
+                <div class="form-group">
+                    <label>Ano</label>
+                    <input type="number" id="game-year" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-                                        <div class="form-group">
-                                            <label>Cooldown (segundos)</label>
-                                            <input type="number" id="cmd-cooldown" value="3" required>
-                                        </div>
+    <!-- Modal de Importação IGDB -->
+    <div id="igdb-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 700px;">
+            <h3>Importar do IGDB</h3>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <input type="text" id="igdb-search-input" placeholder="Digite o nome do jogo..."
+                    style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); color: #fff;">
+                <button class="btn primary" id="btn-igdb-search"><i class="fa-solid fa-search"></i> Buscar</button>
+            </div>
 
-                                        <div class="form-group">
-                                            <label>Permissão</label>
-                                            <select id="cmd-level">
-                                                <option value="viewer">Viewer</option>
-                                                <option value="admin">Admin</option>
-                                            </select>
-                                        </div>
+            <div id="igdb-loading" class="hidden" style="text-align: center; padding: 20px;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary);"></i>
+                <p>Buscando...</p>
+            </div>
 
-                                        <div class="form-group">
-                                            <label>
-                                                <input type="checkbox" id="cmd-enabled" checked> Habilitado
-                                            </label>
-                                        </div>
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table id="igdb-results-table">
+                    <thead>
+                        <tr>
+                            <th>Capa</th>
+                            <th>Nome</th>
+                            <th>Plataformas</th>
+                            <th>Ano</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="igdb-results-body">
+                        <!-- Resultados -->
+                    </tbody>
+                </table>
+            </div>
 
-                                        <div class="modal-actions">
-                                            <button type="button" class="btn"
-                                                onclick="closeCommandModal()">Cancelar</button>
-                                            <button type="submit" class="btn primary">Salvar</button>
-                                            <button type="button" class="btn danger hidden" id="btn-delete-command"
-                                                onclick="deleteCommand()">
-                                                <i class="fa-solid fa-trash"></i> Deletar
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn" onclick="closeIgdbModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
 
-                            <!-- Modal de Status do Usuário -->
-                            <div id="user-modal" class="modal hidden">
-                                <div class="modal-content" style="max-width: 600px;">
-                                    <h3 id="user-modal-title">Status do Usuário</h3>
-                                    <div id="user-stats-content" style="margin-top: 20px;">
-                                        <!-- Conteúdo dinâmico -->
-                                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
-                                            <div
-                                                style="flex: 1; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center;">
-                                                <div style="font-size: 0.9rem; color: var(--text-muted);">Nível</div>
-                                                <div id="user-level-display"
-                                                    style="font-size: 2rem; font-weight: bold; color: var(--primary);">
-                                                    1</div>
-                                                <div style="font-size: 0.8rem; color: var(--text-muted);"
-                                                    id="user-xp-display">0 XP</div>
-                                            </div>
-                                            <div
-                                                style="flex: 1; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center;">
-                                                <div style="font-size: 0.9rem; color: var(--text-muted);">Moedas</div>
-                                                <div id="user-coins-display"
-                                                    style="font-size: 1.5rem; font-weight: bold; color: var(--warning);">
-                                                    0</div>
-                                            </div>
-                                            <div
-                                                style="flex: 1; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center;">
-                                                <div style="font-size: 0.9rem; color: var(--text-muted);">Caixas</div>
-                                                <div id="user-boxes-display"
-                                                    style="font-size: 1.5rem; font-weight: bold; color: var(--secondary);">
-                                                    0</div>
-                                            </div>
-                                        </div>
+    <!-- Modal para Criar/Editar Comando -->
+    <div id="command-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="command-modal-title">Editar Comando</h3>
+            <form id="command-form">
+                <input type="hidden" id="cmd-name-original">
+                <input type="hidden" id="cmd-is-editing">
 
-                                        <h4
-                                            style="margin-bottom: 10px; border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">
-                                            Inventário</h4>
-                                        <div id="user-inventory-stats"
-                                            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
-                                            <!-- Stats de raridade -->
-                                        </div>
+                <div class="form-group">
+                    <label>Comando</label>
+                    <input type="text" id="cmd-name" placeholder="!meucomando" required>
+                </div>
 
-                                        <h4
-                                            style="margin-bottom: 10px; border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">
-                                            Últimos Jogos</h4>
-                                        <ul id="user-recent-games"
-                                            style="list-style: none; padding: 0; font-size: 0.9rem;">
-                                            <!-- Lista de jogos -->
-                                        </ul>
-                                    </div>
-                                    <div class="modal-actions">
-                                        <button type="button" class="btn" onclick="closeUserModal()">Fechar</button>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input type="text" id="cmd-description" placeholder="Descrição do comando">
+                </div>
 
-                            <script src="js/app.js"></script>
+                <div class="form-group" id="cmd-response-group">
+                    <label>Mensagem de Resposta
+                        <small style="color: var(--text-muted); display: block; margin-top: 5px;">
+                            Variáveis: {user}, {balance}, {boxes}, {level}
+                        </small>
+                    </label>
+                    <textarea id="cmd-response" rows="3" placeholder="Ex: Olá {user}! Você tem {balance} moedas 💰"
+                        style="width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; font-size: 0.95rem; resize: vertical; font-family: 'Outfit', sans-serif;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Aliases (separados por vírgula)</label>
+                    <input type="text" id="cmd-aliases" placeholder="Ex: !atalho1, !atalho2">
+                </div>
+
+                <div class="form-group">
+                    <label>Cooldown (segundos)</label>
+                    <input type="number" id="cmd-cooldown" value="3" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Permissão</label>
+                    <select id="cmd-level">
+                        <option value="viewer">Viewer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="cmd-enabled" checked> Habilitado
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn" onclick="closeCommandModal()">Cancelar</button>
+                    <button type="submit" class="btn primary">Salvar</button>
+                    <button type="button" class="btn danger hidden" id="btn-delete-command" onclick="deleteCommand()">
+                        <i class="fa-solid fa-trash"></i> Deletar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Status do Usuário -->
+    <div id="user-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <h3 id="user-modal-title">Status do Usuário</h3>
+            <div id="user-stats-content" style="margin-top: 20px;">
+                <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="flex: 1; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Nível</div>
+                        <div id="user-level-display" style="font-size: 2rem; font-weight: bold; color: var(--primary);">
+                            1</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);" id="user-xp-display">0 XP</div>
+                    </div>
+                    <div
+                        style="flex: 1; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Moedas</div>
+                        <div id="user-coins-display"
+                            style="font-size: 1.5rem; font-weight: bold; color: var(--warning);">0</div>
+                    </div>
+                    <div
+                        style="flex: 1; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Caixas</div>
+                        <div id="user-boxes-display"
+                            style="font-size: 1.5rem; font-weight: bold; color: var(--secondary);">0</div>
+                    </div>
+                </div>
+
+                <h4 style="margin-bottom: 10px; border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">
+                    Inventário</h4>
+                <div id="user-inventory-stats"
+                    style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
+                    <!-- Stats de raridade -->
+                </div>
+
+                <h4 style="margin-bottom: 10px; border-bottom: 1px solid var(--glass-border); padding-bottom: 5px;">
+                    Últimos Jogos</h4>
+                <ul id="user-recent-games" style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <!-- Lista de jogos -->
+                </ul>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn" onclick="closeUserModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
 </body>
 
 </html>

@@ -30,6 +30,15 @@ export async function startBot() {
         channels: config.twitchChannels
     };
 
+    if (client) {
+        try {
+            await client.disconnect();
+            broadcastLog('Instância anterior do bot desconectada.', 'info');
+        } catch (e) {
+            console.error('Erro ao desconectar cliente antigo:', e);
+        }
+    }
+
     client = new tmi.Client(options);
 
     // Event Listeners

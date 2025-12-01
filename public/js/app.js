@@ -81,104 +81,93 @@ function setupNavigation() {
 
             // Refresh data for that page
             if (pageId === 'games') fetchGames();
-            if (pageId === 'settings') {
-                fetchSettings();
+            if (pageId === 'management') {
                 fetchUsers();
                 loadCommands();
             }
+            if (pageId === 'settings') fetchSettings();
         });
     });
+}
 
-    // Settings Tabs Navigation
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons and contents
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            // Show corresponding content
-            const tabId = btn.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
+async function loadAllData() {
+    await fetchStatus();
+    await fetchGames();
+    // Users and commands are loaded on demand or initially if needed
 }
 
 // --- API Calls ---
 
 async function fetchStatus() {
     try {
-        const res = await fetch(`${API_URL}/status`);
+        const res = await fetch(`${API_URL}/bot/status`);
         const data = await res.json();
         currentState.botStatus = data;
-        updateStatusUI();
-    } catch (err) {
-        console.error('Erro ao buscar status', err);
+        updateBotStatusUI();
+    } catch (e) {
+        console.error('Erro ao buscar status:', e);
     }
 }
 
-async function fetchSettings() {
-    const res = await fetch(`${API_URL}/settings`);
-    currentState.settings = await res.json();
-    fillSettingsForm();
-}
-
 async function fetchGames() {
-    const res = await fetch(`${API_URL}/games`);
-    currentState.games = await res.json();
-    renderGamesTable();
-    updateStats();
+    try {
+        const res = await fetch(`${API_URL}/games`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        currentState.games = await res.json();
+        renderGamesTable();
+        document.getElementById('stat-games').textContent = currentState.games.length;
+    } catch (e) {
+        console.error('Erro ao buscar jogos:', e);
+        const tbody = document.querySelector('#games-table tbody');
+        if (tbody) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: #ff5555;">Erro ao carregar jogos: ${e.message}. Verifique se o servidor está rodando.</td></tr>`;
+    }
 }
 
 async function fetchUsers() {
-    const res = await fetch(`${API_URL}/users`);
-    currentState.users = await res.json();
-    renderUsersTable();
-    updateStats();
+    try {
+        const res = await fetch(`${API_URL}/users`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        currentState.users = await res.json();
+        renderUsersTable();
+        document.getElementById('stat-users').textContent = currentState.users.length;
+
+        // Calculate total boxes opened (sum of all inventories)
+        const totalBoxes = currentState.users.reduce((acc, user) => acc + (user.inventory ? user.inventory.length : 0), 0);
+        document.getElementById('stat-boxes').textContent = totalBoxes;
+    } catch (e) {
+        console.error('Erro ao buscar usuários:', e);
+        const tbody = document.querySelector('#users-table tbody');
+        if (tbody) tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: #ff5555;">Erro ao carregar usuários: ${e.message}</td></tr>`;
+    }
 }
 
 async function loadCommands() {
     try {
         const res = await fetch(`${API_URL}/commands`);
         const commands = await res.json();
-        const tbody = document.querySelector('#commands-table tbody');
-        tbody.innerHTML = '';
-
-        commands.forEach(cmd => {
-            const type = cmd.type || 'core';
-            const typeBadge = type === 'custom' ? '<span style="background: rgba(112, 0, 255, 0.2); color: var(--primary); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem;">CUSTOM</span>' : '<span style="background: rgba(0, 240, 255, 0.1); color: var(--secondary); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem;">CORE</span>';
-            const statusBadge = cmd.enabled ? '<span style="color: var(--success);">✓ Ativo</span>' : '<span style="color: var(--danger);">✗ Desativado</span>';
-
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td><strong>${cmd.name}</strong></td>
-                <td>${typeBadge}</td>
-                <td style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${cmd.description}">${cmd.description}</td>
-                <td><span class="badge ${cmd.level === 'admin' ? 'badge-admin' : 'badge-viewer'}">${cmd.level}</span></td>
-                <td>${cmd.cooldown}s</td>
-                <td>${statusBadge}</td>
-                <td>
-                    <button class="btn secondary" onclick="editCommand('${cmd.name}')"><i class="fa-solid fa-pen"></i></button>
-                    ${type === 'custom' ? `<button class="btn danger" onclick="confirmDeleteCommand('${cmd.name}')"><i class="fa-solid fa-trash"></i></button>` : ''}
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
-    } catch (error) {
-        console.error('Erro ao carregar comandos:', error);
+        renderCommandsTable(commands);
+    } catch (e) {
+        console.error('Erro ao carregar comandos:', e);
     }
 }
 
-// --- UI Updates ---
+async function fetchSettings() {
+    try {
+        const res = await fetch(`${API_URL}/settings`);
+        currentState.settings = await res.json();
+        fillSettingsForm();
+    } catch (e) {
+        console.error('Erro ao buscar configurações:', e);
+    }
+}
 
-function updateStatusUI() {
-    const connected = currentState.botStatus.connected;
+// --- Rendering ---
 
-    if (connected) {
+function updateBotStatusUI() {
+    const { connected, username } = currentState.botStatus;
+    if (connected && username) {
         botStatusIndicator.classList.add('connected');
-        botStatusText.textContent = 'Conectado';
+        botStatusText.textContent = `Conectado como ${username}`;
         btnConnect.classList.add('hidden');
         btnDisconnect.classList.remove('hidden');
     } else {
@@ -187,15 +176,6 @@ function updateStatusUI() {
         btnConnect.classList.remove('hidden');
         btnDisconnect.classList.add('hidden');
     }
-}
-
-function updateStats() {
-    document.getElementById('stat-users').textContent = currentState.users.length;
-    document.getElementById('stat-games').textContent = currentState.games.length;
-
-    // Calculate total boxes opened (sum of all inventories)
-    const totalBoxes = currentState.users.reduce((acc, user) => acc + (user.inventory ? user.inventory.length : 0), 0);
-    document.getElementById('stat-boxes').textContent = totalBoxes;
 }
 
 function renderGamesTable() {
@@ -245,90 +225,48 @@ function renderUsersTable() {
         const xp = user.xp || 0;
 
         tr.innerHTML = `
-            <td>${user.username} <span style="font-size:0.8em; color:#666">(${user.role})</span></td>
+            <td>${user.username} <span style="font-size:0.8em; color:#666">(${user.role || 'viewer'})</span></td>
             <td>${user.coins}</td>
             <td>${user.boxCount}</td>
-            <td>${gameCount} <span style="font-size:0.8em; color:#666">(${xp} XP)</span></td>
+            <td>${gameCount} (XP: ${xp})</td>
             <td>
-                <button class="btn secondary" onclick="viewUserStatus('${user.username}')"><i class="fa-solid fa-eye"></i> Ver Status</button>
+                <button class="btn secondary" onclick="viewUserStatus('${user.username}')"><i class="fa-solid fa-eye"></i></button>
             </td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-// User Modal Functions
-window.viewUserStatus = async (username) => {
-    // Busca dados atualizados do usuário
-    await fetchUsers();
-    const user = currentState.users.find(u => u.username === username);
+function renderCommandsTable(commands) {
+    const tbody = document.querySelector('#commands-table tbody');
+    tbody.innerHTML = '';
 
-    if (!user) return;
+    commands.forEach(cmd => {
+        const tr = document.createElement('tr');
+        const isCustom = cmd.type === 'custom';
+        const statusClass = cmd.enabled ? 'status-enabled' : 'status-disabled';
+        const statusText = cmd.enabled ? 'Ativo' : 'Inativo';
 
-    document.getElementById('user-modal-title').textContent = `Status de ${user.username}`;
-    document.getElementById('user-coins-display').textContent = user.coins;
-    document.getElementById('user-boxes-display').textContent = user.boxCount;
-
-    // XP e Nível
-    const xp = user.xp || 0;
-    document.getElementById('user-xp-display').textContent = `${xp} XP`;
-    document.getElementById('user-level-display').textContent = Math.floor(Math.sqrt(xp / 100)) + 1;
-
-    // Inventário Stats
-    const inventory = user.inventory || [];
-    const rarities = ['SSS', 'SS', 'S', 'A+', 'A', 'B', 'C', 'D', 'E'];
-    const statsContainer = document.getElementById('user-inventory-stats');
-    statsContainer.innerHTML = '';
-
-    const counts = {};
-    rarities.forEach(r => counts[r] = 0);
-    inventory.forEach(item => {
-        if (counts[item.rarity] !== undefined) counts[item.rarity]++;
+        tr.innerHTML = `
+            <td>${cmd.name}</td>
+            <td><span class="badge ${isCustom ? 'badge-custom' : 'badge-core'}">${cmd.type}</span></td>
+            <td>${cmd.description || '-'}</td>
+            <td>${cmd.level}</td>
+            <td>${cmd.cooldown}s</td>
+            <td><span class="status-dot ${statusClass}"></span> ${statusText}</td>
+            <td>
+                <button class="btn secondary small" onclick="editCommand('${cmd.name}')"><i class="fa-solid fa-pen"></i></button>
+            </td>
+        `;
+        tbody.appendChild(tr);
     });
-
-    rarities.forEach(r => {
-        if (counts[r] > 0) {
-            const div = document.createElement('div');
-            div.className = `rarity-${r}`;
-            div.style.border = '1px solid currentColor';
-            div.style.padding = '5px';
-            div.style.borderRadius = '4px';
-            div.style.textAlign = 'center';
-            div.style.fontSize = '0.8rem';
-            div.innerHTML = `<strong>${r}</strong>: ${counts[r]}`;
-            statsContainer.appendChild(div);
-        }
-    });
-
-    if (inventory.length === 0) {
-        statsContainer.innerHTML = '<div style="grid-column: span 3; text-align: center; color: var(--text-muted);">Nenhum jogo coletado</div>';
-    }
-
-    // Recent Games
-    const recentList = document.getElementById('user-recent-games');
-    recentList.innerHTML = '';
-    const recentGames = [...inventory].reverse().slice(0, 5);
-
-    recentGames.forEach(item => {
-        const li = document.createElement('li');
-        li.style.padding = '5px 0';
-        li.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-        li.innerHTML = `<span class="rarity-${item.rarity}" style="font-weight:bold;">[${item.rarity}]</span> ${item.gameName || 'Jogo Desconhecido'} <small style="color:#666">(${item.console})</small>`;
-        recentList.appendChild(li);
-    });
-
-    document.getElementById('user-modal').classList.remove('hidden');
-};
-
-window.closeUserModal = () => {
-    document.getElementById('user-modal').classList.add('hidden');
-};
+}
 
 function fillSettingsForm() {
     const s = currentState.settings;
     document.getElementById('conf-bot-name').value = s.twitchBotUsername || '';
     document.getElementById('conf-token').value = s.twitchOAuthToken || '';
-    document.getElementById('conf-channel').value = s.twitchChannels.join(', ') || '';
+    document.getElementById('conf-channel').value = s.twitchChannels ? s.twitchChannels.join(', ') : '';
     document.getElementById('conf-currency').value = s.currencyName || 'Coins';
     document.getElementById('conf-price').value = s.boxPrice || 100;
 
@@ -339,6 +277,11 @@ function fillSettingsForm() {
     document.getElementById('conf-gift-amount').value = s.coinsPerSubGift || 250;
     document.getElementById('conf-bit-amount').value = s.coinsPerBit || 1;
 
+    // IGDB
+    document.getElementById('conf-igdb-id').value = s.igdbClientId || '';
+    document.getElementById('conf-igdb-secret').value = s.igdbClientSecret || '';
+
+    // Level Table
     renderLevelTable(s.levelTable || []);
 }
 
@@ -346,218 +289,31 @@ function renderLevelTable(levels) {
     const tbody = document.getElementById('levels-table-body');
     tbody.innerHTML = '';
 
-    // Ordena por nível
     levels.sort((a, b) => a.level - b.level);
 
     levels.forEach((lvl) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td><input type="number" class="lvl-level" value="${lvl.level}" style="width: 60px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: #fff; padding: 5px; border-radius: 4px;"></td>
-            <td><input type="number" class="lvl-xp" value="${lvl.xp}" style="width: 80px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: #fff; padding: 5px; border-radius: 4px;"></td>
-            <td><input type="text" class="lvl-name" value="${lvl.name}" style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: #fff; padding: 5px; border-radius: 4px;"></td>
-            <td><button class="btn danger" style="padding: 5px 10px;" onclick="removeLevelRow(this)"><i class="fa-solid fa-trash"></i></button></td>
+            <td><input type="number" class="lvl-level" value="${lvl.level}" placeholder="Nvl" style="width: 60px; padding: 5px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; border-radius: 4px;"></td>
+            <td><input type="number" class="lvl-xp" value="${lvl.xp}" placeholder="XP" style="width: 100px; padding: 5px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; border-radius: 4px;"></td>
+            <td><input type="text" class="lvl-name" value="${lvl.name}" placeholder="Título" style="width: 100%; padding: 5px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; border-radius: 4px;"></td>
+            <td><button class="btn danger small" onclick="removeLevelRow(this)"><i class="fa-solid fa-trash"></i></button></td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-window.removeLevelRow = (btn) => {
-    btn.closest('tr').remove();
-};
-
-// --- Actions ---
-
-function setupEventListeners() {
-    // Bot Connection
-    btnConnect.addEventListener('click', async () => {
-        btnConnect.textContent = 'Conectando...';
-        const res = await fetch(`${API_URL}/bot/connect`, { method: 'POST' });
-        const data = await res.json();
-
-        if (!data.success) {
-            alert('Erro: ' + data.error);
-        }
-
-        btnConnect.textContent = 'Conectar Bot';
-        fetchStatus();
-    });
-
-    btnDisconnect.addEventListener('click', async () => {
-        await fetch(`${API_URL}/bot/disconnect`, { method: 'POST' });
-        fetchStatus();
-    });
-}
-
-async function loadAllData() {
-    await Promise.all([
-        fetchStatus(),
-        fetchSettings(),
-        fetchGames(),
-        fetchUsers(),
-        loadCommands()
-    ]);
-    updateDashboard();
-}
-
-// --- API Calls ---
-
-async function fetchStatus() {
-    try {
-        const res = await fetch(`${API_URL}/status`);
-        const data = await res.json();
-        currentState.botStatus = data;
-        updateStatusUI();
-    } catch (err) {
-        console.error('Erro ao buscar status', err);
-    }
-}
-
-async function fetchSettings() {
-    const res = await fetch(`${API_URL}/settings`);
-    currentState.settings = await res.json();
-    fillSettingsForm();
-}
-
-async function fetchGames() {
-    const res = await fetch(`${API_URL}/games`);
-    currentState.games = await res.json();
-    renderGamesTable();
-    updateStats();
-}
-
-async function fetchUsers() {
-    const res = await fetch(`${API_URL}/users`);
-    currentState.users = await res.json();
-    renderUsersTable();
-    updateStats();
-}
-
-async function loadCommands() {
-    try {
-        const res = await fetch(`${API_URL}/commands`);
-        const commands = await res.json();
-        const tbody = document.querySelector('#commands-table tbody');
-        tbody.innerHTML = '';
-
-        commands.forEach(cmd => {
-            const aliases = cmd.aliases ? cmd.aliases.join(', ') : '-';
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td><strong>${cmd.name}</strong></td>
-                <td><small>${aliases}</small></td>
-                <td>${cmd.description}</td>
-                <td><span class="badge ${cmd.level === 'admin' ? 'badge-admin' : 'badge-viewer'}">${cmd.level}</span></td>
-                <td>${cmd.cooldown}s</td>
-                <td>
-                    <button class="btn secondary" onclick="editCommand('${cmd.name}')"><i class="fa-solid fa-pen"></i></button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
-    } catch (error) {
-        console.error('Erro ao carregar comandos:', error);
-    }
-}
-
-// --- UI Updates ---
-
-function updateStatusUI() {
-    const connected = currentState.botStatus.connected;
-
-    if (connected) {
-        botStatusIndicator.classList.add('connected');
-        botStatusText.textContent = 'Conectado';
-        btnConnect.classList.add('hidden');
-        btnDisconnect.classList.remove('hidden');
-    } else {
-        botStatusIndicator.classList.remove('connected');
-        botStatusText.textContent = 'Desconectado';
-        btnConnect.classList.remove('hidden');
-        btnDisconnect.classList.add('hidden');
-    }
-}
-
-function updateStats() {
-    document.getElementById('stat-users').textContent = currentState.users.length;
-    document.getElementById('stat-games').textContent = currentState.games.length;
-
-    // Calculate total boxes opened (sum of all inventories)
-    const totalBoxes = currentState.users.reduce((acc, user) => acc + (user.inventory ? user.inventory.length : 0), 0);
-    document.getElementById('stat-boxes').textContent = totalBoxes;
-}
-
-function renderGamesTable() {
-    const tbody = document.querySelector('#games-table tbody');
-    const filterRarity = document.getElementById('filter-rarity').value;
-    const search = document.getElementById('search-games').value.toLowerCase();
-
-    tbody.innerHTML = '';
-
-    const filtered = currentState.games.filter(game => {
-        const matchesRarity = !filterRarity || game.rarity === filterRarity;
-        const matchesSearch = game.name.toLowerCase().includes(search) ||
-            game.console.toLowerCase().includes(search);
-        return matchesRarity && matchesSearch;
-    });
-
-    filtered.forEach(game => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>#${game.id}</td>
-            <td>${game.name}</td>
-            <td class="rarity-${game.rarity}">${game.rarity}</td>
-            <td>${game.console}</td>
-            <td>${game.releaseYear}</td>
-            <td>
-                <button class="btn secondary" onclick="editGame(${game.id})"><i class="fa-solid fa-pen"></i></button>
-                <button class="btn danger" onclick="deleteGame(${game.id})"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-function renderUsersTable() {
-    const tbody = document.querySelector('#users-table tbody');
-    const search = document.getElementById('search-users').value.toLowerCase();
-
-    tbody.innerHTML = '';
-
-    const filtered = currentState.users.filter(user =>
-        user.username.toLowerCase().includes(search)
-    );
-
-    filtered.forEach(user => {
-        const tr = document.createElement('tr');
-        const gameCount = user.inventory ? user.inventory.length : 0;
-
-        tr.innerHTML = `
-            <td>${user.username} <span style="font-size:0.8em; color:#666">(${user.role})</span></td>
-            <td>${user.coins}</td>
-            <td>${user.boxCount}</td>
-            <td>${gameCount}</td>
-            <td>
-                <button class="btn secondary" onclick="alert('Funcionalidade em breve!')"><i class="fa-solid fa-eye"></i></button>
-            </td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-function fillSettingsForm() {
-    const s = currentState.settings;
-    document.getElementById('conf-bot-name').value = s.twitchBotUsername || '';
-    document.getElementById('conf-token').value = s.twitchOAuthToken || '';
-    document.getElementById('conf-channel').value = s.twitchChannels.join(', ') || '';
-    document.getElementById('conf-currency').value = s.currencyName || 'Coins';
-    document.getElementById('conf-price').value = s.boxPrice || 100;
-
-    // Novos campos
-    document.getElementById('conf-timer-interval').value = s.currencyTimerInterval || 600;
-    document.getElementById('conf-timer-amount').value = s.currencyTimerAmount || 50;
-    document.getElementById('conf-sub-amount').value = s.coinsPerSub || 500;
-    document.getElementById('conf-gift-amount').value = s.coinsPerSubGift || 250;
-    document.getElementById('conf-bit-amount').value = s.coinsPerBit || 1;
+function calculateRarity(rating) {
+    if (!rating) return 'C';
+    if (rating >= 95) return 'SSS';
+    if (rating >= 90) return 'SS';
+    if (rating >= 85) return 'S';
+    if (rating >= 80) return 'A+';
+    if (rating >= 75) return 'A';
+    if (rating >= 70) return 'B';
+    if (rating >= 60) return 'C';
+    if (rating >= 50) return 'D';
+    return 'E';
 }
 
 // --- Actions ---
@@ -605,6 +361,11 @@ function setupEventListeners() {
             coinsPerSub: parseInt(document.getElementById('conf-sub-amount').value),
             coinsPerSubGift: parseInt(document.getElementById('conf-gift-amount').value),
             coinsPerBit: parseInt(document.getElementById('conf-bit-amount').value),
+
+            // IGDB
+            igdbClientId: document.getElementById('conf-igdb-id').value.trim(),
+            igdbClientSecret: document.getElementById('conf-igdb-secret').value.trim(),
+
             levelTable: (() => {
                 const levels = [];
                 document.querySelectorAll('#levels-table-body tr').forEach(tr => {
@@ -727,6 +488,47 @@ function setupEventListeners() {
             alert('Erro: ' + (data.error || 'Não foi possível salvar o comando'));
         }
     });
+
+    document.getElementById('btn-delete-command').addEventListener('click', confirmDeleteCommand);
+
+    // Level Table
+    document.getElementById('btn-add-level').addEventListener('click', () => {
+        const tbody = document.getElementById('levels-table-body');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><input type="number" class="lvl-level" value="" placeholder="Nvl" style="width: 60px; padding: 5px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; border-radius: 4px;"></td>
+            <td><input type="number" class="lvl-xp" value="" placeholder="XP" style="width: 100px; padding: 5px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; border-radius: 4px;"></td>
+            <td><input type="text" class="lvl-name" value="" placeholder="Título" style="width: 100%; padding: 5px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; border-radius: 4px;"></td>
+            <td><button class="btn danger small" onclick="removeLevelRow(this)"><i class="fa-solid fa-trash"></i></button></td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    // IGDB Integration
+    const btnImportIgdb = document.getElementById('btn-import-igdb');
+    if (btnImportIgdb) {
+        btnImportIgdb.addEventListener('click', () => {
+            document.getElementById('igdb-modal').classList.remove('hidden');
+            document.getElementById('igdb-search-input').focus();
+        });
+    }
+
+    const btnSyncIgdb = document.getElementById('btn-sync-igdb');
+    if (btnSyncIgdb) {
+        btnSyncIgdb.addEventListener('click', syncTopGames);
+    }
+
+    const btnIgdbSearch = document.getElementById('btn-igdb-search');
+    if (btnIgdbSearch) {
+        btnIgdbSearch.addEventListener('click', searchIgdb);
+    }
+
+    const inputIgdbSearch = document.getElementById('igdb-search-input');
+    if (inputIgdbSearch) {
+        inputIgdbSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchIgdb();
+        });
+    }
 }
 
 // Global functions for HTML onclick
@@ -736,6 +538,16 @@ window.closeModal = () => {
 
 window.closeCommandModal = () => {
     document.getElementById('command-modal').classList.add('hidden');
+};
+
+window.closeUserModal = () => {
+    document.getElementById('user-modal').classList.add('hidden');
+};
+
+window.closeIgdbModal = () => {
+    document.getElementById('igdb-modal').classList.add('hidden');
+    document.getElementById('igdb-results-body').innerHTML = '';
+    document.getElementById('igdb-search-input').value = '';
 };
 
 window.deleteGame = async (id) => {
@@ -828,6 +640,195 @@ window.confirmDeleteCommand = async () => {
     }
 };
 
-function updateDashboard() {
-    // Placeholder
+window.viewUserStatus = async (username) => {
+    const user = currentState.users.find(u => u.username === username);
+    if (!user) return;
+
+    document.getElementById('user-modal-title').textContent = `Status de ${user.username}`;
+
+    // Basic Stats
+    document.getElementById('user-level-display').textContent = user.level ? user.level.level : '?';
+    document.getElementById('user-xp-display').textContent = `${user.xp || 0} XP`;
+    document.getElementById('user-coins-display').textContent = user.coins;
+    document.getElementById('user-boxes-display').textContent = user.boxCount;
+
+    // Inventory Stats
+    const inventoryStats = document.getElementById('user-inventory-stats');
+    inventoryStats.innerHTML = '';
+
+    // Calculate stats
+    const stats = { total: 0, byRarity: {} };
+    if (user.inventory) {
+        stats.total = user.inventory.length;
+        user.inventory.forEach(gameId => {
+            const game = currentState.games.find(g => g.id === gameId);
+            if (game) {
+                stats.byRarity[game.rarity] = (stats.byRarity[game.rarity] || 0) + 1;
+            }
+        });
+    }
+
+    const rarities = ['SSS', 'SS', 'S', 'A+', 'A', 'B', 'C', 'D', 'E'];
+    rarities.forEach(r => {
+        if (stats.byRarity[r]) {
+            const div = document.createElement('div');
+            div.className = `rarity-${r}`;
+            div.style.padding = '5px';
+            div.style.borderRadius = '4px';
+            div.style.textAlign = 'center';
+            div.style.border = '1px solid currentColor';
+            div.innerHTML = `<strong>${r}</strong>: ${stats.byRarity[r]}`;
+            inventoryStats.appendChild(div);
+        }
+    });
+
+    // Recent Games
+    const recentList = document.getElementById('user-recent-games');
+    recentList.innerHTML = '';
+    if (user.inventory && user.inventory.length > 0) {
+        // Show last 5 games (assuming order is preserved, last added at end)
+        const lastGames = user.inventory.slice(-5).reverse();
+        lastGames.forEach(gameId => {
+            const game = currentState.games.find(g => g.id === gameId);
+            if (game) {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="rarity-${game.rarity}">[${game.rarity}]</span> ${game.name} (${game.console})`;
+                li.style.marginBottom = '5px';
+                recentList.appendChild(li);
+            }
+        });
+    } else {
+        recentList.innerHTML = '<li>Nenhum jogo ainda.</li>';
+    }
+
+    document.getElementById('user-modal').classList.remove('hidden');
+};
+
+window.removeLevelRow = (btn) => {
+    btn.closest('tr').remove();
+};
+
+async function searchIgdb() {
+    const query = document.getElementById('igdb-search-input').value;
+    if (!query) return;
+
+    const loading = document.getElementById('igdb-loading');
+    const tbody = document.getElementById('igdb-results-body');
+
+    loading.classList.remove('hidden');
+    tbody.innerHTML = '';
+
+    try {
+        const res = await fetch(`${API_URL}/igdb/search?q=${encodeURIComponent(query)}`);
+        const games = await res.json();
+
+        if (games.error) {
+            alert('Erro na busca: ' + games.error);
+            return;
+        }
+
+        if (games.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Nenhum jogo encontrado.</td></tr>';
+        }
+
+        games.forEach(game => {
+            const tr = document.createElement('tr');
+            const coverUrl = game.cover ? game.cover.url.replace('t_thumb', 't_cover_small') : '';
+            const platforms = game.platforms ? game.platforms.map(p => p.name).join(', ') : 'N/A';
+            const year = game.first_release_date ? new Date(game.first_release_date * 1000).getFullYear() : 'N/A';
+            const rating = game.rating ? Math.round(game.rating) : 'N/A';
+
+            // Escapar aspas simples para o JSON
+            const gameJson = JSON.stringify(game).replace(/'/g, "&#39;");
+
+            tr.innerHTML = `
+                <td>${coverUrl ? `<img src="${coverUrl}" style="height: 50px; border-radius: 4px;">` : '<div style="width: 35px; height: 50px; background: #333; border-radius: 4px;"></div>'}</td>
+                <td style="font-weight: bold;">${game.name}</td>
+                <td style="font-size: 0.85rem; color: var(--text-muted);">${platforms}</td>
+                <td>${year}</td>
+                <td><span style="color: var(--primary); font-weight: bold;">${rating}</span></td>
+                <td><button class="btn primary small" onclick='importGame(${gameJson})'><i class="fa-solid fa-download"></i></button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (err) {
+        console.error(err);
+        alert('Erro ao buscar no IGDB. Verifique se as credenciais estão configuradas.');
+    } finally {
+        loading.classList.add('hidden');
+    }
 }
+
+async function syncTopGames() {
+    if (!confirm('Isso irá importar os 50 jogos mais populares do IGDB para o seu banco de dados. Deseja continuar?')) return;
+
+    const btn = document.getElementById('btn-sync-igdb');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Importando...';
+    btn.disabled = true;
+
+    try {
+        const res = await fetch(`${API_URL}/igdb/top`);
+        const games = await res.json();
+
+        if (games.error) {
+            alert('Erro ao buscar jogos populares: ' + games.error);
+            return;
+        }
+
+        let addedCount = 0;
+        for (const game of games) {
+            // Verifica se já existe (por nome)
+            const exists = currentState.games.some(g => g.name.toLowerCase() === game.name.toLowerCase());
+            if (exists) continue;
+
+            const rarity = calculateRarity(game.rating);
+            const platforms = game.platforms ? game.platforms.map(p => p.name).join(', ') : 'N/A';
+            const year = game.first_release_date ? new Date(game.first_release_date * 1000).getFullYear() : 2000;
+
+            const gameData = {
+                name: game.name,
+                rarity: rarity,
+                console: platforms,
+                releaseYear: year
+            };
+
+            await fetch(`${API_URL}/games`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(gameData)
+            });
+            addedCount++;
+        }
+
+        alert(`Importação concluída! ${addedCount} novos jogos adicionados.`);
+        fetchGames();
+
+    } catch (err) {
+        console.error(err);
+        alert('Erro ao sincronizar jogos.');
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}
+
+window.importGame = (igdbGame) => {
+    closeIgdbModal();
+
+    document.getElementById('modal-title').textContent = 'Adicionar Jogo (Importado)';
+    document.getElementById('game-id').value = '';
+    document.getElementById('game-name').value = igdbGame.name;
+
+    const year = igdbGame.first_release_date ? new Date(igdbGame.first_release_date * 1000).getFullYear() : '';
+    document.getElementById('game-year').value = year;
+
+    const platforms = igdbGame.platforms ? igdbGame.platforms.map(p => p.name).join(', ') : '';
+    document.getElementById('game-console').value = platforms;
+
+    // Auto Rarity
+    const rarity = calculateRarity(igdbGame.rating);
+    document.getElementById('game-rarity').value = rarity;
+
+    document.getElementById('game-modal').classList.remove('hidden');
+};

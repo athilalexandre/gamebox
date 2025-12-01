@@ -106,5 +106,17 @@
     "aliases": [
       "!resetar"
     ]
+  },
+  {
+    "name": "!level",
+    "type": "core",
+    "description": "Mostra seu nível e XP atual",
+    "enabled": true,
+    "cooldown": 5,
+    "level": "viewer",
+    "aliases": [
+      "!nivel",
+      "!xp"
+    ]
   }
 ]

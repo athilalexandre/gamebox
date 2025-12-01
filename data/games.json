@@ -1013,5 +1013,311 @@
     "rarity": "SS",
     "console": "Multi",
     "releaseYear": 2015
+  },
+  {
+    "id": 146,
+    "name": "Grand Theft Auto V: Special Edition",
+    "rarity": "SSS",
+    "console": "PlayStation 3, Xbox 360",
+    "releaseYear": 2013,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 147,
+    "name": "The Witcher 3: Wild Hunt - Game of the Year Edition",
+    "rarity": "SSS",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2016,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 148,
+    "name": "The Witcher 3: Wild Hunt - Complete Edition",
+    "rarity": "SSS",
+    "console": "Xbox Series X|S, PlayStation 4, PC (Microsoft Windows), PlayStation 5, Xbox One, Nintendo Switch",
+    "releaseYear": 2016,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 149,
+    "name": "Bloodborne: Game of the Year Edition",
+    "rarity": "SSS",
+    "console": "PlayStation 4",
+    "releaseYear": 2015,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 150,
+    "name": "Animal Company",
+    "rarity": "SSS",
+    "console": "Meta Quest 2, SteamVR",
+    "releaseYear": 2024,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 151,
+    "name": "Dragon Ball: Sparking! Zero",
+    "rarity": "SSS",
+    "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Nintendo Switch",
+    "releaseYear": 2024,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 152,
+    "name": "Baldur's Gate III",
+    "rarity": "SSS",
+    "console": "Google Stadia, Xbox Series X|S, PC (Microsoft Windows), PlayStation 5, Mac",
+    "releaseYear": 2023,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 153,
+    "name": "Cyberpunk 2077: Ultimate Edition",
+    "rarity": "SSS",
+    "console": "Xbox Series X|S, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Mac",
+    "releaseYear": 2023,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 154,
+    "name": "Sonic Mania Plus",
+    "rarity": "SSS",
+    "console": "PlayStation 4, Android, PC (Microsoft Windows), iOS, Xbox One, Nintendo Switch",
+    "releaseYear": 2018,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 155,
+    "name": "Heroes of Might and Magic III: Complete",
+    "rarity": "SS",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 2000,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 156,
+    "name": "Grand Theft Auto V: Premium Online Edition",
+    "rarity": "SS",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2018,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 157,
+    "name": "Steins;Gate",
+    "rarity": "SS",
+    "console": "PlayStation 3, PlayStation 4, Android, PC (Microsoft Windows), iOS, PlayStation Vita, PlayStation Portable, Xbox 360",
+    "releaseYear": 2009,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 158,
+    "name": "Batman: Arkham City - Game of the Year Edition",
+    "rarity": "SS",
+    "console": "PlayStation 3, PC (Microsoft Windows), Mac, Xbox 360",
+    "releaseYear": 2012,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 159,
+    "name": "The Legend of Zelda: Tears of the Kingdom",
+    "rarity": "SS",
+    "console": "Nintendo Switch",
+    "releaseYear": 2023,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 160,
+    "name": "Mass Effect Trilogy",
+    "rarity": "SS",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2012,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 161,
+    "name": "Hollow Knight: Silksong",
+    "rarity": "SS",
+    "console": "Xbox Series X|S, PlayStation 4, Linux, Nintendo Switch 2, PC (Microsoft Windows), PlayStation 5, Mac, Xbox One, Nintendo Switch",
+    "releaseYear": 2025,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 162,
+    "name": "The Last of Us",
+    "rarity": "SS",
+    "console": "PlayStation 3",
+    "releaseYear": 2013,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 163,
+    "name": "Clair Obscur: Expedition 33",
+    "rarity": "SS",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), PlayStation 5",
+    "releaseYear": 2025,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 164,
+    "name": "Half-Life Alyx",
+    "rarity": "SS",
+    "console": "Windows Mixed Reality, SteamVR, Oculus Rift",
+    "releaseYear": 2020,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 165,
+    "name": "Persona 5",
+    "rarity": "SS",
+    "console": "PlayStation 3, PlayStation 4",
+    "releaseYear": 2016,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 166,
+    "name": "The Legend of Zelda: Breath of the Wild",
+    "rarity": "SS",
+    "console": "Wii U, Nintendo Switch",
+    "releaseYear": 2017,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 167,
+    "name": "System Shock",
+    "rarity": "SS",
+    "console": "PC-9800 Series, PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1994,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 168,
+    "name": "Fate/Grand Order",
+    "rarity": "SS",
+    "console": "Android, iOS",
+    "releaseYear": 2015,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 169,
+    "name": "Sunflower Land",
+    "rarity": "SS",
+    "console": "Web browser",
+    "releaseYear": 2022,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 170,
+    "name": "God of War",
+    "rarity": "SS",
+    "console": "PlayStation 4, PC (Microsoft Windows)",
+    "releaseYear": 2018,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 171,
+    "name": "Dark Souls III: The Fire Fades Edition",
+    "rarity": "SS",
+    "console": "PlayStation 4, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2017,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 172,
+    "name": "Sid Meier's Alpha Centauri",
+    "rarity": "SS",
+    "console": "Linux, PC (Microsoft Windows), Mac",
+    "releaseYear": 1999,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 173,
+    "name": "Master of Orion II: Battle at Antares",
+    "rarity": "SS",
+    "console": "PC (Microsoft Windows), Mac, DOS",
+    "releaseYear": 1996,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 174,
+    "name": "13 Sentinels: Aegis Rim",
+    "rarity": "SS",
+    "console": "PlayStation 4, Nintendo Switch",
+    "releaseYear": 2019,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 175,
+    "name": "Metal Gear Solid 3 Snake Eater",
+    "rarity": "SS",
+    "console": "PlayStation 2",
+    "releaseYear": 2004,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 176,
+    "name": "Microsoft Flight Simulator",
+    "rarity": "SS",
+    "console": "Xbox Series X|S, PC (Microsoft Windows), Xbox One",
+    "releaseYear": 2020,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 177,
+    "name": "Persona 3",
+    "rarity": "SS",
+    "console": "PlayStation 2",
+    "releaseYear": 2006,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 178,
+    "name": "Astro Bot",
+    "rarity": "SS",
+    "console": "PlayStation 5",
+    "releaseYear": 2024,
+    "genre": null,
+    "series": null
+  },
+  {
+    "id": 179,
+    "name": "Mass Effect 2",
+    "rarity": "SS",
+    "console": "PlayStation 3, PC (Microsoft Windows), Xbox 360",
+    "releaseYear": 2010,
+    "genre": null,
+    "series": null
   }
 ]

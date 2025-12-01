@@ -14,7 +14,7 @@ export const commands = {
         const config = loadConfig();
         const prefix = config.commandPrefix;
 
-        const helpMsg = `Comandos: ${prefix}balance (ver saldo), ${prefix}buybox (comprar caixa - ${config.boxPrice} moedas), ${prefix}openbox (abrir caixa), ${prefix}inventory (ver coleção).`;
+        const helpMsg = `Comandos: ${prefix}balance (ver saldo), ${prefix}buybox (comprar caixa - ${config.boxPrice} moedas), ${prefix}openbox (abrir caixa), ${prefix}inventory (ver coleção), ${prefix}stats (ver perfil).`;
         client.say(channel, `@${user.username} ${helpMsg}`);
     },
 
@@ -35,13 +35,6 @@ export const commands = {
         }
 
         const config = loadConfig();
-        // Nota: BoxService.buyBoxes precisa importar userService dinamicamente ou ser refatorado para evitar dependência circular.
-        // Como implementei buyBoxes com import dinâmico, deve funcionar.
-
-        // Pequena correção: buyBoxes no BoxService usa import dinâmico que retorna uma Promise
-        // Mas aqui vamos simplificar chamando a lógica direto se necessário, ou confiar no serviço.
-        // Vamos verificar a implementação do BoxService... ele usa await import.
-
         const result = await BoxService.buyBoxes(user.username, amount, config.boxPrice);
 
         if (result.success) {
@@ -82,40 +75,60 @@ export const commands = {
             }
         }
 
+        const msg = summary.join(' | ');
+        client.say(channel, `@${user.username} Inventário (${stats.total} jogos): ${msg}`);
     },
 
     // !stats
-    stats: (client, channel, user, args) => {
+    stats: async (client, channel, user, args) => {
         const userData = UserService.getOrCreateUser(user.username);
         const inventoryStats = UserService.getInventoryStats(user.username);
+        const xp = userData.xp || 0;
 
-        // Formata moedas
+        // Importa serviço de XP para calcular nível
+        const XpService = await import('../services/xpService.js');
+        const levelInfo = XpService.calculateLevel(xp);
+
         const coins = formatCurrency(userData.coins);
-
-        // Contagem de jogos por raridade (apenas as que o usuário tem)
         const rarities = ['SSS', 'SS', 'S', 'A+', 'A', 'B', 'C', 'D', 'E'];
         const rarityBreakdown = rarities
             .filter(r => inventoryStats.byRarity[r] > 0)
             .map(r => `${r}:${inventoryStats.byRarity[r]}`)
             .join(' | ');
 
-        const rarityText = rarityBreakdown || 'Nenhum jogo ainda';
+        const rarityText = rarityBreakdown || 'Nenhum jogo';
 
-        const msg = `📊 Status de ${user.username} | 💰 ${coins} | 📦 ${userData.boxCount} caixas | 🎮 ${inventoryStats.total} jogos [${rarityText}]`;
+        const msg = `📊 ${user.username} | Nvl ${levelInfo.level} (${levelInfo.name}) | XP: ${xp} | 💰 ${coins} | 📦 ${userData.boxCount} | 🎮 ${inventoryStats.total} jogos`;
         client.say(channel, msg);
+    },
+
+    // !level
+    level: async (client, channel, user, args) => {
+        const userData = UserService.getOrCreateUser(user.username);
+        const xp = userData.xp || 0;
+
+        const XpService = await import('../services/xpService.js');
+        const levelInfo = XpService.calculateLevel(xp);
+
+        client.say(channel, `@${user.username} Nível: ${levelInfo.level} (${levelInfo.name}) | XP: ${xp}`);
     },
 
     // --- Comandos de Admin ---
 
     // !givecoins <user> <amount>
     givecoins: (client, channel, user, args) => {
-        // Verificação de admin é feita antes de chamar, no index.js
-        if (args.length < 2) return;
+        if (args.length < 2) {
+            client.say(channel, `@${user.username} Uso correto: !givecoins <usuario> <quantidade>`);
+            return;
+        }
 
         const targetUser = args[0].replace('@', '').toLowerCase();
         const amount = parseInt(args[1]);
 
-        if (isNaN(amount)) return;
+        if (isNaN(amount)) {
+            client.say(channel, `@${user.username} A quantidade deve ser um número.`);
+            return;
+        }
 
         UserService.addCoins(targetUser, amount);
         client.say(channel, `@${user.username} Adicionou ${amount} moedas para ${targetUser}.`);
@@ -123,12 +136,18 @@ export const commands = {
 
     // !givebox <user> <amount>
     givebox: (client, channel, user, args) => {
-        if (args.length < 2) return;
+        if (args.length < 2) {
+            client.say(channel, `@${user.username} Uso correto: !givebox <usuario> <quantidade>`);
+            return;
+        }
 
         const targetUser = args[0].replace('@', '').toLowerCase();
         const amount = parseInt(args[1]);
 
-        if (isNaN(amount)) return;
+        if (isNaN(amount)) {
+            client.say(channel, `@${user.username} A quantidade deve ser um número.`);
+            return;
+        }
 
         UserService.addBoxes(targetUser, amount);
         client.say(channel, `@${user.username} Adicionou ${amount} caixas para ${targetUser}.`);
@@ -136,7 +155,10 @@ export const commands = {
 
     // !resetuser <user>
     resetuser: (client, channel, user, args) => {
-        if (args.length < 1) return;
+        if (args.length < 1) {
+            client.say(channel, `@${user.username} Uso correto: !resetuser <usuario>`);
+            return;
+        }
 
         const targetUser = args[0].replace('@', '').toLowerCase();
         UserService.resetUser(targetUser);
