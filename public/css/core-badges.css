@@ -1,0 +1,83 @@
+/* Badge Core - Destaque especial para comandos do sistema */
+.badge-core {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.badge-core::before {
+    content: "🔒";
+    font-size: 0.75rem;
+}
+
+.badge-custom {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* Tooltip para comandos core */
+.core-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.core-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    margin-bottom: 5px;
+    z-index: 1000;
+}
+
+.core-tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Botão desabilitado para comandos core */
+.btn-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Linha da tabela de comando core - destaque sutil */
+tr.core-command {
+    background: rgba(102, 126, 234, 0.03);
+}
+
+tr.core-command:hover {
+    background: rgba(102, 126, 234, 0.08);
+}
+
+/* Ícone de cadeado para comandos core */
+.core-lock-icon {
+    color: #667eea;
+    margin-left: 4px;
+    font-size: 0.85rem;
+}

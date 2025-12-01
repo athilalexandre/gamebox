@@ -79,13 +79,14 @@ app.post('/api/reset-database', async (req, res) => {
         const fs = await import('fs');
         const path = await import('path');
         const { fileURLToPath } = await import('url');
+        const { resetCustomCommands } = await import('../utils/storage.js');
 
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
         const dataDir = path.join(__dirname, '../../data');
 
-        // Deleta todos os arquivos de dados
-        const filesToDelete = ['games.json', 'users.json', 'commands.json'];
+        // Deleta arquivos de dados de usuários e jogos
+        const filesToDelete = ['games.json', 'users.json'];
 
         filesToDelete.forEach(file => {
             const filePath = path.join(dataDir, file);
@@ -98,13 +99,12 @@ app.post('/api/reset-database', async (req, res) => {
         fs.writeFileSync(path.join(dataDir, 'games.json'), JSON.stringify([], null, 2));
         fs.writeFileSync(path.join(dataDir, 'users.json'), JSON.stringify({}, null, 2));
 
-        // Recarrega comandos padrão
-        const defaultCommands = [];
-        saveCommands(defaultCommands);
+        // Remove apenas comandos customizados (preserva core)
+        resetCustomCommands();
 
         res.json({
             success: true,
-            message: 'Banco de dados resetado com sucesso. Todos os dados foram apagados.'
+            message: 'Banco de dados resetado com sucesso. Comandos core foram preservados.'
         });
     } catch (error) {
         console.error('Erro ao resetar banco de dados:', error);
@@ -159,10 +159,35 @@ app.put('/api/commands/:name', (req, res) => {
         return res.status(404).json({ success: false, error: 'Comando não encontrado' });
     }
 
-    commands[index] = { ...commands[index], ...updatedData };
+    const existingCommand = commands[index];
+    const isCore = existingCommand.type === 'core' || existingCommand.core === true;
 
-    if (commands[index].type === 'core') {
-        commands[index].name = commandName;
+    if (isCore) {
+        // Para comandos core, apenas permite editar campos específicos
+        commands[index] = {
+            ...existingCommand,
+            // Campos editáveis
+            enabled: updatedData.enabled !== undefined ? updatedData.enabled : existingCommand.enabled,
+            cooldown: updatedData.cooldown !== undefined ? updatedData.cooldown : existingCommand.cooldown,
+            // Campos protegidos - nunca mudam
+            type: 'core',
+            core: true,
+            name: commandName, // Nome nunca muda
+            aliases: existingCommand.aliases, // Aliases são fixos
+            description: existingCommand.description, // Descrição é fixa
+            level: existingCommand.level, // Level é fixo para core commands
+            category: existingCommand.category,
+            hidden: existingCommand.hidden,
+            response: existingCommand.response
+        };
+    } else {
+        // Para comandos custom, permite editar tudo exceto o nome
+        commands[index] = {
+            ...existingCommand,
+            ...updatedData,
+            name: commandName, // Nome nunca muda
+            type: 'custom' // Garante que permanece custom
+        };
     }
 
     saveCommands(commands);

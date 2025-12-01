@@ -242,20 +242,49 @@ function renderCommandsTable(commands) {
     tbody.innerHTML = '';
 
     commands.forEach(cmd => {
-        const tr = document.createElement('tr');
+        const isCore = cmd.type === 'core' || cmd.core === true;
         const isCustom = cmd.type === 'custom';
         const statusClass = cmd.enabled ? 'status-enabled' : 'status-disabled';
         const statusText = cmd.enabled ? 'Ativo' : 'Inativo';
 
+        // Badge visual
+        let badgeHTML = '';
+        if (isCore) {
+            badgeHTML = `<span class="badge badge-core core-tooltip" data-tooltip="Comando do sistema - Não pode ser deletado">CORE</span>`;
+        } else if (isCustom) {
+            badgeHTML = `<span class="badge badge-custom">CUSTOM</span>`;
+        }
+
+        // Botão de editar (sempre visível)
+        const editBtn = `<button class="btn secondary small" onclick="editCommand('${cmd.name}')" title="Editar comando">
+            <i class="fa-solid fa-pen"></i>
+        </button>`;
+
+        // Botão de deletar (desabilitado para core)
+        const deleteBtn = isCore
+            ? `<button class="btn danger small btn-disabled" title="Comandos core não podem ser deletados">
+                <i class="fa-solid fa-lock"></i>
+               </button>`
+            : `<button class="btn danger small" onclick="deleteCommand('${cmd.name}')" title="Deletar comando">
+                <i class="fa-solid fa-trash"></i>
+               </button>`;
+
+        const tr = document.createElement('tr');
+        if (isCore) tr.classList.add('core-command');
+
         tr.innerHTML = `
-            <td>${cmd.name}</td>
-            <td><span class="badge ${isCustom ? 'badge-custom' : 'badge-core'}">${cmd.type}</span></td>
+            <td>
+                ${cmd.name}
+                ${isCore ? '<i class="fa-solid fa-lock core-lock-icon" title="Comando protegido"></i>' : ''}
+            </td>
+            <td>${badgeHTML}</td>
             <td>${cmd.description || '-'}</td>
             <td>${cmd.level}</td>
             <td>${cmd.cooldown}s</td>
             <td><span class="status-dot ${statusClass}"></span> ${statusText}</td>
-            <td>
-                <button class="btn secondary small" onclick="editCommand('${cmd.name}')"><i class="fa-solid fa-pen"></i></button>
+            <td style="display: flex; gap: 5px;">
+                ${editBtn}
+                ${deleteBtn}
             </td>
         `;
         tbody.appendChild(tr);
@@ -882,3 +911,35 @@ async function resetDatabase() {
         btn.disabled = false;
     }
 }
+
+// Editar comando
+window.editCommand = function (commandName) {
+    // Implementar modal de edição de comando
+    alert(`Edição de comando: ${commandName}\n\nFuncionalidade em desenvolvimento.`);
+};
+
+// Deletar comando
+window.deleteCommand = async function (commandName) {
+    if (!confirm(`⚠️ Tem certeza que deseja deletar o comando ${commandName}?\n\nEsta ação não pode ser desfeita.`)) {
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_URL}/commands/${encodeURIComponent(commandName)}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            alert(`✅ Comando ${commandName} deletado com sucesso!`);
+            fetchCommands(); // Recarrega a lista
+        } else {
+            alert(`❌ Erro ao deletar comando: ${data.error || 'Erro desconhecido'}`);
+        }
+    } catch (err) {
+        console.error(err);
+        alert(`❌ Erro ao deletar comando: ${err.message}`);
+    }
+};

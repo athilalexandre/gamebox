@@ -1,6 +1,7 @@
 import tmi from 'tmi.js';
-import { loadConfig, loadCommands } from '../utils/storage.js';
+import { loadConfig, loadCommands, initializeCoreCommands } from '../utils/storage.js';
 import { commands } from './commands.js';
+import { CORE_COMMANDS } from './coreCommands.js';
 import * as UserService from '../services/userService.js';
 import * as XpService from '../services/xpService.js';
 import { broadcastLog } from '../api/server.js';
@@ -8,6 +9,11 @@ import { broadcastLog } from '../api/server.js';
 let client = null;
 let currencyInterval = null;
 const activeUsers = new Map(); // Map<username, lastActivityTimestamp>
+
+// Initialize core commands on module load
+console.log('[BOT] Inicializando comandos core...');
+initializeCoreCommands(CORE_COMMANDS);
+console.log('[BOT] Comandos core inicializados!');
 
 export async function startBot() {
     const config = loadConfig();
@@ -236,37 +242,50 @@ async function onMessageHandler(target, context, msg, self) {
         return;
     }
 
+    // Sistema de Cooldown (por usuário, por comando)
+    if (!global.commandCooldowns) {
+        global.commandCooldowns = new Map();
+    }
+
+    const cooldownKey = `${username}:${cmdConfig.name}`;
+    const now = Date.now();
+    const cooldownAmount = (cmdConfig.cooldown || 0) * 1000; // segundos para ms
+
+    if (global.commandCooldowns.has(cooldownKey)) {
+        const expirationTime = global.commandCooldowns.get(cooldownKey) + cooldownAmount;
+
+        if (now < expirationTime) {
+            const timeLeft = Math.ceil((expirationTime - now) / 1000);
+            // Silenciosamente ignora (não spamma o chat com mensagens de cooldown)
+            console.log(`[COOLDOWN] ${username} tentou usar ${cmdConfig.name}, aguarde ${timeLeft}s`);
+            return;
+        }
+    }
+
+    // Atualiza o cooldown
+    global.commandCooldowns.set(cooldownKey, now);
+
+    // Limpa cooldowns expirados a cada 100 comandos
+    if (global.commandCooldowns.size > 1000) {
+        const expiredKeys = [];
+        for (const [key, timestamp] of global.commandCooldowns.entries()) {
+            if (now - timestamp > 300000) { // 5 minutos
+                expiredKeys.push(key);
+            }
+        }
+        expiredKeys.forEach(key => global.commandCooldowns.delete(key));
+    }
+
     // Mapeia o nome do comando real (ex: !saldo -> balance)
-    // O commands.js exporta funções com nomes em inglês (balance, inventory, etc).
-    // O cmdConfig.name é "!balance". Então removemos o prefixo.
     const realCommandName = cmdConfig.name.substring(1); // remove "!"
 
-    // Se for comando customizado, processa a resposta
-    if (cmdConfig.type === 'custom' && cmdConfig.response) {
-        try {
-            broadcastLog(`Comando customizado: ${username} usou ${fullCommandInput}`, 'info');
-
-            // Substitui variáveis na resposta
-            let response = cmdConfig.response;
-            response = response.replace(/{user}/g, username);
-            response = response.replace(/{balance}/g, user.coins.toString());
-            response = response.replace(/{boxes}/g, user.boxCount.toString());
-            response = response.replace(/{level}/g, user.role || 'viewer');
-
-            client.say(target, response);
-        } catch (error) {
-            console.error(`[BOT] Erro ao executar comando customizado ${realCommandName}:`, error);
-            broadcastLog(`Erro no comando ${fullCommandInput}: ${error.message}`, 'error');
-        }
-    }
-    // Senão, executa comandos hardcoded do sistema
-    else if (commands[realCommandName]) {
-        try {
-            broadcastLog(`Comando: ${username} usou ${fullCommandInput}`, 'info');
-            await commands[realCommandName](client, target, { username, ...context }, args);
-        } catch (error) {
-            console.error(`[BOT] Erro ao executar comando ${realCommandName}:`, error);
-            broadcastLog(`Erro no comando ${fullCommandInput}: ${error.message}`, 'error');
-        }
+    // Usa o handler unificado de comandos
+    try {
+        broadcastLog(`Comando: ${username} usou ${fullCommandInput}`, 'info');
+        await commands.handle(client, target, { username, ...context }, cmdConfig.name, args, cmdConfig);
+    } catch (error) {
+        console.error(`[BOT] Erro ao executar comando ${fullCommandInput}:`, error);
+        broadcastLog(`Erro no comando ${fullCommandInput}: ${error.message}`, 'error');
     }
 }
+
