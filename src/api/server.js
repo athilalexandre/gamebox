@@ -3,9 +3,8 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { startBot, stopBot, getBotStatus } from '../bot/index.js';
-import { loadConfig, saveConfig, loadCommands, saveCommands, loadTrades } from '../utils/storage.js';
-import * as UserService from '../services/userService.js';
-import * as GameService from '../services/gameService.js';
+import { ConfigRepository, UserRepository, GameRepository, CommandRepository, TradeRepository } from '../db/repositories/index.js';
+import SeedService from '../db/services/SeedService.js';
 import * as IgdbService from '../services/igdbService.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -43,232 +42,280 @@ app.post('/api/bot/disconnect', async (req, res) => {
     }
 });
 
-// Configurações
-app.get('/api/settings', (req, res) => {
-    const config = loadConfig();
-    res.json(config);
-});
-
-app.put('/api/settings', (req, res) => {
-    const newConfig = req.body;
-    const currentConfig = loadConfig();
-
-    if (newConfig.boxPrice < 0) {
-        return res.status(400).json({ success: false, error: 'O preço da caixa não pode ser negativo.' });
-    }
-
-    if (newConfig.twitchOAuthToken && newConfig.twitchOAuthToken.includes('***')) {
-        newConfig.twitchOAuthToken = currentConfig.twitchOAuthToken;
-    }
-
-    if (newConfig.twitchOAuthToken === '') {
-        newConfig.twitchOAuthToken = '';
-    }
-
-    const success = saveConfig(newConfig);
-    if (success) {
-        res.json({ success: true });
-    } else {
-        res.status(500).json({ success: false, error: 'Erro ao salvar configurações' });
-    }
-});
-
-// Trades
-app.get('/api/trades', (req, res) => {
-    const trades = loadTrades();
-    res.json(trades);
-});
-
-// Reset Database (DANGER ZONE)
-app.post('/api/reset-database', async (req, res) => {
+// ========== CONFIGURAÇÕES ==========
+app.get('/api/settings', async (req, res) => {
     try {
-        const fs = await import('fs');
-        const path = await import('path');
-        const { fileURLToPath } = await import('url');
-        const { resetCustomCommands } = await import('../utils/storage.js');
+        const config = await ConfigRepository.getConfig();
+        // Ocultar token OAuth sensível
+        const safeConfig = {
+            ...config.toObject(),
+            twitchOAuthToken: config.twitchOAuthToken ? '***HIDDEN***' : ''
+        };
+        res.json(safeConfig);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = path.dirname(__filename);
-        const dataDir = path.join(__dirname, '../../data');
+app.put('/api/settings', async (req, res) => {
+    try {
+        const newConfig = req.body;
+        const currentConfig = await ConfigRepository.getConfig();
 
-        // Deleta arquivos de dados de usuários e jogos
-        const filesToDelete = ['games.json', 'users.json', 'trades.json'];
+        // Validações
+        if (newConfig.boxPrice < 0) {
+            return res.status(400).json({ success: false, error: 'O preço da caixa não pode ser negativo.' });
+        }
 
-        filesToDelete.forEach(file => {
-            const filePath = path.join(dataDir, file);
-            if (fs.existsSync(filePath)) {
-                fs.unlinkSync(filePath);
-            }
+        // Se token OAuth contém ***, mantém o atual (não substituir)
+        if (newConfig.twitchOAuthToken && newConfig.twitchOAuthToken.includes('***')) {
+            newConfig.twitchOAuthToken = currentConfig.twitchOAuthToken;
+        }
+
+        // Atualizar config
+        await ConfigRepository.updateConfig(newConfig);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// ========== TRADES ==========
+app.get('/api/trades', async (req, res) => {
+    try {
+        const trades = await TradeRepository.getRecentTrades(50);
+
+        // Formatar resposta para o frontend
+        const formattedTrades = trades.map(trade => ({
+            _id: trade._id,
+            timestamp: trade.timestamp,
+            initiator: trade.initiator,
+            target: trade.target,
+            gameFromInitiator: trade.gameFromInitiator?.name || 'Unknown',
+            gameFromTarget: trade.gameFromTarget?.name || 'Unknown',
+            status: trade.status,
+            coinCostEach: trade.coinCostEach
+        }));
+
+        res.json(formattedTrades);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ========== COMANDOS ==========
+app.get('/api/commands', async (req, res) => {
+    try {
+        const commands = await CommandRepository.getAllCommands();
+        res.json(commands);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/api/commands', async (req, res) => {
+    try {
+        const { name, description, response, type, level, cooldown, aliases, enabled, category } = req.body;
+
+        // Validações
+        if (!name || !name.startsWith('!')) {
+            return res.status(400).json({ success: false, error: 'Nome do comando deve começar com !' });
+        }
+
+        const exists = await CommandRepository.exists(name);
+        if (exists) {
+            return res.status(400).json({ success: false, error: 'Comando já existe' });
+        }
+
+        if (type === 'custom' && !response) {
+            return res.status(400).json({ success: false, error: 'Comandos customizados precisam de uma resposta' });
+        }
+
+        const newCommand = await CommandRepository.createCommand({
+            name,
+            type: type || 'custom',
+            description: description || '',
+            response: response || '',
+            level: level || 'viewer',
+            cooldown: cooldown || 0,
+            aliases: aliases || [],
+            enabled: enabled !== undefined ? enabled : true,
+            category: category || 'util',
+            isCore: false
         });
 
-        // Recria arquivos vazios/padrão
-        fs.writeFileSync(path.join(dataDir, 'games.json'), JSON.stringify([], null, 2));
-        fs.writeFileSync(path.join(dataDir, 'users.json'), JSON.stringify({}, null, 2));
-        fs.writeFileSync(path.join(dataDir, 'trades.json'), JSON.stringify([], null, 2));
+        res.json({ success: true, command: newCommand });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
 
-        // Remove apenas comandos customizados (preserva core)
-        resetCustomCommands();
+app.put('/api/commands/:name', async (req, res) => {
+    try {
+        const commandName = decodeURIComponent(req.params.name);
+        const updatedData = req.body;
+
+        const command = await CommandRepository.getCommandByNameOrAlias(commandName);
+        if (!command) {
+            return res.status(404).json({ success: false, error: 'Comando não encontrado' });
+        }
+
+        // Se é comando core, apenas permite editar enabled e cooldown
+        if (command.isCore) {
+            const updates = {
+                enabled: updatedData.enabled !== undefined ? updatedData.enabled : command.enabled,
+                cooldown: updatedData.cooldown !== undefined ? updatedData.cooldown : command.cooldown
+            };
+
+            const updated = await CommandRepository.updateCommand(commandName, updates);
+            res.json({ success: true, command: updated });
+        } else {
+            // Comandos custom podem editar tudo exceto nome
+            const { name, ...allowedUpdates } = updatedData;
+            const updated = await CommandRepository.updateCommand(commandName, allowedUpdates);
+            res.json({ success: true, command: updated });
+        }
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+app.delete('/api/commands/:name', async (req, res) => {
+    try {
+        const commandName = decodeURIComponent(req.params.name);
+        await CommandRepository.deleteCommand(commandName);
+        res.json({ success: true });
+    } catch (error) {
+        if (error.message.includes('Cannot delete core command')) {
+            res.status(403).json({ success: false, error: 'Não é possível deletar comandos do sistema' });
+        } else {
+            res.status(500).json({ success: false, error: error.message });
+        }
+    }
+});
+
+// ========== JOGOS ==========
+app.get('/api/games', async (req, res) => {
+    try {
+        const games = await GameRepository.getAllGames();
+        res.json(games);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/api/games', async (req, res) => {
+    try {
+        const game = await GameRepository.createGame(req.body);
+        res.json(game);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.put('/api/games/:id', async (req, res) => {
+    try {
+        const game = await GameRepository.updateGame(req.params.id, req.body);
+        if (game) {
+            res.json(game);
+        } else {
+            res.status(404).json({ error: 'Jogo não encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.delete('/api/games/:id', async (req, res) => {
+    try {
+        await GameRepository.deleteGame(req.params.id);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ========== USUÁRIOS ==========
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await UserRepository.getAllUsers();
+
+        // Formatar para o frontend (incluir stats de inventário)
+        const formattedUsers = users.map(user => ({
+            username: user.username,
+            coins: user.coins,
+            boxCount: user.boxCount,
+            xp: user.xp,
+            level: user.level,
+            inventoryCount: user.inventory?.length || 0,
+            totalBoxesOpened: user.totalBoxesOpened,
+            role: user.role
+        }));
+
+        res.json(formattedUsers);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get('/api/users/:username', async (req, res) => {
+    try {
+        const user = await UserRepository.getUserByName(req.params.username);
+        if (!user) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.put('/api/users/:username', async (req, res) => {
+    try {
+        const user = await UserRepository.updateUser(req.params.username, req.body);
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ========== RESET DATABASE (DANGER ZONE) ==========
+app.post('/api/reset-database', async (req, res) => {
+    try {
+        console.log('[RESET] 🚨 Iniciando reset do banco de dados...');
+
+        // 1. Limpar usuários
+        await UserRepository.deleteAll();
+        console.log('[RESET] ✅ Usuários deletados');
+
+        // 2. Limpar trades
+        await TradeRepository.deleteAll();
+        console.log('[RESET] ✅ Trades deletados');
+
+        // 3. Limpar apenas comandos custom (PRESERVAR CORE)
+        await CommandRepository.deleteAllCustomCommands();
+        console.log('[RESET] ✅ Comandos custom deletados (core preservados)');
+
+        // 4. Re-seed comandos core (garantir que existem)
+        await SeedService.seedCoreCommands();
+        console.log('[RESET] ✅ Comandos core re-seeded');
+
+        // 5. (Opcional) Resetar config para defaults
+        // await ConfigRepository.resetToDefaults();
+
+        console.log('[RESET] ✅ Reset completo!');
 
         res.json({
             success: true,
             message: 'Banco de dados resetado com sucesso. Comandos core foram preservados.'
         });
     } catch (error) {
-        console.error('Erro ao resetar banco de dados:', error);
+        console.error('[RESET] ❌ Erro ao resetar banco de dados:', error);
         res.status(500).json({ success: false, error: error.message });
     }
 });
 
-// Comandos
-app.get('/api/commands', (req, res) => {
-    res.json(loadCommands());
-});
-
-app.post('/api/commands', (req, res) => {
-    const { name, description, response, type, level, cooldown, aliases, enabled } = req.body;
-    const commands = loadCommands();
-
-    if (!name || !name.startsWith('!')) {
-        return res.status(400).json({ success: false, error: 'Nome do comando deve começar com !' });
-    }
-
-    if (commands.find(c => c.name === name)) {
-        return res.status(400).json({ success: false, error: 'Comando já existe' });
-    }
-
-    if (type === 'custom' && !response) {
-        return res.status(400).json({ success: false, error: 'Comandos customizados precisam de uma resposta' });
-    }
-
-    const newCommand = {
-        name,
-        type: type || 'custom',
-        description: description || '',
-        response: response || '',
-        level: level || 'viewer',
-        cooldown: cooldown || 0,
-        aliases: aliases || [],
-        enabled: enabled !== undefined ? enabled : true
-    };
-
-    commands.push(newCommand);
-    saveCommands(commands);
-    res.json({ success: true, command: newCommand });
-});
-
-app.put('/api/commands/:name', (req, res) => {
-    const commandName = decodeURIComponent(req.params.name);
-    const updatedData = req.body;
-    let commands = loadCommands();
-
-    const index = commands.findIndex(c => c.name === commandName);
-    if (index === -1) {
-        return res.status(404).json({ success: false, error: 'Comando não encontrado' });
-    }
-
-    const existingCommand = commands[index];
-    const isCore = existingCommand.type === 'core' || existingCommand.core === true;
-
-    if (isCore) {
-        // Para comandos core, apenas permite editar campos específicos
-        commands[index] = {
-            ...existingCommand,
-            // Campos editáveis
-            enabled: updatedData.enabled !== undefined ? updatedData.enabled : existingCommand.enabled,
-            cooldown: updatedData.cooldown !== undefined ? updatedData.cooldown : existingCommand.cooldown,
-            // Campos protegidos - nunca mudam
-            type: 'core',
-            core: true,
-            name: commandName, // Nome nunca muda
-            aliases: existingCommand.aliases, // Aliases são fixos
-            description: existingCommand.description, // Descrição é fixa
-            level: existingCommand.level, // Level é fixo para core commands
-            category: existingCommand.category,
-            hidden: existingCommand.hidden,
-            response: existingCommand.response
-        };
-    } else {
-        // Para comandos custom, permite editar tudo exceto o nome
-        commands[index] = {
-            ...existingCommand,
-            ...updatedData,
-            name: commandName, // Nome nunca muda
-            type: 'custom' // Garante que permanece custom
-        };
-    }
-
-    saveCommands(commands);
-    res.json({ success: true, command: commands[index] });
-});
-
-app.delete('/api/commands/:name', (req, res) => {
-    const commandName = decodeURIComponent(req.params.name);
-    let commands = loadCommands();
-
-    const cmd = commands.find(c => c.name === commandName);
-    if (!cmd) {
-        return res.status(404).json({ success: false, error: 'Comando não encontrado' });
-    }
-
-    if (cmd.type === 'core') {
-        return res.status(403).json({ success: false, error: 'Não é possível deletar comandos do sistema' });
-    }
-
-    commands = commands.filter(c => c.name !== commandName);
-    saveCommands(commands);
-    res.json({ success: true });
-});
-
-// Jogos
-app.get('/api/games', (req, res) => {
-    const games = GameService.getAllGames();
-    res.json(games);
-});
-
-app.post('/api/games', (req, res) => {
-    const game = GameService.addGame(req.body);
-    res.json(game);
-});
-
-app.put('/api/games/:id', (req, res) => {
-    const game = GameService.updateGame(parseInt(req.params.id), req.body);
-    if (game) {
-        res.json(game);
-    } else {
-        res.status(404).json({ error: 'Jogo não encontrado' });
-    }
-});
-
-app.delete('/api/games/:id', (req, res) => {
-    const success = GameService.deleteGame(parseInt(req.params.id));
-    if (success) {
-        res.json({ success: true });
-    } else {
-        res.status(404).json({ error: 'Jogo não encontrado' });
-    }
-});
-
-// Usuários
-app.get('/api/users', (req, res) => {
-    const users = UserService.getAllUsers();
-    const usersList = Object.entries(users).map(([username, data]) => ({
-        username,
-        ...data
-    }));
-    res.json(usersList);
-});
-
-app.get('/api/users/:username', (req, res) => {
-    const user = UserService.getOrCreateUser(req.params.username);
-    res.json(user);
-});
-
-app.put('/api/users/:username', (req, res) => {
-    const user = UserService.updateUser(req.params.username, req.body);
-    res.json(user);
-});
-
-// IGDB Proxy
+// ========== IGDB INTEGRATION ==========
 app.get('/api/igdb/search', async (req, res) => {
     const query = req.query.q;
     if (!query) {
@@ -283,114 +330,67 @@ app.get('/api/igdb/search', async (req, res) => {
     }
 });
 
-// IGDB Bulk Sync with Rarity Balancing
+// IGDB Bulk Sync with Metacritic Rarity
 app.post('/api/igdb/sync', async (req, res) => {
     try {
-        // 1. Buscar 500 jogos do IGDB
+        console.log('[IGDB SYNC] 🔄 Iniciando sync com IGDB...');
+
+        // 1. Buscar jogos do IGDB
         const igdbGames = await IgdbService.getTopGames();
+        console.log(`[IGDB SYNC] Encontrados ${igdbGames.length} jogos no IGDB`);
 
-        // 2. Carregar jogos existentes
-        let allGames = GameService.getAllGames();
-
-        // 3. Mesclar novos jogos (evitando duplicatas por nome)
         let addedCount = 0;
+        let updatedCount = 0;
 
-        igdbGames.forEach(igdbGame => {
-            const existingIndex = allGames.findIndex(g =>
-                g.name.toLowerCase().trim() === igdbGame.name.toLowerCase().trim()
-            );
-
+        // 2. Para cada jogo, fazer upsert no MongoDB
+        for (const igdbGame of igdbGames) {
             const gameData = {
+                igdbId: igdbGame.id,
+                igdbSlug: igdbGame.slug,
                 name: igdbGame.name,
                 console: igdbGame.platforms ? igdbGame.platforms.map(p => p.name).join(', ') : 'N/A',
                 releaseYear: igdbGame.first_release_date
                     ? new Date(igdbGame.first_release_date * 1000).getFullYear()
-                    : 2000,
-                originalRating: igdbGame.aggregated_rating || 0, // Metacritic-based rating
-                cover: igdbGame.cover ? igdbGame.cover.url : null
+                    : null,
+                originalRating: igdbGame.aggregated_rating || null,
+                cover: igdbGame.cover ? igdbGame.cover.url : null,
+                genres: igdbGame.genres ? igdbGame.genres.map(g => g.name) : [],
+                // Metacritic score será adicionado posteriormente se disponível
+                metacriticScore: igdbGame.aggregated_rating || null // Usar IGDB rating como placeholder
             };
 
-            if (existingIndex >= 0) {
-                // Atualiza dados existentes (preserva ID e raridade atual temporariamente)
-                allGames[existingIndex] = {
-                    ...allGames[existingIndex],
-                    ...gameData
-                };
+            const existing = await GameRepository.getGameByIgdbId(igdbGame.id);
+
+            if (existing) {
+                await GameRepository.upsertGame(gameData);
+                updatedCount++;
             } else {
-                // Novo jogo
-                const newId = allGames.length > 0
-                    ? Math.max(...allGames.map(g => g.id)) + 1 + addedCount
-                    : 1 + addedCount;
-                allGames.push({ id: newId, rarity: 'E', ...gameData });
+                await GameRepository.upsertGame(gameData);
                 addedCount++;
             }
-        });
-
-        // 4. Ordenar todos os jogos por rating (decrescente)
-        allGames.sort((a, b) => (b.originalRating || 0) - (a.originalRating || 0));
-
-        // 5. Aplicar Distribuição de Raridade Balanceada
-        const total = allGames.length;
-
-        // Percentuais conforme solicitado
-        const distribution = [
-            { rarity: 'SSS', percent: 0.005 },  // 0.5%
-            { rarity: 'SS', percent: 0.015 },   // 1.5%
-            { rarity: 'S', percent: 0.03 },     // 3%
-            { rarity: 'A', percent: 0.05 },     // 5%
-            { rarity: 'B', percent: 0.10 },     // 10%
-            { rarity: 'C', percent: 0.15 },     // 15%
-            { rarity: 'D', percent: 0.25 },     // 25%
-            // E = resto (40%)
-        ];
-
-        let currentIndex = 0;
-
-        distribution.forEach(({ rarity, percent }) => {
-            const count = Math.ceil(total * percent);
-            for (let i = 0; i < count && currentIndex < total; i++) {
-                allGames[currentIndex].rarity = rarity;
-                currentIndex++;
-            }
-        });
-
-        // Resto recebe E
-        while (currentIndex < total) {
-            allGames[currentIndex].rarity = 'E';
-            currentIndex++;
         }
 
-        // 6. Salvar tudo
-        const success = GameService.saveAllGames(allGames);
+        // 3. Obter estatísticas de distribuição
+        const stats = await GameRepository.getGameStats();
+        const total = await GameRepository.getCount();
 
-        if (success) {
-            res.json({
-                success: true,
-                total: total,
-                added: addedCount,
-                distribution: {
-                    SSS: allGames.filter(g => g.rarity === 'SSS').length,
-                    SS: allGames.filter(g => g.rarity === 'SS').length,
-                    S: allGames.filter(g => g.rarity === 'S').length,
-                    A: allGames.filter(g => g.rarity === 'A').length,
-                    B: allGames.filter(g => g.rarity === 'B').length,
-                    C: allGames.filter(g => g.rarity === 'C').length,
-                    D: allGames.filter(g => g.rarity === 'D').length,
-                    E: allGames.filter(g => g.rarity === 'E').length
-                }
-            });
-        } else {
-            res.status(500).json({ error: 'Erro ao salvar jogos' });
-        }
+        console.log('[IGDB SYNC] ✅ Sync completo!');
+
+        res.json({
+            success: true,
+            total: total,
+            added: addedCount,
+            updated: updatedCount,
+            distribution: stats
+        });
 
     } catch (error) {
-        console.error('Erro no sync IGDB:', error);
+        console.error('[IGDB SYNC] ❌ Erro no sync:', error);
         res.status(500).json({ error: error.message });
     }
 });
 
-// --- SSE (Server-Sent Events) para Logs em Tempo Real ---
-// IMPORTANTE: Esta rota deve vir ANTES da rota catch-all (*)
+// ========== SSE (Server-Sent Events) para Logs em Tempo Real ==========
 let clients = [];
 
 app.get('/api/events', (req, res) => {
