@@ -177,6 +177,21 @@ async function fetchSettings() {
     }
 }
 
+// --- Data Fetching ---
+
+async function fetchStatus() {
+    try {
+        const res = await fetch(`${API_URL}/bot/status`);
+        if (res.ok) {
+            const status = await res.json();
+            currentState.botStatus = status;
+            updateBotStatusUI();
+        }
+    } catch (e) {
+        console.error('Erro ao buscar status do bot:', e);
+    }
+}
+
 // --- Rendering ---
 
 function updateBotStatusUI() {

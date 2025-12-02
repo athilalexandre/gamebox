@@ -34,10 +34,10 @@ async function main() {
         // ========== 4. AUTO-SYNC ALL IGDB GAMES ==========
         // This will fetch ALL ~350k+ games from IGDB
         const gameCount = await GameRepository.getCount();
-        const TARGET_GAMES = 350000; // Target: Full IGDB database
+        const MINIMUM_GAMES = 300000; // Only sync if we have less than 300k games
 
-        if (gameCount < TARGET_GAMES) {
-            console.log(`[INIT] 🎮 Game database has ${gameCount} games (Target: ALL ~${TARGET_GAMES}).`);
+        if (gameCount < MINIMUM_GAMES) {
+            console.log(`[INIT] 🎮 Game database has ${gameCount} games (Minimum: ${MINIMUM_GAMES}).`);
             console.log('[INIT] 🔄 Starting FULL IGDB sync to fetch ALL games...');
             console.log('[INIT] ⚠️  This will take a while (several hours). Progress will be logged.');
 
@@ -59,7 +59,8 @@ async function main() {
             // Don't wait for sync to complete - it runs in background
             console.log('[INIT] ✅ Full IGDB sync started in background.');
         } else {
-            console.log(`[INIT] ✅ Game database has ${gameCount} games. Skipping auto-sync.`);
+            console.log(`[INIT] ✅ Game database has ${gameCount} games. Database is complete!`);
+            console.log('[INIT] ℹ️  Skipping auto-sync. Use Dashboard to manually sync if needed.');
         }
 
         // ========== 5. CARREGAR CONFIGURAÇÃO ==========

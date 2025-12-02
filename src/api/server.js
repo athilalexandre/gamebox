@@ -12,10 +12,16 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ charset: 'utf-8' }));
 
 // Servir arquivos estáticos do dashboard
 app.use(express.static(path.join(__dirname, '../../public')));
+
+// Set UTF-8 charset ONLY for API JSON responses (not HTML)
+app.use('/api', (req, res, next) => {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    next();
+});
 
 // --- API Routes ---
 

@@ -11,16 +11,26 @@ class UserRepository {
         let user = await User.findOne({ username });
 
         if (!user) {
-            user = await User.create({
-                username,
-                coins: 0,
-                boxCount: 0,
-                inventory: [],
-                xp: 0,
-                level: 1,
-                lastActive: new Date()
-            });
-            console.log(`[USER] Created new user: ${username}`);
+            try {
+                user = await User.create({
+                    username,
+                    coins: 0,
+                    boxCount: 0,
+                    inventory: [],
+                    xp: 0,
+                    level: 1,
+                    lastActive: new Date()
+                });
+                console.log(`[USER] Created new user: ${username}`);
+            } catch (error) {
+                // Handle duplicate key error (race condition)
+                if (error.code === 11000) {
+                    console.log(`[USER] User ${username} already exists (race condition), fetching...`);
+                    user = await User.findOne({ username });
+                } else {
+                    throw error;
+                }
+            }
         }
 
         return user;
