@@ -1,98 +1,557 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameBox Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/core-badges.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#8b5cf6',
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87',
+                        },
+                        dark: {
+                            DEFAULT: '#0f172a',
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .rarity-E {
+            color: #9ca3af;
+        }
+
+        .rarity-D {
+            color: #6ee7b7;
+        }
+
+        .rarity-C {
+            color: #60a5fa;
+        }
+
+        .rarity-B {
+            color: #a78bfa;
+        }
+
+        .rarity-A {
+            color: #f472b6;
+        }
+
+        .rarity-S {
+            color: #fb923c;
+        }
+
+        .rarity-SS {
+            color: #fbbf24;
+        }
+
+        .rarity-SSS {
+            color: #ef4444;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .status-online {
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="app-container">
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fa-solid fa-gamepad"></i>
-                <h1>GameBox</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="active" data-page="home">
-                        <i class="fa-solid fa-house"></i> 🏠 Home
-                    </li>
-                    <li data-page="games">
-                        <i class="fa-solid fa-list"></i> 🎮 Jogos
-                    </li>
-                    <li data-page="trading">
-                        <i class="fa-solid fa-handshake"></i> 🤝 Trocas
-                    </li>
-                    <li data-page="management">
-                        <i class="fa-solid fa-users-gear"></i> 👥 Gestão
-                    </li>
-                    <li data-page="settings">
-                        <i class="fa-solid fa-gear"></i> ⚙️ Configurações
-                    </li>
-                </ul>
-            </nav>
-            <div class="bot-status-card">
-                <div class="status-wrapper">
-                    <img id="bot-status-image" src="" alt=""
-                        style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; display: none; border: 2px solid var(--border);">
-                    <div class="status-indicator" id="bot-status-indicator"></div>
+<body class="bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-gray-100 font-sans min-h-screen">
+
+    <!-- Main Container -->
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-dark-900 border-r border-primary-900/20 flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-primary-900/20">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-gamepad text-white text-xl"></i>
+                    </div>
+                    <h1
+                        class="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+                        GameBox</h1>
                 </div>
-                <span id="bot-status-text">🔴 Desconectado</span>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+                <a href="#" data-page="home"
+                    class="nav-item active flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-primary-900/20 group">
+                    <i class="fas fa-home text-gray-400 group-hover:text-primary-400"></i>
+                    <span class="font-medium">Home</span>
+                </a>
+                <a href="#" data-page="games"
+                    class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-primary-900/20 group">
+                    <i class="fas fa-gamepad text-gray-400 group-hover:text-primary-400"></i>
+                    <span class="font-medium">Jogos</span>
+                </a>
+                <a href="#" data-page="trading"
+                    class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-primary-900/20 group">
+                    <i class="fas fa-handshake text-gray-400 group-hover:text-primary-400"></i>
+                    <span class="font-medium">Trocas</span>
+                </a>
+                <a href="#" data-page="management"
+                    class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-primary-900/20 group">
+                    <i class="fas fa-users-gear text-gray-400 group-hover:text-primary-400"></i>
+                    <span class="font-medium">Gestão</span>
+                </a>
+                <a href="#" data-page="settings"
+                    class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-primary-900/20 group">
+                    <i class="fas fa-cog text-gray-400 group-hover:text-primary-400"></i>
+                    <span class="font-medium">Configurações</span>
+                </a>
+            </nav>
+
+            <!-- Bot Status -->
+            <div class="p-4 border-t border-primary-900/20">
+                <div class="glass rounded-lg p-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="relative">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                                <i class="fas fa-robot text-gray-400"></i>
+                            </div>
+                            <div id="bot-status-indicator"
+                                class="absolute bottom-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-dark-900">
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-400 mb-1">Status do Bot</p>
+                            <p id="bot-status-text" class="text-sm font-semibold text-red-400 truncate">Desconectado</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </aside>
 
-        <main class="content">
-            <!-- HOME PAGE -->
-            <div id="home" class="page active">
-                <header>
-                    <h2>📊 Dashboard</h2>
-                    <div>
-                        <button class="btn primary hidden" id="btn-connect">
-                            <i class="fa-solid fa-plug"></i> Conectar Bot
-                        </button>
-                        <button class="btn danger hidden" id="btn-disconnect">
-                            <i class="fa-solid fa-plug-circle-xmark"></i> Desconectar
-                        </button>
-                    </div>
-                </header>
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-dark-800/50">
 
-                <div class="stats-grid">
-                    <div class="card stat-card">
-                        <i class="fa-solid fa-users"></i>
-                        <div class="info">
-                            <h3>👥 Usuários Ativos</h3>
-                            <p id="stat-users">0</p>
+            <!-- HOME PAGE -->
+            <div id="home" class="page">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-dark-900/90 to-dark-800/90 border-b border-primary-900/20 px-8 py-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-2">Dashboard</h2>
+                            <p class="text-gray-400">Bem-vindo ao GameBox Control Panel</p>
                         </div>
-                    </div>
-                    <div class="card stat-card">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <div class="info">
-                            <h3>🎮 Total de Jogos</h3>
-                            <p id="stat-games">0</p>
-                        </div>
-                    </div>
-                    <div class="card stat-card">
-                        <i class="fa-solid fa-box-open"></i>
-                        <div class="info">
-                            <h3>📦 Caixas Abertas</h3>
-                            <p id="stat-boxes">0</p>
+                        <div class="flex space-x-3">
+                            <button id="btn-connect"
+                                class="hidden px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-green-500/50">
+                                <i class="fas fa-plug mr-2"></i>Conectar Bot
+                            </button>
+                            <button id="btn-disconnect"
+                                class="hidden px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-red-500/50">
+                                <i class="fas fa-plug-circle-xmark mr-2"></i>Desconectar
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="card recent-activity">
-                    <h3>📝 Atividade Recente</h3>
-                    <div class="filters" style="display: flex; gap: 10px;">
-                        <input type="text" id="search-games" placeholder="🔍 Buscar jogo..." style="width: 250px;">
-                        <select id="filter-rarity">
-                            <option value="">🎯 Todas as Raridades</option>
+                <!-- Stats Grid -->
+                <div class="p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Users Card -->
+                        <div
+                            class="glass rounded-xl p-6 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-white text-xl"></i>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold" id="stat-users">0</p>
+                                    <p class="text-xs text-gray-400">Usuários Ativos</p>
+                                </div>
+                            </div>
+                            <div class="h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
+                        </div>
+
+                        <!-- Games Card -->
+                        <div
+                            class="glass rounded-xl p-6 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-gamepad text-white text-xl"></i>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold" id="stat-games">0</p>
+                                    <p class="text-xs text-gray-400">Total de Jogos</p>
+                                </div>
+                            </div>
+                            <div class="h-1 bg-gradient-to-r from-purple-600 to-purple-400 rounded-full"></div>
+                        </div>
+
+                        <!-- Boxes Card -->
+                        <div
+                            class="glass rounded-xl p-6 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-pink-600 to-pink-800 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-box-open text-white text-xl"></i>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold" id="stat-boxes">0</p>
+                                    <p class="text-xs text-gray-400">Caixas Abertas</p>
+                                </div>
+                            </div>
+                            <div class="h-1 bg-gradient-to-r from-pink-600 to-pink-400 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Activity Log -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-chart-line text-primary-500 mr-3"></i>
+                            Atividade Recente
+                        </h3>
+                        <div class="space-y-2 max-h-96 overflow-y-auto">
+                            <ul id="activity-log" class="space-y-1">
+                                <li class="text-gray-400 text-sm py-2 px-4 bg-dark-900/50 rounded-lg">
+                                    <span class="text-gray-500">[--:--:--]</span> ⏳ Aguardando conexão...
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAMES PAGE -->
+            <div id="games" class="page hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-dark-900/90 to-dark-800/90 border-b border-primary-900/20 px-8 py-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-2">Gerenciar Jogos</h2>
+                            <p class="text-gray-400">Administre o catálogo de jogos</p>
+                        </div>
+                        <button id="btn-add-game"
+                            class="px-4 py-2 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-primary-500/50">
+                            <i class="fas fa-plus mr-2"></i>Novo Jogo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="p-8">
+                    <!-- Filters -->
+                    <div class="glass rounded-xl p-6 mb-6">
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex-1 min-w-[250px]">
+                                <input type="text" id="search-games" placeholder="🔍 Buscar jogo..."
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500 transition-colors">
+                            </div>
+                            <div class="min-w-[200px]">
+                                <select id="filter-rarity"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500 transition-colors">
+                                    <option value="">🎯 Todas as Raridades</option>
+                                    <option value="E">E - Comum</option>
+                                    <option value="D">D - Incomum</option>
+                                    <option value="C">C - Raro</option>
+                                    <option value="B">B - Épico</option>
+                                    <option value="A">A - Lendário</option>
+                                    <option value="S">S - Mítico</option>
+                                    <option value="SS">SS - Ultra Raro</option>
+                                    <option value="SSS">SSS - Supremo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Games Table -->
+                    <div class="glass rounded-xl overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table id="games-table" class="w-full">
+                                <thead class="bg-dark-900/50">
+                                    <tr class="text-left">
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                            ID</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                            Nome</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                            Raridade</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                            Console</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                            Ano</th>
+                                        <th
+                                            class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                                            Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-primary-900/10">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRADING PAGE -->
+            <div id="trading" class="page hidden">
+                <div class="bg-gradient-to-r from-dark-900/90 to-dark-800/90 border-b border-primary-900/20 px-8 py-6">
+                    <h2 class="text-3xl font-bold mb-2">Sistema de Trocas</h2>
+                    <p class="text-gray-400">Configure e monitore trocas entre usuários</p>
+                </div>
+
+                <div class="p-8">
+                    <div class="glass rounded-xl p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-6">Configurações de Troca</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Custo por Troca (Coins)</label>
+                                <input type="number" id="trade-cost" value="50"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Mínimo de Coins</label>
+                                <input type="number" id="trade-min-coins" value="100"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Cooldown (segundos)</label>
+                                <input type="number" id="trade-cooldown" value="60"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                        </div>
+                        <button id="btn-save-trade-config"
+                            class="mt-6 px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-lg font-medium transition-all duration-200">
+                            Salvar Configurações
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MANAGEMENT PAGE -->
+            <div id="management" class="page hidden">
+                <div class="bg-gradient-to-r from-dark-900/90 to-dark-800/90 border-b border-primary-900/20 px-8 py-6">
+                    <h2 class="text-3xl font-bold mb-2">Gestão do Sistema</h2>
+                    <p class="text-gray-400">Gerencie usuários e comandos</p>
+                </div>
+
+                <div class="p-8 space-y-8">
+                    <!-- Users Section -->
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold">Usuários</h3>
+                            <input type="text" id="search-users" placeholder="🔍 Buscar usuário..."
+                                class="px-4 py-2 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table id="users-table" class="w-full">
+                                <thead class="bg-dark-900/50">
+                                    <tr class="text-left">
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Usuário</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Moedas</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Caixas</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Jogos (XP)
+                                        </th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-primary-900/10">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Commands Section -->
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold">Comandos do Bot</h3>
+                            <button id="btn-add-command"
+                                class="px-4 py-2 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-lg font-medium transition-all">
+                                <i class="fas fa-plus mr-2"></i>Criar Comando
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table id="commands-table" class="w-full">
+                                <thead class="bg-dark-900/50">
+                                    <tr class="text-left">
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Comando</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Tipo</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Descrição
+                                        </th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Nível</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Cooldown
+                                        </th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Status</th>
+                                        <th class="px-6 py-4 text-xs font-semibold text-gray-400 uppercase">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-primary-900/10">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETTINGS PAGE -->
+            <div id="settings" class="page hidden">
+                <div class="bg-gradient-to-r from-dark-900/90 to-dark-800/90 border-b border-primary-900/20 px-8 py-6">
+                    <h2 class="text-3xl font-bold mb-2">Configurações</h2>
+                    <p class="text-gray-400">Configure o bot e o sistema</p>
+                </div>
+
+                <div class="p-8 space-y-6">
+                    <!-- Bot Config -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-xl font-bold mb-6">Bot Twitch</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nome do Bot</label>
+                                <input type="text" id="conf-bot-name" placeholder="Ex: GameBoxBot"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Token OAuth</label>
+                                <input type="password" id="conf-token" placeholder="oauth:..."
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium mb-2">Canais (separados por vírgula)</label>
+                            <input type="text" id="conf-channel" placeholder="Ex: canal1, canal2"
+                                class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                        </div>
+                    </div>
+
+                    <!-- Economy Config -->
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-xl font-bold mb-6">Economia</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nome da Moeda</label>
+                                <input type="text" id="conf-currency" placeholder="Ex: Coins"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Preço da Caixa</label>
+                                <input type="number" id="conf-price" value="100"
+                                    class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="glass rounded-xl p-6 border-red-900/50">
+                        <h3 class="text-xl font-bold mb-2 text-red-400">🚨 Zona de Perigo</h3>
+                        <p class="text-gray-400 mb-4">Ações irreversíveis. Cuidado!</p>
+                        <button id="btn-reset-database" onclick="resetDatabase()"
+                            class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-red-500/50">
+                            <i class="fas fa-skull mr-2"></i>Resetar Banco de Dados
+                        </button>
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="flex justify-end">
+                        <button id="btn-save-settings"
+                            class="px-8 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-primary-500/50">
+                            <i class="fas fa-save mr-2"></i>Salvar Configurações
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="game-modal"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl p-8 max-w-md w-full">
+            <h3 id="modal-title" class="text-2xl font-bold mb-6">Adicionar Jogo</h3>
+            <form id="game-form">
+                <input type="hidden" id="game-id">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nome do Jogo</label>
+                        <input type="text" id="game-name" required
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Raridade</label>
+                        <select id="game-rarity"
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
                             <option value="E">E - Comum</option>
                             <option value="D">D - Incomum</option>
                             <option value="C">C - Raro</option>
@@ -103,398 +562,162 @@
                             <option value="SSS">SSS - Supremo</option>
                         </select>
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Console</label>
+                        <input type="text" id="game-console"
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Ano</label>
+                        <input type="number" id="game-year"
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                    </div>
                 </div>
-
-                <div class="table-container">
-                    <table id="games-table">
-                        <thead>
-                            <tr>
-                                <th>#️⃣ ID</th>
-                                <th>🎮 Nome</th>
-                                <th>⭐ Raridade</th>
-                                <th>🕹️ Console</th>
-                                <th>📅 Ano</th>
-                                <th>🔧 Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Populated by JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-    </div>
-
-    <!-- TRADING PAGE -->
-    <div id="trading" class="page">
-        <header>
-            <h2>🤝 Sistema de Trocas</h2>
-        </header>
-
-        <div class="card">
-            <h3>⚙️ Configurações de Troca</h3>
-            <div class="form-group">
-                <label class="toggle-switch">
-                    <input type="checkbox" id="trading-enabled">
-                    <span class="slider"></span>
-                    <span class="label">Habilitar Sistema de Trocas</span>
-                </label>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Custo por Troca (Coins)</label>
-                    <input type="number" id="trade-cost" value="50">
-                </div>
-                <div class="form-group">
-                    <label>Mínimo de Coins Requerido</label>
-                    <input type="number" id="trade-min-coins" value="100">
-                </div>
-                <div class="form-group">
-                    <label>Cooldown (segundos)</label>
-                    <input type="number" id="trade-cooldown" value="60">
-                </div>
-            </div>
-            <button class="btn primary" id="btn-save-trade-config">Salvar Configurações</button>
-        </div>
-
-        <div class="card mt-2" style="margin-top: 20px;">
-            <h3>📜 Histórico de Trocas Recentes</h3>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Iniciador</th>
-                            <th>Alvo</th>
-                            <th>Jogo Enviado</th>
-                            <th>Jogo Recebido</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="trades-table-body">
-                        <!-- Rows populated by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- MANAGEMENT PAGE -->
-    <div id="management" class="page">
-        <header>
-            <h2>👥 Gestão do Sistema</h2>
-        </header>
-
-        <!-- Users Section -->
-        <div class="card" style="margin-bottom: 30px;">
-            <div class="card-header"
-                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3>👤 Usuários</h3>
-                <div class="filters" style="margin: 0;">
-                    <input type="text" id="search-users" placeholder="🔍 Buscar usuário..." style="width: 250px;">
-                </div>
-            </div>
-
-            <div class="table-container">
-                <table id="users-table">
-                    <thead>
-                        <tr>
-                            <th>👤 Usuário</th>
-                            <th>💰 Moedas</th>
-                            <th>📦 Caixas</th>
-                            <th>🎮 Jogos (XP)</th>
-                            <th>📊 Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Commands Section -->
-        <div class="card">
-            <div class="card-header"
-                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3>⌨️ Comandos do Bot</h3>
-                <button class="btn primary small" id="btn-add-command">
-                    <i class="fa-solid fa-plus"></i> ➕ Criar Comando
-                </button>
-            </div>
-
-            <div class="table-container">
-                <table id="commands-table">
-                    <thead>
-                        <tr>
-                            <th>💬 Comando</th>
-                            <th>📋 Tipo</th>
-                            <th>📝 Descrição</th>
-                            <th>🔐 Nível</th>
-                            <th>⏱️ Cooldown</th>
-                            <th>✅ Status</th>
-                            <th>🔧 Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- SETTINGS PAGE -->
-    <div id="settings" class="page">
-        <header>
-            <h2>⚙️ Configurações</h2>
-        </header>
-
-        <div class="card">
-            <h3>🤖 Bot Twitch</h3>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Nome do Bot</label>
-                    <input type="text" id="conf-bot-name" placeholder="Ex: GameBoxBot">
-                </div>
-                <div class="form-group">
-                    <label>Token OAuth (oauth:xxxx)</label>
-                    <input type="password" id="conf-token" placeholder="oauth:...">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Canais (separados por vírgula)</label>
-                <input type="text" id="conf-channel" placeholder="Ex: canal1, canal2">
-            </div>
-        </div>
-
-        <div class="card mt-2">
-            <h3>💰 Economia</h3>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Nome da Moeda</label>
-                    <input type="text" id="conf-currency" placeholder="Ex: Coins">
-                </div>
-                <div class="form-group">
-                    <label>Preço da Caixa</label>
-                    <input type="number" id="conf-price" value="100">
-                </div>
-            </div>
-
-            <h4 style="margin-top: 15px; margin-bottom: 10px; color: var(--text-muted);">⏱️ Timer Automático
-            </h4>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Intervalo (segundos)</label>
-                    <input type="number" id="conf-timer-interval" value="600">
-                </div>
-                <div class="form-group">
-                    <label>Quantidade por Timer</label>
-                    <input type="number" id="conf-timer-amount" value="50">
-                </div>
-            </div>
-
-            <h4 style="margin-top: 15px; margin-bottom: 10px; color: var(--text-muted);">🎁 Recompensas de
-                Engajamento</h4>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Por Sub</label>
-                    <input type="number" id="conf-sub-amount" value="500">
-                </div>
-                <div class="form-group">
-                    <label>Por Gift Sub</label>
-                    <input type="number" id="conf-gift-amount" value="250">
-                </div>
-                <div class="form-group">
-                    <label>Por Bit</label>
-                    <input type="number" id="conf-bit-amount" value="1">
-                </div>
-            </div>
-        </div>
-
-        <div class="card mt-2">
-            <h3>☁️ Integração IGDB</h3>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Client ID</label>
-                    <input type="text" id="conf-igdb-id">
-                </div>
-                <div class="form-group">
-                    <label>Client Secret</label>
-                    <input type="password" id="conf-igdb-secret">
-                </div>
-            </div>
-        </div>
-
-        <div class="card mt-2">
-            <h3>📈 Tabela de Níveis (XP)</h3>
-            <div class="table-container">
-                <table id="levels-table">
-                    <thead>
-                        <tr>
-                            <th>Nível</th>
-                            <th>XP Necessário</th>
-                            <th>Título</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="levels-table-body">
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
-                <button class="btn secondary small" id="btn-add-level" style="margin-top: 10px;">
-                    <i class="fa-solid fa-plus"></i> Adicionar Nível
-                </button>
-            </div>
-        </div>
-
-        <div class="card mt-2 danger-zone">
-            <h3>🚨 Zona de Perigo</h3>
-            <p>Ações irreversíveis. Cuidado!</p>
-            <button class="btn danger" id="btn-reset-database">
-                <i class="fa-solid fa-skull"></i> Resetar Banco de Dados
-            </button>
-        </div>
-
-        <div class="actions-bar">
-            <button class="btn primary" id="btn-save-settings">
-                <i class="fa-solid fa-save"></i> Salvar Configurações
-            </button>
-        </div>
-    </div>
-    </main>
-    </div>
-
-    <!-- MODALS (simplified versions) -->
-    <div id="game-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3 id="modal-title">Adicionar Jogo</h3>
-            <form id="game-form">
-                <input type="hidden" id="game-id">
-                <div class="form-group">
-                    <label>Nome do Jogo</label>
-                    <input type="text" id="game-name" required>
-                </div>
-                <div class="form-group">
-                    <label>Raridade</label>
-                    <select id="game-rarity">
-                        <option value="E">E - Comum</option>
-                        <option value="D">D - Incomum</option>
-                        <option value="C">C - Raro</option>
-                        <option value="B">B - Épico</option>
-                        <option value="A">A - Lendário</option>
-                        <option value="S">S - Mítico</option>
-                        <option value="SS">SS - Ultra Raro</option>
-                        <option value="SSS">SSS - Supremo</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Console</label>
-                    <input type="text" id="game-console">
-                </div>
-                <div class="form-group">
-                    <label>Ano</label>
-                    <input type="number" id="game-year">
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn" onclick="closeModal()">Cancelar</button>
-                    <button type="submit" class="btn primary">Salvar</button>
+                <div class="flex space-x-3 mt-6">
+                    <button type="button" onclick="closeModal()"
+                        class="flex-1 px-4 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium transition-colors">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="flex-1 px-4 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-lg font-medium transition-all">
+                        Salvar
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div id="command-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3 id="command-modal-title">Criar Comando</h3>
+    <div id="command-modal"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl p-8 max-w-md w-full">
+            <h3 id="command-modal-title" class="text-2xl font-bold mb-6">Criar Comando</h3>
             <form id="command-form">
                 <input type="hidden" id="cmd-name-original">
                 <input type="hidden" id="cmd-is-editing">
-                <div class="form-group">
-                    <label>Comando</label>
-                    <input type="text" id="cmd-name" placeholder="!comando" required>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Comando</label>
+                        <input type="text" id="cmd-name" placeholder="!comando" required
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Descrição</label>
+                        <input type="text" id="cmd-description"
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                    </div>
+                    <div id="cmd-response-group">
+                        <label class="block text-sm font-medium mb-2">Resposta</label>
+                        <textarea id="cmd-response" rows="3"
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Aliases</label>
+                        <input type="text" id="cmd-aliases" placeholder="!alias1, !alias2"
+                            class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Cooldown (s)</label>
+                            <input type="number" id="cmd-cooldown" value="3"
+                                class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Permissão</label>
+                            <select id="cmd-level"
+                                class="w-full px-4 py-3 bg-dark-900/50 border border-primary-900/30 rounded-lg focus:outline-none focus:border-primary-500">
+                                <option value="viewer">Viewer</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="cmd-enabled" checked
+                            class="w-4 h-4 text-primary-600 bg-dark-900 border-primary-900 rounded focus:ring-primary-500">
+                        <label class="text-sm font-medium">Habilitado</label>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Descrição</label>
-                    <input type="text" id="cmd-description">
-                </div>
-                <div class="form-group" id="cmd-response-group">
-                    <label>Resposta</label>
-                    <textarea id="cmd-response" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Aliases</label>
-                    <input type="text" id="cmd-aliases" placeholder="!alias1, !alias2">
-                </div>
-                <div class="form-group">
-                    <label>Cooldown (s)</label>
-                    <input type="number" id="cmd-cooldown" value="3">
-                </div>
-                <div class="form-group">
-                    <label>Permissão</label>
-                    <select id="cmd-level">
-                        <option value="viewer">Viewer</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="cmd-enabled" checked> Habilitado
-                    </label>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn" onclick="closeCommandModal()">Cancelar</button>
-                    <button type="submit" class="btn primary">Salvar</button>
-                    <button type="button" class="btn danger hidden" id="btn-delete-command">Deletar</button>
+                <div class="flex space-x-3 mt-6">
+                    <button type="button" onclick="closeCommandModal()"
+                        class="flex-1 px-4 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium transition-colors">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="flex-1 px-4 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-lg font-medium transition-all">
+                        Salvar
+                    </button>
+                    <button type="button" id="btn-delete-command"
+                        class="hidden px-4 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-medium transition-colors">
+                        Deletar
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div id="user-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3 id="user-modal-title">Usuário</h3>
+    <div id="user-modal"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl p-8 max-w-md w-full">
+            <h3 id="user-modal-title" class="text-2xl font-bold mb-6">Usuário</h3>
             <div id="user-stats-content"></div>
-            <div class="modal-actions">
-                <button class="btn" onclick="closeUserModal()">Fechar</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="igdb-modal" class="modal hidden">
-        <div class="modal-content" style="max-width: 800px;">
-            <h3>☁️ Importar do IGDB</h3>
-            <div class="form-group" style="display: flex; gap: 10px;">
-                <input type="text" id="igdb-search-input" placeholder="Digite o nome do jogo..." style="flex: 1;">
-                <button class="btn primary" id="btn-igdb-search">
-                    <i class="fa-solid fa-search"></i> Buscar
+            <div class="mt-6">
+                <button onclick="closeUserModal()"
+                    class="w-full px-4 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium transition-colors">
+                    Fechar
                 </button>
-            </div>
-            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
-                <table id="igdb-results-table">
-                    <thead>
-                        <tr>
-                            <th>Capa</th>
-                            <th>Nome</th>
-                            <th>Plataformas</th>
-                            <th>Ano</th>
-                            <th>Nota</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody id="igdb-results-body"></tbody>
-                </table>
-                <div id="igdb-loading" class="hidden" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button class="btn" onclick="closeIgdbModal()">Fechar</button>
             </div>
         </div>
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = item.dataset.page;
+
+                // Update nav
+                document.querySelectorAll('.nav-item').forEach(nav => {
+                    nav.classList.remove('active', 'bg-primary-900/30', 'text-primary-400');
+                });
+                item.classList.add('active', 'bg-primary-900/30', 'text-primary-400');
+
+                // Update pages
+                document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+                document.getElementById(page).classList.remove('hidden');
+
+                // Load data if needed
+                if (page === 'games' && typeof fetchGames === 'function') fetchGames();
+                if (page === 'management' && typeof fetchUsers === 'function') {
+                    fetchUsers();
+                    if (typeof loadCommands === 'function') loadCommands();
+                }
+                if (page === 'settings' && typeof fetchSettings === 'function') fetchSettings();
+            });
+        });
+
+        // Modal functions
+        window.closeModal = () => {
+            document.getElementById('game-modal').classList.add('hidden');
+        };
+
+        window.closeCommandModal = () => {
+            document.getElementById('command-modal').classList.add('hidden');
+        };
+
+        window.closeUserModal = () => {
+            document.getElementById('user-modal').classList.add('hidden');
+        };
+
+        // Close modals on outside click
+        document.querySelectorAll('.fixed').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -123,19 +123,21 @@ class GameRepository {
     }
 
     /**
-     * Calculate rarity from Metacritic score
+     * Calculate rarity from Metacritic/IGDB score (0-100 scale)
      */
     rarityFromMetacritic(score) {
         if (score == null || score === 0) return 'E';
 
-        if (score >= 98) return 'SSS';
-        if (score >= 94) return 'SS';
-        if (score >= 90) return 'S';
-        if (score >= 85) return 'A';
-        if (score >= 80) return 'B';
-        if (score >= 70) return 'C';
-        if (score >= 60) return 'D';
-        return 'E';
+        // Adjusted thresholds for better distribution
+        // IGDB aggregated_rating is 0-100, higher scores are rarer
+        if (score >= 95) return 'SSS';  // Top 0.1% - Legendary masterpieces
+        if (score >= 90) return 'SS';   // Top 1% - Acclaimed classics
+        if (score >= 85) return 'S';    // Top 5% - Highly rated
+        if (score >= 80) return 'A';    // Top 15% - Excellent
+        if (score >= 75) return 'B';    // Top 30% - Great
+        if (score >= 70) return 'C';    // Top 50% - Good
+        if (score >= 65) return 'D';    // Above average
+        return 'E';                      // Common/Average
     }
 
     /**

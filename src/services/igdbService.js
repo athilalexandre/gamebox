@@ -173,11 +173,18 @@ class IgdbService {
         }
 
         try {
-            // Fetch top 200 games (2 batches of 100)
-            const batch1 = await this.getTopGames(100, 0);
-            const batch2 = await this.getTopGames(100, 100);
-            const igdbGames = [...batch1, ...batch2];
+            // Fetch 1000 top games in batches of 100 (IGDB limit per request)
+            const batches = [];
+            for (let i = 0; i < 10; i++) {
+                const offset = i * 100;
+                console.log(`[IGDB SYNC] Fetching batch ${i + 1}/10 (offset: ${offset})...`);
+                const batch = await this.getTopGames(100, offset);
+                batches.push(...batch);
+                // Small delay to avoid rate limiting
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
 
+            const igdbGames = batches;
             console.log(`[IGDB SYNC] Fetched ${igdbGames.length} games from IGDB`);
 
             let addedCount = 0;
@@ -195,6 +202,7 @@ class IgdbService {
                     originalRating: igdbGame.aggregated_rating || null,
                     cover: igdbGame.cover ? igdbGame.cover.url : null,
                     genres: igdbGame.genres ? igdbGame.genres.map(g => g.name) : [],
+                    // Use aggregated_rating as metacriticScore for rarity calculation
                     metacriticScore: igdbGame.aggregated_rating || null,
                     description: igdbGame.summary || ''
                 };
