@@ -5,7 +5,13 @@ let currentState = {
     botStatus: { connected: false },
     games: [],
     users: [],
-    settings: {}
+    settings: {},
+    gamesPagination: {
+        currentPage: 1,
+        totalPages: 1,
+        totalGames: 0,
+        gamesPerPage: 50
+    }
 };
 
 // DOM Elements
@@ -113,13 +119,19 @@ async function fetchStatus() {
     }
 }
 
-async function fetchGames() {
+async function fetchGames(page = 1) {
     try {
-        const res = await fetch(`${API_URL}/games`);
+        const res = await fetch(`${API_URL}/games?page=${page}&limit=50`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        currentState.games = await res.json();
+        const data = await res.json();
+
+        currentState.games = data.games;
+        currentState.gamesPagination = data.pagination;
+
         renderGamesTable();
-        document.getElementById('stat-games').textContent = currentState.games.length;
+        renderGamesPagination();
+
+        document.getElementById('stat-games').textContent = data.pagination.totalGames;
     } catch (e) {
         console.error('Erro ao buscar jogos:', e);
         const tbody = document.querySelector('#games-table tbody');
@@ -211,6 +223,35 @@ function renderGamesTable() {
         `;
         tbody.appendChild(tr);
     });
+}
+
+function renderGamesPagination() {
+    const paginationContainer = document.getElementById('games-pagination');
+    if (!paginationContainer) return;
+
+    const { currentPage, totalPages } = currentState.gamesPagination;
+
+    let paginationHTML = '<div class="pagination-controls" style="display: flex; gap: 10px; align-items: center; justify-content: center; margin-top: 20px;">';
+
+    // Previous button
+    if (currentPage > 1) {
+        paginationHTML += `<button class="btn secondary" onclick="fetchGames(${currentPage - 1})"><i class="fa-solid fa-chevron-left"></i> Anterior</button>`;
+    } else {
+        paginationHTML += `<button class="btn secondary" disabled style="opacity: 0.5;"><i class="fa-solid fa-chevron-left"></i> Anterior</button>`;
+    }
+
+    // Page info
+    paginationHTML += `<span style="color: var(--text-primary);">Página ${currentPage} de ${totalPages}</span>`;
+
+    // Next button
+    if (currentPage < totalPages) {
+        paginationHTML += `<button class="btn secondary" onclick="fetchGames(${currentPage + 1})">Próxima <i class="fa-solid fa-chevron-right"></i></button>`;
+    } else {
+        paginationHTML += `<button class="btn secondary" disabled style="opacity: 0.5;">Próxima <i class="fa-solid fa-chevron-right"></i></button>`;
+    }
+
+    paginationHTML += '</div>';
+    paginationContainer.innerHTML = paginationHTML;
 }
 
 function renderUsersTable() {

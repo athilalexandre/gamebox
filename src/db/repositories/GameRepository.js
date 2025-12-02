@@ -13,6 +13,17 @@ class GameRepository {
     }
 
     /**
+     * Get all games with pagination
+     */
+    async getAllGamesPaginated(skip = 0, limit = 50, filters = {}) {
+        const query = { disabled: false, ...filters };
+        return await Game.find(query)
+            .sort({ name: 1 })
+            .skip(skip)
+            .limit(limit);
+    }
+
+    /**
      * Get game by ID
      */
     async getGameById(gameId) {
@@ -43,7 +54,8 @@ class GameRepository {
         return await Game.find({
             rarity,
             disabled: false,
-            tradeable: true
+            tradeable: true,
+            boxObtainable: true  // Only games that can be obtained from boxes
         }).limit(limit);
     }
 
@@ -94,7 +106,11 @@ class GameRepository {
             if (!game.customRarity) {
                 // Calculate rarity from Metacritic if available
                 if (gameData.metacriticScore !== undefined) {
-                    gameData.rarity = this.rarityFromMetacritic(gameData.metacriticScore);
+                    gameData.rarity = this.rarityFromMetacritic(gameData.metacriticScore, gameData.name);
+                    // If SSS+, mark as not box obtainable
+                    if (gameData.rarity === 'SSS+') {
+                        gameData.boxObtainable = false;
+                    }
                 }
             }
 
@@ -115,7 +131,11 @@ class GameRepository {
         } else {
             // Create new game
             if (gameData.metacriticScore !== undefined) {
-                gameData.rarity = this.rarityFromMetacritic(gameData.metacriticScore);
+                gameData.rarity = this.rarityFromMetacritic(gameData.metacriticScore, gameData.name);
+                // If SSS+, mark as not box obtainable
+                if (gameData.rarity === 'SSS+') {
+                    gameData.boxObtainable = false;
+                }
             }
 
             return await Game.create(gameData);
@@ -123,21 +143,26 @@ class GameRepository {
     }
 
     /**
-     * Calculate rarity from Metacritic/IGDB score (0-100 scale)
+     * Calculate rarity from Metacritic score (0-100 scale)
+     * SSS+ is reserved ONLY for The Legend of Zelda: Ocarina of Time (score 99)
      */
-    rarityFromMetacritic(score) {
+    rarityFromMetacritic(score, gameName = '') {
         if (score == null || score === 0) return 'E';
 
-        // Adjusted thresholds for better distribution
-        // IGDB aggregated_rating is 0-100, higher scores are rarer
-        if (score >= 95) return 'SSS';  // Top 0.1% - Legendary masterpieces
-        if (score >= 90) return 'SS';   // Top 1% - Acclaimed classics
-        if (score >= 85) return 'S';    // Top 5% - Highly rated
-        if (score >= 80) return 'A';    // Top 15% - Excellent
-        if (score >= 75) return 'B';    // Top 30% - Great
-        if (score >= 70) return 'C';    // Top 50% - Good
-        if (score >= 65) return 'D';    // Above average
-        return 'E';                      // Common/Average
+        // SSS+ - ONLY for Ocarina of Time (99 score)
+        if (score === 99 && gameName.includes('The Legend of Zelda: Ocarina of Time')) {
+            return 'SSS+';
+        }
+
+        // Regular tiers based on Metacritic score
+        if (score >= 95) return 'SSS';  // 95-98 - Legendary masterpieces
+        if (score >= 90) return 'SS';   // 90-94 - Acclaimed classics
+        if (score >= 85) return 'S';    // 85-89 - Highly rated
+        if (score >= 80) return 'A';    // 80-84 - Excellent
+        if (score >= 75) return 'B';    // 75-79 - Great
+        if (score >= 70) return 'C';    // 70-74 - Good
+        if (score >= 65) return 'D';    // 65-69 - Above average
+        return 'E';                      // 0-64 - Common/Average
     }
 
     /**

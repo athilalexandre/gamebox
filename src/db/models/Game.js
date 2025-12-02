@@ -22,9 +22,12 @@ const GameSchema = new Schema({
     // Derived rarity (from Metacritic score)
     rarity: {
         type: String,
-        enum: ['E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS'],
+        enum: ['E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS', 'SSS+'],
         default: 'E'
     },
+
+    // Flag to mark games that cannot be obtained from boxes (like SSS+)
+    boxObtainable: { type: Boolean, default: true },
 
     // Extra metadata
     originalRating: { type: Number, default: null },

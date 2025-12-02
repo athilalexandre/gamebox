@@ -197,7 +197,13 @@ app.delete('/api/commands/:name', async (req, res) => {
 // ========== JOGOS ==========
 app.get('/api/games', async (req, res) => {
     try {
-        const games = await GameRepository.getAllGames();
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 50;
+        const skip = (page - 1) * limit;
+
+        const totalGames = await GameRepository.getCount();
+        const games = await GameRepository.getAllGamesPaginated(skip, limit);
+
         // Map _id to id for frontend compatibility
         const formattedGames = games.map(game => ({
             id: game._id.toString(),
@@ -210,9 +216,19 @@ app.get('/api/games', async (req, res) => {
             metacriticScore: game.metacriticScore,
             igdbId: game.igdbId,
             disabled: game.disabled,
-            tradeable: game.tradeable
+            tradeable: game.tradeable,
+            boxObtainable: game.boxObtainable
         }));
-        res.json(formattedGames);
+
+        res.json({
+            games: formattedGames,
+            pagination: {
+                currentPage: page,
+                totalPages: Math.ceil(totalGames / limit),
+                totalGames: totalGames,
+                gamesPerPage: limit
+            }
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -359,6 +375,8 @@ app.get('/api/igdb/search', async (req, res) => {
 });
 
 // IGDB Bulk Sync with Metacritic Rarity
+let isSyncing = false;
+
 app.post('/api/igdb/sync', async (req, res) => {
     try {
         console.log('[IGDB SYNC] 🔄 Iniciando sync com IGDB...');
@@ -415,6 +433,47 @@ app.post('/api/igdb/sync', async (req, res) => {
     } catch (error) {
         console.error('[IGDB SYNC] ❌ Erro no sync:', error);
         res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/api/igdb/sync-all', async (req, res) => {
+    if (isSyncing) {
+        return res.status(409).json({ error: 'Sync already in progress' });
+    }
+
+    isSyncing = true;
+    res.json({ success: true, message: 'Full sync started in background' });
+
+    broadcastLog('Iniciando sincronização completa do IGDB...', 'info');
+
+    try {
+        const result = await IgdbService.syncAllGames((progress) => {
+            // Broadcast progress to all connected clients
+            broadcastLog(`Sync: ${progress.fetched} jogos processados...`, 'info');
+
+            // Also emit a specific event type if we want to handle it differently in frontend
+            // For now, log is enough, but let's send a custom event via the same SSE channel
+            clients.forEach(client => {
+                client.res.write(`data: ${JSON.stringify({
+                    type: 'sync_progress',
+                    ...progress
+                })}\n\n`);
+            });
+        });
+
+        if (result.success) {
+            broadcastLog(`✅ Sincronização completa finalizada! Total: ${result.total}`, 'success');
+        } else {
+            broadcastLog(`❌ Erro na sincronização: ${result.error}`, 'error');
+        }
+    } catch (error) {
+        console.error('Background sync error:', error);
+        broadcastLog(`❌ Erro fatal na sincronização: ${error.message}`, 'error');
+    } finally {
+        isSyncing = false;
+        clients.forEach(client => {
+            client.res.write(`data: ${JSON.stringify({ type: 'sync_complete' })}\n\n`);
+        });
     }
 });
 

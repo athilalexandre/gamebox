@@ -31,13 +31,33 @@ async function main() {
         await SeedService.seedCoreCommands();
         console.log('[INIT] ✅ Core commands ready');
 
-        // ========== 4. AUTO-SYNC IGDB (SE DB VAZIO) ==========
+        // ========== 4. AUTO-SYNC ALL IGDB GAMES ==========
+        // This will fetch ALL ~350k+ games from IGDB
         const gameCount = await GameRepository.getCount();
-        if (gameCount === 0) {
-            console.log('[INIT] 🎮 Game database is empty. Starting automatic IGDB sync...');
-            // Run in background so it doesn't block startup, or await if critical
-            // We'll await it to ensure games are ready for the user
-            await IgdbService.syncGames();
+        const TARGET_GAMES = 350000; // Target: Full IGDB database
+
+        if (gameCount < TARGET_GAMES) {
+            console.log(`[INIT] 🎮 Game database has ${gameCount} games (Target: ALL ~${TARGET_GAMES}).`);
+            console.log('[INIT] 🔄 Starting FULL IGDB sync to fetch ALL games...');
+            console.log('[INIT] ⚠️  This will take a while (several hours). Progress will be logged.');
+
+            // Start the full sync in background with progress tracking
+            IgdbService.syncAllGames((progress) => {
+                if (progress.fetched % 1000 === 0) {
+                    console.log(`[IGDB SYNC] Progress: ${progress.fetched} games synced...`);
+                }
+            }).then(result => {
+                if (result.success) {
+                    console.log(`[IGDB SYNC] ✅ Full sync complete! Total: ${result.total} games`);
+                } else {
+                    console.error(`[IGDB SYNC] ❌ Sync failed: ${result.error}`);
+                }
+            }).catch(err => {
+                console.error(`[IGDB SYNC] ❌ Unexpected error:`, err);
+            });
+
+            // Don't wait for sync to complete - it runs in background
+            console.log('[INIT] ✅ Full IGDB sync started in background.');
         } else {
             console.log(`[INIT] ✅ Game database has ${gameCount} games. Skipping auto-sync.`);
         }

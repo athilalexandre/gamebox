@@ -34,4 +34,20 @@
 .rarity-SSS {
     @apply bg-red-900/30 text-red-400 border border-red-700;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}.rarity-SSS\+ {
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: shine 3s linear infinite;
+    border: 2px solid #ffd700;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
 }
