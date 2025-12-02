@@ -10,8 +10,7 @@ const GameSchema = new Schema({
     // Basic info
     name: {
         type: String,
-        required: true,
-        index: true
+        required: true
     },
     console: { type: String, default: '' },
     releaseYear: { type: Number, default: null },
@@ -24,8 +23,7 @@ const GameSchema = new Schema({
     rarity: {
         type: String,
         enum: ['E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS'],
-        default: 'E',
-        index: true
+        default: 'E'
     },
 
     // Extra metadata

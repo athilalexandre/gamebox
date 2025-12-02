@@ -27,7 +27,9 @@ export async function startBot() {
         options: { debug: true },
         connection: {
             reconnect: true,
-            secure: true
+            secure: true,
+            timeout: 30000,
+            reconnectInterval: 1000
         },
         identity: {
             username: config.twitchBotUsername,

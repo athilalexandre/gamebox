@@ -198,7 +198,21 @@ app.delete('/api/commands/:name', async (req, res) => {
 app.get('/api/games', async (req, res) => {
     try {
         const games = await GameRepository.getAllGames();
-        res.json(games);
+        // Map _id to id for frontend compatibility
+        const formattedGames = games.map(game => ({
+            id: game._id.toString(),
+            _id: game._id,
+            name: game.name,
+            rarity: game.rarity,
+            console: game.console,
+            releaseYear: game.releaseYear,
+            cover: game.cover,
+            metacriticScore: game.metacriticScore,
+            igdbId: game.igdbId,
+            disabled: game.disabled,
+            tradeable: game.tradeable
+        }));
+        res.json(formattedGames);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

@@ -6,8 +6,7 @@ const CommandSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
-        index: true
+        unique: true
     },
 
     type: {
@@ -56,13 +55,13 @@ const CommandSchema = new Schema({
     conditions: { type: Schema.Types.Mixed, default: [] },
 
     // IMPORTANT: used to protect from reset
-    isCore: { type: Boolean, default: false, index: true }
+    isCore: { type: Boolean, default: false }
 }, {
     timestamps: true
 });
 
 // Index for command lookup
-CommandSchema.index({ name: 1 });
+// CommandSchema.index({ name: 1 });
 CommandSchema.index({ isCore: 1 });
 
 export default mongoose.model('Command', CommandSchema);

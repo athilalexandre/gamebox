@@ -6,8 +6,7 @@ const UserSchema = new Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
-        index: true
+        unique: true
     },
 
     // Economy
@@ -77,6 +76,6 @@ const UserSchema = new Schema({
 });
 
 // Index for username lookup
-UserSchema.index({ username: 1 });
+// UserSchema.index({ username: 1 });
 
 export default mongoose.model('User', UserSchema);
